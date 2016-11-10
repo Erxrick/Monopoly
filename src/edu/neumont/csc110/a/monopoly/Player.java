@@ -2,7 +2,7 @@ package edu.neumont.csc110.a.monopoly;
 
 public class Player {
 	private String name;
-	private double money;
+	private int money;
 	
 	
 	public void setStartingMoney() {
@@ -21,7 +21,7 @@ public class Player {
 		return money;
 	}
 
-	public void setMoney(double money) {
-		this.money = money;
+	public void addMoney(int money) {
+		this.money += money;
 	}
 }
