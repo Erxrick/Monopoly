@@ -2,10 +2,10 @@ package edu.neumont.csc110.a.monopoly;
 
 public class PropertyCards {
 	private String name;
-	private String color;
+	private PropertyType color;
 	private int price;
 	private int house;
-	private int rent;
+	public int rent;
 	private int rentH1;
 	private int rentH2;
 	private int rentH3;
@@ -17,15 +17,10 @@ public class PropertyCards {
 	public String getName() {
 		return name;
 	}
-	public String setName(String name) {
-		return this.name = name;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getColor() {
-		return color;
-	}
-	public void setColor(String color) {
-		this.color = color;
-	}
+	
 	public int getPrice() {
 		return price;
 	}
@@ -86,6 +81,11 @@ public class PropertyCards {
 	public void setMortgage(int mortgage) {
 		this.mortgage = mortgage;
 	}
-
+	public void setColor(PropertyType color) {
+		this.color = color;
+	}
+	public PropertyType getColor() {
+		return color;
+	}
 	
 }
