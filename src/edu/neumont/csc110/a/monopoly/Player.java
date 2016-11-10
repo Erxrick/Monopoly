@@ -10,6 +10,11 @@ public class Player {
 	private boolean isPlayerInJail;
 	private ArrayList<PropertyCards> property;
 	
+	public void buyFromBanker(PropertyCards card, Banker bank) {
+		this.property.add(card);
+		this.addMoney(-1*card.getPrice());
+		bank.removeCard(card);
+	}
 	
 	public boolean isPlayerInJail() {
 		return isPlayerInJail;
