@@ -5,6 +5,7 @@ public class BoardTiles {
 	PropertyCards Mediterranean_Avenue = new PropertyCards();
 	PropertyCards Baltic_Avenue = new PropertyCards();
 	PropertyCards Oriental_Avenue = new PropertyCards();
+	PropertyCards Vermont_Avenue = new PropertyCards();
 	PropertyCards Connecticut_Avenue = new PropertyCards();
 	PropertyCards StCharles_Place = new PropertyCards();
 	PropertyCards States_Avenue = new PropertyCards();

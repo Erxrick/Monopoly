@@ -10,6 +10,7 @@ public class Banker {
 		property.add(bTiles.Mediterranean_Avenue);
 		property.add(bTiles.Baltic_Avenue);
 		property.add(bTiles.Oriental_Avenue);
+		property.add(bTiles.Vermont_Avenue);
 		property.add(bTiles.Connecticut_Avenue);
 		property.add(bTiles.StCharles_Place);
 		property.add(bTiles.States_Avenue);
