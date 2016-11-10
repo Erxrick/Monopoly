@@ -6,14 +6,28 @@ import java.util.Random;
 public class CommunityChanceText {
 	
 	ArrayList<Integer> communityChest = new ArrayList<Integer>();
+	ArrayList<Integer> chance = new ArrayList<Integer>();
 	
 	public void resetDeck() {
+		communityChest = new ArrayList<Integer>();
 		for(int i=0;i<16;i++) {
 			Random rng = new Random();
 			int number = rng.nextInt(16);
-			for(int j=0;j<communityChest.size();j++) {
+			for(int j=0;j<communityChest.size() || j<16;j++) {
 				if(!communityChest.contains(number)) {
 					communityChest.add(number);
+				} else if(number<16){
+					number++;
+				}
+			}
+		}
+		chance = new ArrayList<Integer>();
+		for(int i=0;i<16;i++) {
+			Random rng = new Random();
+			int number = rng.nextInt(16);
+			for(int j=0;j<communityChest.size() || j<16;j++) {
+				if(!chance.contains(number)) {
+					chance.add(number);
 				} else if(number<16){
 					number++;
 				}

@@ -36,4 +36,8 @@ public class Banker {
 		property.add(bTiles.Electric_Company);
 		property.add(bTiles.Water_Works);
 	}
+	public void removeCard(PropertyCards card) {
+		int index = property.indexOf(card);
+		property.remove(index);
+	}
 }
