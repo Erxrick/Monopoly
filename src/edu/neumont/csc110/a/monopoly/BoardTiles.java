@@ -234,20 +234,34 @@ public class BoardTiles {
 		Illinois_Avenue.setHouseCost(1);
 		Illinois_Avenue.setMortgage(1);
 		//16 Atlantic_Avenue
-		Illinois_Avenue.setRent(1);
-		Illinois_Avenue.setName("Mediterranean Avenue");
-		Illinois_Avenue.setColor(PropertyType.darkBlue);
-		Illinois_Avenue.setPrice(1);
-		Illinois_Avenue.setHouse(0);
-		Illinois_Avenue.setRent(1);
-		Illinois_Avenue.setRentH1(1);
-		Illinois_Avenue.setRentH2(1);
-		Illinois_Avenue.setRentH3(1);
-		Illinois_Avenue.setRentH4(1);
-		Illinois_Avenue.setRentH5(1);
-		Illinois_Avenue.setHouseCost(1);
-		Illinois_Avenue.setMortgage(1);
+		Atlantic_Avenue.setRent(1);
+		Atlantic_Avenue.setName("Mediterranean Avenue");
+		Atlantic_Avenue.setColor(PropertyType.darkBlue);
+		Atlantic_Avenue.setPrice(1);
+		Atlantic_Avenue.setHouse(0);
+		Atlantic_Avenue.setRent(1);
+		Atlantic_Avenue.setRentH1(1);
+		Atlantic_Avenue.setRentH2(1);
+		Atlantic_Avenue.setRentH3(1);
+		Atlantic_Avenue.setRentH4(1);
+		Atlantic_Avenue.setRentH5(1);
+		Atlantic_Avenue.setHouseCost(1);
+		Atlantic_Avenue.setMortgage(1);
 		//17 Ventor_Avenue
+		Atlantic_Avenue.setRent(1);
+		Atlantic_Avenue.setName("Mediterranean Avenue");
+		Atlantic_Avenue.setColor(PropertyType.darkBlue);
+		Atlantic_Avenue.setPrice(1);
+		Atlantic_Avenue.setHouse(0);
+		Atlantic_Avenue.setRent(1);
+		Atlantic_Avenue.setRentH1(1);
+		Atlantic_Avenue.setRentH2(1);
+		Atlantic_Avenue.setRentH3(1);
+		Atlantic_Avenue.setRentH4(1);
+		Atlantic_Avenue.setRentH5(1);
+		Atlantic_Avenue.setHouseCost(1);
+		Atlantic_Avenue.setMortgage(1);
+
 		//18 Marvin_Gardens
 		//19 Pacific_Avenue
 		//20 North_Carolina_Avenue
