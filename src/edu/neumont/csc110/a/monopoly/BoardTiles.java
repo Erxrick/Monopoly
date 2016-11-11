@@ -52,7 +52,7 @@ public class BoardTiles {
 		//2 Baltic_Avenue
 	
 		Baltic_Avenue.setName("Baltic Avenue");
-		Baltic_Avenue.setColor(PropertyType.darkBlue);
+		Baltic_Avenue.setColor(PropertyType.brown);
 		Baltic_Avenue.setPrice(1);
 		Baltic_Avenue.setHouse(0);
 		Baltic_Avenue.setRent(1);
