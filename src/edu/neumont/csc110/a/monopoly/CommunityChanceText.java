@@ -104,7 +104,6 @@ public class CommunityChanceText {
 		
 		
 		
-		
 	}
 		// if Statement Incrementing chaNum after printing text
 	public void chanceText(){

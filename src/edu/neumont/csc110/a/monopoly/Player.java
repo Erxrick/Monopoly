@@ -4,11 +4,19 @@ import java.util.ArrayList;
 
 public class Player {
 	private String name;
-
+	private String piece;
 	private int money;
 	private int getOutOfJailCard;
 	private boolean isPlayerInJail;
 	private ArrayList<PropertyCards> property;
+
+	public String getPiece() {
+		return piece;
+	}
+
+	public void setPiece(String piece) {
+		this.piece = piece;
+	}
 	
 	public void buyFromBanker(PropertyCards card, Banker bank) {
 		this.property.add(card);
@@ -48,7 +56,6 @@ public class Player {
 		return money;
 	}
 
-	
 	public void addMoney(int money) {
 		this.money += money;
 	}
