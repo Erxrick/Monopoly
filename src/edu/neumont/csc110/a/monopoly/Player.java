@@ -1,11 +1,14 @@
 package edu.neumont.csc110.a.monopoly;
 
+import java.util.ArrayList;
+
 public class Player {
 	private String name;
 	private String piece;
 	private int money;
 	private int getOutOfJailCard;
 	private boolean isPlayerInJail;
+	private ArrayList<PropertyCards> property;
 
 	public String getPiece() {
 		return piece;
@@ -13,6 +16,12 @@ public class Player {
 
 	public void setPiece(String piece) {
 		this.piece = piece;
+	}
+	
+	public void buyFromBanker(PropertyCards card, Banker bank) {
+		this.property.add(card);
+		this.addMoney(-1*card.getPrice());
+		bank.removeCard(card);
 	}
 	
 	public boolean isPlayerInJail() {
