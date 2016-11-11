@@ -1,5 +1,7 @@
 package edu.neumont.csc110.a.monopoly;
 
+import edu.neumont.csc110.a.utilities.PropertyType;
+
 public class PropertyCards {
 	private String name;
 	private PropertyType color;
@@ -86,6 +88,5 @@ public class PropertyCards {
 	}
 	public PropertyType getColor() {
 		return color;
-	}
-	
+	}	
 }

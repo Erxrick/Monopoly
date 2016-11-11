@@ -1,5 +1,4 @@
 package edu.neumont.csc110.a.monopoly;
-
 import java.util.ArrayList;
 
 public class Banker {
@@ -35,5 +34,9 @@ public class Banker {
 		property.add(bTiles.Short_Line);
 		property.add(bTiles.Electric_Company);
 		property.add(bTiles.Water_Works);
+	}
+	public void removeCard(PropertyCards card) {
+		int index = property.indexOf(card);
+		property.remove(index);
 	}
 }

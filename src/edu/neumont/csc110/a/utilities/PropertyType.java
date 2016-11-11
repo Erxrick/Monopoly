@@ -1,4 +1,4 @@
-package edu.neumont.csc110.a.monopoly;
+package edu.neumont.csc110.a.utilities;
 
 public enum PropertyType {
 	brown,

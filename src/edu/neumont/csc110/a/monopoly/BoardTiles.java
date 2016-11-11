@@ -1,5 +1,6 @@
 package edu.neumont.csc110.a.monopoly;
 
+import edu.neumont.csc110.a.utilities.PropertyType;
 
 public class BoardTiles {
 	PropertyCards Mediterranean_Avenue = new PropertyCards();
