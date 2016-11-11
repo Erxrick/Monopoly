@@ -8,8 +8,23 @@ public class Player {
 	private int money;
 	private int getOutOfJailCard;
 	private boolean isPlayerInJail;
+	private int houseTotal;
+	private int hotelTotal;
+
 	private ArrayList<PropertyCards> property;
 
+	public int getHotelTotal() {
+		return hotelTotal;
+	}
+	
+	public int getHouseTotal() {
+		return houseTotal;
+	}
+
+	public void addHouseTotal(int houseTotal) {
+		this.houseTotal += houseTotal;
+	}
+	
 	public String getPiece() {
 		return piece;
 	}
@@ -37,7 +52,7 @@ public class Player {
 	}
 
 	public void setGetOutOfJailCard(int getOutOfJailCard) {
-		this.getOutOfJailCard = getOutOfJailCard;
+		this.getOutOfJailCard += getOutOfJailCard;
 	}
 
 	public void setStartingMoney() {

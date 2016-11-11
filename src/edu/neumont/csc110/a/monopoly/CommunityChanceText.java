@@ -4,16 +4,26 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class CommunityChanceText {
+	int cardnum1;
+	int cardnum2;
 	
 	ArrayList<Integer> communityChest = new ArrayList<Integer>();
 	ArrayList<Integer> chance = new ArrayList<Integer>();
+
+	public void resetBothDecks() {
+		resetChanceDeck();
+		resetCommunityDeck();
+	}
 	
-	public void resetDeck() {
+	public void resetCommunityDeck() {
+		cardnum1 = 0;
+		
 		communityChest = new ArrayList<Integer>();
-		for(int i=0;i<16;i++) {
+		for(int i=0;i<17;i++) {
 			Random rng = new Random();
-			int number = rng.nextInt(16);
-			for(int j=0;j<communityChest.size() || j<16;j++) {
+
+			int number = rng.nextInt(17);
+			for(int j=0;j<communityChest.size() || j<17;j++) {
 				if(!communityChest.contains(number)) {
 					communityChest.add(number);
 				} else if(number<16){
@@ -21,11 +31,17 @@ public class CommunityChanceText {
 				}
 			}
 		}
+	}
+	public void resetChanceDeck() {
+		cardnum2 = 0;
+		
 		chance = new ArrayList<Integer>();
-		for(int i=0;i<16;i++) {
+
+		for(int i=0;i<17;i++) {
 			Random rng = new Random();
-			int number = rng.nextInt(16);
-			for(int j=0;j<communityChest.size() || j<16;j++) {
+
+			int number = rng.nextInt(17);
+			for(int j=0;j<communityChest.size() || j<17;j++) {
 				if(!chance.contains(number)) {
 					chance.add(number);
 				} else if(number<16){
@@ -35,79 +51,127 @@ public class CommunityChanceText {
 		}
 	}
 	
-	public void communityChestText(){
-		int comNum = 0;
+
+	public void communityChestText(Player player, Player[] otherPlayers){
+		int comNum = communityChest.get(cardnum1);
+		cardnum1++;
 		if(comNum == 0){
 			System.out.println("Advance to Go (Collect $200)");
-			comNum++;
+
+			player.addMoney(200);
+			//comNum++;
 		}
 		else if(comNum == 1){
 			System.out.println("Doctor's fee—Pay $50");
-			comNum++;
+			
+			player.addMoney(-50);
+			//comNum++;
 		}
 		else if(comNum == 2){
 			System.out.println("From sale of stock you get $50");
-			comNum++;
+			
+			player.addMoney(50);
+			//comNum++;
 			
 		}
 		else if(comNum == 3){
 			System.out.println("Get Out of Jail Free");
-			comNum++;
+			
+			player.setGetOutOfJailCard(1);
+			//comNum++;
 		}
 		else if(comNum == 4){
 			System.out.println("Go to Jail–Go directly to jail–Do not pass Go–Do not collect $200");
-			comNum++;
+			
+			player.setPlayerInJail(true);
+			//comNum++;
 		}
 		else if(comNum == 5){
 			System.out.println("Holiday Fund matures—Receive $100");
-			comNum++;
+			
+			player.addMoney(100);
+			//comNum++;
 		}
 		else if(comNum == 6){
 			System.out.println("Income tax refund–Collect $20");
-			comNum++;
+			
+			player.addMoney(20);
+			//comNum++;
 		}
 		else if(comNum == 7){
 			System.out.println("It is your birthday—Collect $10");
-			comNum++;
+			
+			player.addMoney(10);
+			//comNum++;
 		}
 		else if(comNum == 8){
 			System.out.println("Life insurance matures–Collect $100");
-			comNum++;
+			
+			player.addMoney(100);
+			//comNum++;
 		}else if(comNum == 9){
 			System.out.println("Pay hospital fees of $100");
-			comNum++;
+			
+			player.addMoney(-100);
+			//comNum++; //Michael was also here! He still smells
 		}else if(comNum == 10){
 			System.out.println("Pay school fees of $150");
-			comNum++;
+			
+			player.addMoney(-150);
+			//comNum++;
 		}else if(comNum == 11){
 			System.out.println("Receive $25 consultancy fee");
-			comNum++;
+			
+			player.addMoney(25);
+			//comNum++;
 		}else if(comNum == 12){
 			System.out.println("You are assessed for street repairs–$40 per house–$115 per hotel");
-			comNum++;
+			
+			player.addMoney(-1 *((player.getHouseTotal() * 40) + (player.getHotelTotal() * 115)));
+			//comNum++;
 		}else if(comNum == 13){
 			System.out.println("You have won second prize in a beauty contest–Collect $10");
-			comNum++;
+			
+			player.addMoney(10);
+			//comNum++;
 		}
 		else if(comNum == 14){
 			System.out.println("Bank error in your favor—Collect $200");
-			comNum++;
+			
+			player.addMoney(200);
+			//comNum++;
 		}
 		else if(comNum == 15){
+			
 			System.out.println("You inherit 100$");
-			comNum++;
+			
+			player.addMoney(100);
+			//comNum++;
 		}
 		else if(comNum == 16){
 			System.out.println("Grand Opera Night—Collect $50 from every player for opening night seats");
-			comNum = 0;
+			
+			int transferValue = 0;
+			for(int i=0;i<otherPlayers.length;i++) {
+				if(otherPlayers[i].getMoney() > 0) {
+					otherPlayers[i].addMoney(-50);
+					transferValue += 50;
+				}
+			}
+			player.addMoney(transferValue);
+			//comNum = 0;
+		} 
+		if(cardnum1 == 17) {
+			resetCommunityDeck();
 		}
-		
 		
 		
 	}
 		// if Statement Incrementing chaNum after printing text
 	public void chanceText(){
-		int chaNum = 0;
+		
+		int chaNum = chance.get(cardnum2);
+		cardnum2++;
 		if(chaNum == 0){
 			System.out.println("Advance to Go (Collect $200)");
 			chaNum++;
@@ -171,6 +235,9 @@ public class CommunityChanceText {
 		else if(chaNum == 15){
 			System.out.println("Make general repairs on all your property–For each house pay $25–For each hotel $100");
 			chaNum = 0;
+		}
+		if(cardnum2 == 17) {
+			resetCommunityDeck();
 		}
 	}
 }
