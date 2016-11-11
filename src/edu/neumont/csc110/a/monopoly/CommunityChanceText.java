@@ -94,7 +94,7 @@ public class CommunityChanceText {
 			comNum++;
 		}
 		else if(comNum == 15){
-			System.out.println("It is your birthday—Collect $10");
+			System.out.println("You inherit 100$");
 			comNum++;
 		}
 		else if(comNum == 16){
