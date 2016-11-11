@@ -3,6 +3,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
+import edu.neumont.csc110.a.utilities.ConsoleUI;
+
 public class Game {
 	static Player[] player = new Player[8];
 	
