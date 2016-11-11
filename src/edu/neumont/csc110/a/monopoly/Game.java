@@ -14,21 +14,20 @@ public class Game {
 	}
 	
 	public static void pick_players() throws IOException{
-		edu.neumont.csc110.a.utilities.ConsoleUI inputui = new edu.neumont.csc110.a.utilities.ConsoleUI();
 		boolean valid = false;
-		int person = inputui.promptForInt("How many players are playing?", 2, 8);
+		int person = ConsoleUI.promptForInt("How many players are playing?", 2, 8);
 		ArrayList<Integer> chosen = new ArrayList<Integer>();
 		for(int i=0;i<person;i++) {
 			player[i] = new Player();
 		}
 		for(int i=1; i<=person;i++){
 			valid = false;
-			player[i-1].setName(inputui.promptForInput("What is player "+i+"'s name?", false));
+			player[i-1].setName(ConsoleUI.promptForInput("What is player "+i+"'s name?", false));
 			System.out.println("Player "+ player[i-1].getName() +", what is the piece you wish to be?");
 			String[] pieces = {"Thimble", "Wheel Barrel", "Shoe", "Dog", "Car", "Iron", "Hat", "Battleship"};
 			
 			while(valid == false){
-				int choose = inputui.promptForMenuSelection(pieces, false);
+				int choose = ConsoleUI.promptForMenuSelection(pieces, false);
 				boolean temp = chosen.contains(choose); 
 				if(temp == false) {
 					chosen.add(choose);
