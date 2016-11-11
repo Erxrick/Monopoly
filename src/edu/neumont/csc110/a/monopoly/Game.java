@@ -13,7 +13,59 @@ public class Game {
 		//System.out.println("You rolled a " + roll());
 	}
 	
-	public static void pick_players() throws IOException{
+	private static void chance(){
+		//when you land on this space,
+		//draw a chance card.
+	}
+	
+	private static void chest(){
+		//when you land on this space
+		//draw a community chest card
+	}
+	
+	private static void rent(){
+		//if someone else owns the property you land on,
+		//take the rent from current player, and give it to the owner of the property.
+	}
+	
+	private static void jail(){
+		//when player in jail = true, end that players turn,
+		//you must either roll doubles to set jail = false,
+		//use "get out of jail free" card,
+		//or pay 50 money before rolling the dice.
+	}
+	
+	private static void mortgage(){
+		//when all houses have been sold, you can mortgage property for money.
+		//when mortgaged, you cannot get money from players that land on it.
+	}
+	
+	private static void trading(){
+		//can trade with a player for property, with property.
+	}
+	
+	private static void sell_houses(){
+		//when the property is chosen, can remove house to get money back.
+	}
+	
+	private static void Buy_houses(){
+		//when the property is chosen, can add house to property, for money, if you have all corresponding colors.
+		//after four houses have been built, remove the houses and put hotel.
+	}
+	
+	private static void sell_property(){
+		//when their isn't any houses on it, it can be sold to other players for a set price.
+		//taking money from the buyer and giving it to the seller.
+		//giving the property to buyer, from seller.
+	}
+	
+	private static void buy_property(){
+		//when bought it will subtract the money from the player,
+		//subtract property card from bank,
+		//and give the player the property card.
+	}
+	
+	private static void pick_players() throws IOException{
 		boolean valid = false;
 		int person = ConsoleUI.promptForInt("How many players are playing?", 2, 8);
 		ArrayList<Integer> chosen = new ArrayList<Integer>();
