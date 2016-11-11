@@ -86,6 +86,5 @@ public class PropertyCards {
 	}
 	public PropertyType getColor() {
 		return color;
-	}
-	
+	}	
 }

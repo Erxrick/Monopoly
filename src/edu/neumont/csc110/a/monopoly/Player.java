@@ -2,11 +2,18 @@ package edu.neumont.csc110.a.monopoly;
 
 public class Player {
 	private String name;
-
+	private String piece;
 	private int money;
 	private int getOutOfJailCard;
 	private boolean isPlayerInJail;
-	
+
+	public String getPiece() {
+		return piece;
+	}
+
+	public void setPiece(String piece) {
+		this.piece = piece;
+	}
 	
 	public boolean isPlayerInJail() {
 		return isPlayerInJail;
@@ -40,7 +47,6 @@ public class Player {
 		return money;
 	}
 
-	
 	public void addMoney(int money) {
 		this.money += money;
 	}

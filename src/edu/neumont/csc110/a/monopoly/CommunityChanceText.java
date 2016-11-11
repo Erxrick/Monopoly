@@ -66,7 +66,6 @@ public void communityChestText(){
 	else if(comNum == 16){
 		System.out.println("Grand Opera Night—Collect $50 from every player for opening night seats");
 		comNum = 0;
-		
 	}
 }
 	// if Statement Incrementing chaNum after printing text
@@ -138,5 +137,3 @@ public void chanceText(){
 	}
 }
 }
-
-

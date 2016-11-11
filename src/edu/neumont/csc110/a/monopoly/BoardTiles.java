@@ -1,6 +1,5 @@
 package edu.neumont.csc110.a.monopoly;
 
-
 public class BoardTiles {
 	PropertyCards Mediterranean_Avenue = new PropertyCards();
 	PropertyCards Baltic_Avenue = new PropertyCards();
@@ -47,8 +46,5 @@ public class BoardTiles {
 		Boardwalk.setRentH5(1);
 		Boardwalk.setHouseCost(1);
 		Boardwalk.setMortgage(1);
-		
-		
-	}
-	
-	}
+	}	
+}
