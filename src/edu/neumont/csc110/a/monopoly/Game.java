@@ -85,42 +85,42 @@ public class Game {
 					chosen.add(choose);
 					switch(choose){
 					case 1:
-						System.out.println(player[i-1].getName()+" has chossen the Thimble.");
+						System.out.println(player[i-1].getName()+" has chosen the Thimble.");
 						player[i-1].setPiece("Thimble");
 						valid = true;
 						break;
 					case 2:
-						System.out.println(player[i-1].getName()+" has chossen the Wheel Barrel.");
+						System.out.println(player[i-1].getName()+" has chosen the Wheel Barrel.");
 						player[i-1].setPiece("Wheel Barrel");
 						valid = true;
 						break;
 					case 3:
-						System.out.println(player[i-1].getName()+" has chossen the Shoe.");
+						System.out.println(player[i-1].getName()+" has chosen the Shoe.");
 						player[i-1].setPiece("Shoe");
 						valid = true;
 						break;
 					case 4:
-						System.out.println(player[i-1].getName()+" has chossen the Dog.");
+						System.out.println(player[i-1].getName()+" has chosen the Dog.");
 						player[i-1].setPiece("Dog");
 						valid = true;
 						break;
 					case 5:
-						System.out.println(player[i-1].getName()+" has chossen the Car.");
+						System.out.println(player[i-1].getName()+" has chosen the Car.");
 						player[i-1].setPiece("Car");
 						valid = true;
 						break;
 					case 6:
-						System.out.println(player[i-1].getName()+" has chossen the Iron.");
+						System.out.println(player[i-1].getName()+" has chosen the Iron.");
 						player[i-1].setPiece("Iron");
 						valid = true;
 						break;
 					case 7:
-						System.out.println(player[i-1].getName()+" has chossen the Hat.");
+						System.out.println(player[i-1].getName()+" has chosen the Hat.");
 						player[i-1].setPiece("Hat");
 						valid = true;
 						break;
 					case 8:
-						System.out.println(player[i-1].getName()+" has chossen the Battleship.");
+						System.out.println(player[i-1].getName()+" has chosen the Battleship.");
 						player[i-1].setPiece("Battleship");
 						valid = true;
 						break;
