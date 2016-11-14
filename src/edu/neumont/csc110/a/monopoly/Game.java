@@ -10,7 +10,56 @@ public class Game {
 	
 	public void run() throws IOException {
 		//pick_players();
+		boolean anyoneWin = false;
+		while(!anyoneWin) {
+			for(int i=0;i<player.length;i++) {
+				turn(player[i]);
+				anyoneWin = win(player[i]);
+			}
+		}
 		//System.out.println("You rolled a " + roll());
+	}
+	
+	private void turn(Player player) throws IOException {
+		int diceRoll = 0;
+		do{
+			System.out.println(player.getName() + " would you like to:");
+			String[] turnOptions = {"Roll the die", "Trade", "Buy or Sell houses"};
+			int userSelection = ConsoleUI.promptForMenuSelection(turnOptions, false);
+			switch(userSelection){
+				case 1:
+					diceRoll = roll();
+					break;
+				case 2:
+					trading();
+					break;
+				case 3:
+					int otherUserSelection = -1;
+					String[] otherOptions = {"Buy Houses", "Sell Houses"};
+					do{
+						otherUserSelection = ConsoleUI.promptForMenuSelection(otherOptions, true);
+						switch(otherUserSelection){
+							case 0:
+								break;
+							case 1:
+								buy_Houses();
+								break;
+							case 2:
+								sell_Houses();
+								break;
+						}	
+					}while(otherUserSelection != 0);
+					break;
+			}
+		}while(diceRoll == 0);
+		Board.moveFromDice(diceRoll, player);
+		//prompt for roll, trade, buy house, sell house,		done
+		//move player
+		//option to buy or if bought have to pay rent
+		//trade buy house sell house end turn
+	}
+	private boolean win(Player player) {
+		return true;
 	}
 	
 	private void chanceORChest(){
@@ -127,11 +176,11 @@ public class Game {
 		//can trade with a player for property, with property.
 	}
 	
-	private static void sell_houses(){
+	private static void sell_Houses(){
 		//when the property is chosen, can remove house to get money back.
 	}
 	
-	private static void Buy_houses(){
+	private static void buy_Houses(){
 		//when the property is chosen, can add house to property, for money, if you have all corresponding colors.
 		//after four houses have been built, remove the houses and put hotel.
 	}
