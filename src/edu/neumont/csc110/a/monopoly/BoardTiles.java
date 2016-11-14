@@ -292,143 +292,101 @@ public class BoardTiles {
 		//19 North_Carolina_Avenue
 	
 		North_Carolina_Avenue.setName("North Carolina Avenue");
-		North_Carolina_Avenue.setColor(PropertyType.darkBlue);
-		North_Carolina_Avenue.setPrice(1);
+		North_Carolina_Avenue.setColor(PropertyType.green);
+		North_Carolina_Avenue.setPrice(300);
 		North_Carolina_Avenue.setHouse(0);
-		North_Carolina_Avenue.setRent(1);
-		North_Carolina_Avenue.setRentH1(1);
-		North_Carolina_Avenue.setRentH2(1);
-		North_Carolina_Avenue.setRentH3(1);
-		North_Carolina_Avenue.setRentH4(1);
-		North_Carolina_Avenue.setRentH5(1);
-		North_Carolina_Avenue.setHouseCost(1);
-		North_Carolina_Avenue.setMortgage(1);
+		North_Carolina_Avenue.setRent(26);
+		North_Carolina_Avenue.setRentH1(130);
+		North_Carolina_Avenue.setRentH2(390);
+		North_Carolina_Avenue.setRentH3(900);
+		North_Carolina_Avenue.setRentH4(1100);
+		North_Carolina_Avenue.setRentH5(1275);
+		North_Carolina_Avenue.setHouseCost(200);
+		North_Carolina_Avenue.setMortgage(150);
 		//20 Pennslvania_Avenue
 	
 		Pennslvania_Avenue.setName("Pennslvania Avenue");
-		Pennslvania_Avenue.setColor(PropertyType.darkBlue);
-		Pennslvania_Avenue.setPrice(1);
+		Pennslvania_Avenue.setColor(PropertyType.green);
+		Pennslvania_Avenue.setPrice(320);
 		Pennslvania_Avenue.setHouse(0);
-		Pennslvania_Avenue.setRent(1);
-		Pennslvania_Avenue.setRentH1(1);
-		Pennslvania_Avenue.setRentH2(1);
-		Pennslvania_Avenue.setRentH3(1);
-		Pennslvania_Avenue.setRentH4(1);
-		Pennslvania_Avenue.setRentH5(1);
-		Pennslvania_Avenue.setHouseCost(1);
-		Pennslvania_Avenue.setMortgage(1);
+		Pennslvania_Avenue.setRent(28);
+		Pennslvania_Avenue.setRentH1(150);
+		Pennslvania_Avenue.setRentH2(450);
+		Pennslvania_Avenue.setRentH3(1000);
+		Pennslvania_Avenue.setRentH4(1200);
+		Pennslvania_Avenue.setRentH5(1400);
+		Pennslvania_Avenue.setHouseCost(200);
+		Pennslvania_Avenue.setMortgage(160);
 		//21 Park_Place
 		
 		Park_Place.setName("Park Place");
 		Park_Place.setColor(PropertyType.darkBlue);
-		Park_Place.setPrice(1);
+		Park_Place.setPrice(350);
 		Park_Place.setHouse(0);
-		Park_Place.setRent(1);
-		Park_Place.setRentH1(1);
-		Park_Place.setRentH2(1);
-		Park_Place.setRentH3(1);
-		Park_Place.setRentH4(1);
-		Park_Place.setRentH5(1);
-		Park_Place.setHouseCost(1);
-		Park_Place.setMortgage(1);
+		Park_Place.setRent(35);
+		Park_Place.setRentH1(175);
+		Park_Place.setRentH2(500);
+		Park_Place.setRentH3(1100);
+		Park_Place.setRentH4(1300);
+		Park_Place.setRentH5(1500);
+		Park_Place.setHouseCost(200);
+		Park_Place.setMortgage(175);
 		//22 Boardwalk_
 	
 		Boardwalk.setName("Boardwalk");
 		Boardwalk.setColor(PropertyType.darkBlue);
-		Boardwalk.setPrice(1);
+		Boardwalk.setPrice(400);
 		Boardwalk.setHouse(0);
-		Boardwalk.setRent(1);
-		Boardwalk.setRentH1(1);
-		Boardwalk.setRentH2(1);
-		Boardwalk.setRentH3(1);
-		Boardwalk.setRentH4(1);
-		Boardwalk.setRentH5(1);
-		Boardwalk.setHouseCost(1);
-		Boardwalk.setMortgage(1);
+		Boardwalk.setRent(50);
+		Boardwalk.setRentH1(200);
+		Boardwalk.setRentH2(600);
+		Boardwalk.setRentH3(1400);
+		Boardwalk.setRentH4(1700);
+		Boardwalk.setRentH5(2000);
+		Boardwalk.setHouseCost(200);
+		Boardwalk.setMortgage(200);
 		//23 Reading_Railroad
-	
+	//TODO set real rent
 		Reading_Railroad.setName("Reading Railroad");
-		Reading_Railroad.setColor(PropertyType.darkBlue);
-		Reading_Railroad.setPrice(1);
-		Reading_Railroad.setHouse(0);
-		Reading_Railroad.setRent(1);
-		Reading_Railroad.setRentH1(1);
-		Reading_Railroad.setRentH2(1);
-		Reading_Railroad.setRentH3(1);
-		Reading_Railroad.setRentH4(1);
-		Reading_Railroad.setRentH5(1);
-		Reading_Railroad.setHouseCost(1);
-		Reading_Railroad.setMortgage(1);
+		Reading_Railroad.setColor(PropertyType.railroad);
+		Reading_Railroad.setPrice(200);
+		Reading_Railroad.setRent(25);
+		Reading_Railroad.setMortgage(100);
 		//24 Pennsylvania_Railroad
-	
+	//TODO set real rent
 		Pennsylvania_Railroad.setName("Pennsylvania Railroad");
-		Pennsylvania_Railroad.setColor(PropertyType.darkBlue);
-		Pennsylvania_Railroad.setPrice(1);
-		Pennsylvania_Railroad.setHouse(0);
-		Pennsylvania_Railroad.setRent(1);
-		Pennsylvania_Railroad.setRentH1(1);
-		Pennsylvania_Railroad.setRentH2(1);
-		Pennsylvania_Railroad.setRentH3(1);
-		Pennsylvania_Railroad.setRentH4(1);
-		Pennsylvania_Railroad.setRentH5(1);
-		Pennsylvania_Railroad.setHouseCost(1);
+		Pennsylvania_Railroad.setColor(PropertyType.railroad);
+		Pennsylvania_Railroad.setPrice(200);
+		Pennsylvania_Railroad.setRent(25);
 		Pennsylvania_Railroad.setMortgage(1);
 		//25 BO_Railroad
-		
+	//TODO set real rent
 		BO_Railroad.setName("B & O Railroad");
 		BO_Railroad.setColor(PropertyType.darkBlue);
-		BO_Railroad.setPrice(1);
-		BO_Railroad.setHouse(0);
-		BO_Railroad.setRent(1);
-		BO_Railroad.setRentH1(1);
-		BO_Railroad.setRentH2(1);
-		BO_Railroad.setRentH3(1);
-		BO_Railroad.setRentH4(1);
-		BO_Railroad.setRentH5(1);
-		BO_Railroad.setHouseCost(1);
-		BO_Railroad.setMortgage(1);
+		BO_Railroad.setPrice(200);
+		BO_Railroad.setRent(25);
+		BO_Railroad.setMortgage(100);
 		//26 Short_Line
-		
+	//TODO set real rent
 		Short_Line.setName("Short Line Railroad");
 		Short_Line.setColor(PropertyType.darkBlue);
-		Short_Line.setPrice(1);
-		Short_Line.setHouse(0);
-		Short_Line.setRent(1);
-		Short_Line.setRentH1(1);
-		Short_Line.setRentH2(1);
-		Short_Line.setRentH3(1);
-		Short_Line.setRentH4(1);
-		Short_Line.setRentH5(1);
-		Short_Line.setHouseCost(1);
-		Short_Line.setMortgage(1);
+		Short_Line.setPrice(200);
+		Short_Line.setRent(25);
+		Short_Line.setMortgage(100);
 		//27 Electric_Company
-	
+	//TODO set real rent
 		Electric_Company.setName("Electric Company");
-		Electric_Company.setColor(PropertyType.darkBlue);
-		Electric_Company.setPrice(1);
-		Electric_Company.setHouse(0);
+		Electric_Company.setColor(PropertyType.utility);
+		Electric_Company.setPrice(150);
 		Electric_Company.setRent(1);
-		Electric_Company.setRentH1(1);
-		Electric_Company.setRentH2(1);
-		Electric_Company.setRentH3(1);
-		Electric_Company.setRentH4(1);
-		Electric_Company.setRentH5(1);
-		Electric_Company.setHouseCost(1);
-		Electric_Company.setMortgage(1);
+		Electric_Company.setMortgage(75);
 		//28 Water_Works
 		
 		Water_Works.setName("Water Works");
-		Water_Works.setColor(PropertyType.darkBlue);
-		Water_Works.setPrice(1);
-		Water_Works.setHouse(0);
+		Water_Works.setColor(PropertyType.utility);
+		Water_Works.setPrice(150);
 		Water_Works.setRent(1);
-		Water_Works.setRentH1(1);
-		Water_Works.setRentH2(1);
-		Water_Works.setRentH3(1);
-		Water_Works.setRentH4(1);
-		Water_Works.setRentH5(1);
-		Water_Works.setHouseCost(1);
-		Water_Works.setMortgage(1);
+		Water_Works.setMortgage(75);
 
 	}
 	
