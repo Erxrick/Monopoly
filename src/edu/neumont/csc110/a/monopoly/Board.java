@@ -95,6 +95,7 @@ public class Board {
 	}
 
 	public static void position1() {
+		
 		asciiArt.asciiBoard[52][92] = '(';
 		asciiArt.asciiBoard[52][93] = 'T';
 		asciiArt.asciiBoard[52][94] = ')';
@@ -198,49 +199,139 @@ public class Board {
 	}
 
 	public static void position4() {
-		asciiArt.asciiBoard[52][74] = '(';
-		asciiArt.asciiBoard[52][75] = 'T';
-		asciiArt.asciiBoard[52][76] = ')';
+		asciiArt.asciiBoard[52][65] = '(';
+		asciiArt.asciiBoard[52][66] = 'T';
+		asciiArt.asciiBoard[52][67] = ')';
 
-		asciiArt.asciiBoard[49][74] = '(';
-		asciiArt.asciiBoard[49][75] = 'W';
-		asciiArt.asciiBoard[49][76] = ')';
+		asciiArt.asciiBoard[49][65] = '(';
+		asciiArt.asciiBoard[49][66] = 'W';
+		asciiArt.asciiBoard[49][67] = ')';
 
-		asciiArt.asciiBoard[50][74] = '(';
-		asciiArt.asciiBoard[50][75] = 'S';
-		asciiArt.asciiBoard[50][76] = ')';
+		asciiArt.asciiBoard[50][65] = '(';
+		asciiArt.asciiBoard[50][66] = 'S';
+		asciiArt.asciiBoard[50][67] = ')';
 
-		asciiArt.asciiBoard[51][74] = '(';
-		asciiArt.asciiBoard[51][75] = 'D';
-		asciiArt.asciiBoard[51][76] = ')';
+		asciiArt.asciiBoard[51][65] = '(';
+		asciiArt.asciiBoard[51][66] = 'D';
+		asciiArt.asciiBoard[51][67] = ')';
 
-		asciiArt.asciiBoard[52][78] = '(';
-		asciiArt.asciiBoard[52][79] = 'C';
-		asciiArt.asciiBoard[52][80] = ')';
+		asciiArt.asciiBoard[52][69] = '(';
+		asciiArt.asciiBoard[52][70] = 'C';
+		asciiArt.asciiBoard[52][71] = ')';
 
-		asciiArt.asciiBoard[49][78] = '(';
-		asciiArt.asciiBoard[49][79] = 'I';
-		asciiArt.asciiBoard[49][80] = ')';
+		asciiArt.asciiBoard[49][69] = '(';
+		asciiArt.asciiBoard[49][70] = 'I';
+		asciiArt.asciiBoard[49][71] = ')';
 
-		asciiArt.asciiBoard[50][78] = '(';
-		asciiArt.asciiBoard[50][79] = 'H';
-		asciiArt.asciiBoard[50][80] = ')';
+		asciiArt.asciiBoard[50][69] = '(';
+		asciiArt.asciiBoard[50][70] = 'H';
+		asciiArt.asciiBoard[50][71] = ')';
 
-		asciiArt.asciiBoard[51][78] = '(';
-		asciiArt.asciiBoard[51][79] = 'B';
-		asciiArt.asciiBoard[51][80] = ')';
+		asciiArt.asciiBoard[51][69] = '(';
+		asciiArt.asciiBoard[51][70] = 'B';
+		asciiArt.asciiBoard[51][71] = ')';
 	}
 
 	public static void position5() {
+		asciiArt.asciiBoard[52][55] = '(';
+		asciiArt.asciiBoard[52][56] = 'T';
+		asciiArt.asciiBoard[52][57] = ')';
 
+		asciiArt.asciiBoard[49][55] = '(';
+		asciiArt.asciiBoard[49][56] = 'W';
+		asciiArt.asciiBoard[49][57] = ')';
+
+		asciiArt.asciiBoard[50][55] = '(';
+		asciiArt.asciiBoard[50][56] = 'S';
+		asciiArt.asciiBoard[50][57] = ')';
+
+		asciiArt.asciiBoard[51][55] = '(';
+		asciiArt.asciiBoard[51][56] = 'D';
+		asciiArt.asciiBoard[51][57] = ')';
+
+		asciiArt.asciiBoard[52][59] = '(';
+		asciiArt.asciiBoard[52][60] = 'C';
+		asciiArt.asciiBoard[52][61] = ')';
+
+		asciiArt.asciiBoard[49][59] = '(';
+		asciiArt.asciiBoard[49][60] = 'I';
+		asciiArt.asciiBoard[49][61] = ')';
+
+		asciiArt.asciiBoard[50][59] = '(';
+		asciiArt.asciiBoard[50][60] = 'H';
+		asciiArt.asciiBoard[50][61] = ')';
+
+		asciiArt.asciiBoard[51][59] = '(';
+		asciiArt.asciiBoard[51][60] = 'B';
+		asciiArt.asciiBoard[51][61] = ')';
 	}
 
 	public static void position6() {
+		asciiArt.asciiBoard[52][47] = '(';
+		asciiArt.asciiBoard[52][48] = 'T';
+		asciiArt.asciiBoard[52][49] = ')';
 
+		asciiArt.asciiBoard[49][47] = '(';
+		asciiArt.asciiBoard[49][48] = 'W';
+		asciiArt.asciiBoard[49][49] = ')';
+
+		asciiArt.asciiBoard[50][47] = '(';
+		asciiArt.asciiBoard[50][48] = 'S';
+		asciiArt.asciiBoard[50][49] = ')';
+
+		asciiArt.asciiBoard[51][47] = '(';
+		asciiArt.asciiBoard[51][48] = 'D';
+		asciiArt.asciiBoard[51][49] = ')';
+
+		asciiArt.asciiBoard[52][51] = '(';
+		asciiArt.asciiBoard[52][52] = 'C';
+		asciiArt.asciiBoard[52][53] = ')';
+
+		asciiArt.asciiBoard[49][51] = '(';
+		asciiArt.asciiBoard[49][52] = 'I';
+		asciiArt.asciiBoard[49][53] = ')';
+
+		asciiArt.asciiBoard[50][51] = '(';
+		asciiArt.asciiBoard[50][52] = 'H';
+		asciiArt.asciiBoard[50][53] = ')';
+
+		asciiArt.asciiBoard[51][51] = '(';
+		asciiArt.asciiBoard[51][52] = 'B';
+		asciiArt.asciiBoard[51][53] = ')';
 	}
 
 	public static void position7() {
+		asciiArt.asciiBoard[52][47] = '(';
+		asciiArt.asciiBoard[52][48] = 'T';
+		asciiArt.asciiBoard[52][49] = ')';
 
+		asciiArt.asciiBoard[49][47] = '(';
+		asciiArt.asciiBoard[49][48] = 'W';
+		asciiArt.asciiBoard[49][49] = ')';
+
+		asciiArt.asciiBoard[50][47] = '(';
+		asciiArt.asciiBoard[50][48] = 'S';
+		asciiArt.asciiBoard[50][49] = ')';
+
+		asciiArt.asciiBoard[51][47] = '(';
+		asciiArt.asciiBoard[51][48] = 'D';
+		asciiArt.asciiBoard[51][49] = ')';
+
+		asciiArt.asciiBoard[52][51] = '(';
+		asciiArt.asciiBoard[52][52] = 'C';
+		asciiArt.asciiBoard[52][53] = ')';
+
+		asciiArt.asciiBoard[49][51] = '(';
+		asciiArt.asciiBoard[49][52] = 'I';
+		asciiArt.asciiBoard[49][53] = ')';
+
+		asciiArt.asciiBoard[50][51] = '(';
+		asciiArt.asciiBoard[50][52] = 'H';
+		asciiArt.asciiBoard[50][53] = ')';
+
+		asciiArt.asciiBoard[51][51] = '(';
+		asciiArt.asciiBoard[51][52] = 'B';
+		asciiArt.asciiBoard[51][53] = ')';
 	}
 
 	public static void position8() {
