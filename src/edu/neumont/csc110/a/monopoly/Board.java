@@ -8,7 +8,7 @@ public class Board {
 		 newPlayerPosition(currentPLayerPosition);
 		 */
 	}
-
+	
 	public static void printMainBoard() {
 		position0();
 		position1();
