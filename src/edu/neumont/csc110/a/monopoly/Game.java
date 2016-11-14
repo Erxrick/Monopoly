@@ -66,7 +66,7 @@ public class Game {
 		/*if(player is on chance){
 		 * CommunityChanceText.chanceText();
 		 * }else if(player is on chest){
-		 * CommunityChanceText.CommunityChestText(player, otherPlayers);
+		 * CommunityChanceText.CommunityChestText(player[i], otherPlayers);
 		 * }
 		*/
 	}
@@ -168,12 +168,16 @@ public class Game {
 	}
 	
 	private static void mortgage(){
-		//when all houses have been sold, you can mortgage property for money.
+		//when all houses have been sold, you can mortgage property for money if players money is in the negatives.
 		//when mortgaged, you cannot get money from players that land on it.
 	}
 	
-	private static void trading(){
-		//can trade with a player for property, with property.
+	private static void trading() throws IOException{
+		//can trade with a player for property, with property, money, or get out of jail free cards.
+		String[] players = {};
+		ConsoleUI.promptForMenuSelection(players, false);
+		ConsoleUI.promptForInput("What are you giving?", false);
+		ConsoleUI.promptForInput("What are you getting?", false);
 	}
 	
 	private static void sell_Houses(){
@@ -185,14 +189,9 @@ public class Game {
 		//after four houses have been built, remove the houses and put hotel.
 	}
 	
-	private static void sell_property(){
-		//when their isn't any houses on it, it can be sold to other players for a set price.
-		//taking money from the buyer and giving it to the seller.
-		//giving the property to buyer, from seller.
-	}
-	
-	private static void buy_property(){
+	private static void buy_property() throws IOException{
 		//when bought it will subtract the money from the player,
+		ConsoleUI.promptForBool("Will you buy this property(y/n)", "y", "n");
 		//subtract property card from bank,
 		//and give the player the property card.
 	}
@@ -261,7 +260,6 @@ public class Game {
 			}
 		}
 	}
-	
 	public int roll(){
 		Random rando = new Random();
 		final int times = 2;
