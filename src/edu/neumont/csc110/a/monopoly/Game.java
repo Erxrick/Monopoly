@@ -29,6 +29,11 @@ public class Game {
 			switch(userSelection){
 				case 1:
 					diceRoll = roll();
+					if (diceRoll == 0){
+						player.setPlayerInJail(true);
+						//move player to jail
+						//make jail turn
+					}
 					break;
 				case 2:
 					trading();
@@ -53,7 +58,7 @@ public class Game {
 			}
 		}while(diceRoll == 0);
 		Board.moveFromDice(diceRoll, player);
-		//prompt for roll, trade, buy house, sell house,		done
+		//prompt for roll, trade, buy house, sell house,		done 
 		//move player
 		//option to buy or if bought have to pay rent
 		//trade buy house sell house end turn
@@ -263,17 +268,47 @@ public class Game {
 	public int roll(){
 		Random rando = new Random();
 		final int times = 2;
-		int[] rolls = new int[times];
+		int[] rolls1 = new int[times];
+		int[] rolls2 = new int[times];
+		int[] rolls3 = new int[times];
 		for(int i = 0; i < times; i++){
-			rolls[i] = rando.nextInt(6)+1;
-			System.out.print(rolls[i] + " ");
+			rolls1[i] = rando.nextInt(6)+1;
+			System.out.print(rolls1[i] + " ");
 		}
-		return sum(rolls);
+		if(rolls1[0] == rolls1[1]) {
+			for(int i = 0; i < times; i++){
+				rolls1[i] = rando.nextInt(6)+1;
+				System.out.print(rolls2[i] + " ");
+			}
+		} 
+		else {
+			rolls2[0] = 0;
+			rolls2[1] = 0;
+		}
+		if(rolls2[0] == rolls2[1] && rolls2[1] != 0) {
+			for(int i = 0; i < times; i++){
+				rolls3[i] = rando.nextInt(6)+1;
+				System.out.print(rolls3[i] + " ");
+			}
+		} else {
+			rolls3[0] = 0;
+			rolls3[1] = 0;
+		}
+		if(rolls3[0] == rolls3[1] && rolls3[1] != 0) {
+			return 0;
+		}
+		return sum(rolls1, rolls2, rolls3);
 	}
-	public static int sum(int[] array){
+	public static int sum(int[] array, int[] array1, int[] array2){
 		int sum = 0;
 		for(int i=0; i<array.length; i++){
 			sum=sum+array[i];
+		}
+		for(int i=0; i<array1.length; i++){
+			sum=sum+array1[i];
+		}
+		for(int i=0; i<array2.length; i++){
+			sum=sum+array2[i];
 		}
 		return sum;
 	}
