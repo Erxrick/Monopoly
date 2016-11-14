@@ -17,7 +17,7 @@ public class CommunityChanceText {
 		resetCommunityDeck();
 	}
 	
-	public void resetCommunityDeck() {
+	private void resetCommunityDeck() {
 		cardnum1 = 0;
 		jailCard1 = true;
 		communityChest = new ArrayList<Integer>();
@@ -34,7 +34,7 @@ public class CommunityChanceText {
 			}
 		}
 	}
-	public void resetChanceDeck() {
+	private void resetChanceDeck() {
 		cardnum2 = 0;
 		jailCard2 = true;
 		chance = new ArrayList<Integer>();
