@@ -9,23 +9,106 @@ public class Game {
 	static Player[] player = new Player[8];
 	
 	public void run() throws IOException {
-		pick_players();
+		//pick_players();
 		//System.out.println("You rolled a " + roll());
 	}
 	
-	private static void chance(){
-		//when you land on this space,
-		//draw a chance card.
-	}
-	
-	private static void chest(){
-		//when you land on this space
-		//draw a community chest card
+	private void chanceORChest(){
+		/*if(player is on chance){
+		 * CommunityChanceText.chanceText();
+		 * }else if(player is on chest){
+		 * CommunityChanceText.CommunityChestText(player, otherPlayers);
+		 * }
+		*/
 	}
 	
 	private static void rent(){
-		//if someone else owns the property you land on,
-		//take the rent from current player, and give it to the owner of the property.
+		/*if(player is on Mediterranean_Avenue){
+		 * Mediterranean_Avenue.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Baltic_Avenue){
+		 * Baltic_Avenue.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Oriental_Avenue){
+		 * Oriental_Avenue.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Vermont_Avenue){
+		 * Vermont_Avenue.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Connecticut_Avenue){
+		 * Connecticut_Avenue.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on StCharles_Place){
+		 * StCharles_Place.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on States_Avenue){
+		 * States_Avenue.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Virginia_Avenue){
+		 * Virginia_Avenue.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on StJames_Place){
+		 * StJames_Place.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Tennessee_Avenue){
+		 * Tennessee_Avenue.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on New_York_Avenue){
+		 * New_York_Avenue.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Kentucky_Avenue){
+		 * Kentucky_Avenue.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Indiana_Avenue){
+		 * Indiana_Avenue.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Illinois_Avenue){
+		 * Illinois_Avenue.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Atlantic_Avenue){
+		 * Atlantic_Avenue.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Ventor_Avenue){
+		 * Ventor_Avenue.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Marvin_Gardens){
+		 * Marvin_Gardens.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Pacific_Avenue){
+		 * Pacific_Avenue.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on North_Carolina_Avenue){
+		 * North_Carolina_Avenue.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Pennslvania_Avenue){
+		 * Pennslvania_Avenue.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Park_Place){
+		 * Park_Place.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Boardwalk){
+		 * Boardwalk.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Reading_Railroad){
+		 * Reading_Railroad.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Pennsylvania_Railroad){
+		 * Pennsylvania_Railroad.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on BO_Railroad){
+		 * BO_Railroad.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Short_Line){
+		 * Short_Line.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Electric_Company){
+		 * Electric_Company.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }else if(player is on Water_Works){
+		 * Water_Works.getRent();
+		 * subtract money from current player and add it to owner.
+		 * }
+		 */
 	}
 	
 	private static void jail(){
@@ -85,42 +168,42 @@ public class Game {
 					chosen.add(choose);
 					switch(choose){
 					case 1:
-						System.out.println(player[i-1].getName()+" has chossen the Thimble.");
+						System.out.println(player[i-1].getName()+" has chosen the Thimble.");
 						player[i-1].setPiece("Thimble");
 						valid = true;
 						break;
 					case 2:
-						System.out.println(player[i-1].getName()+" has chossen the Wheel Barrel.");
+						System.out.println(player[i-1].getName()+" has chosen the Wheel Barrel.");
 						player[i-1].setPiece("Wheel Barrel");
 						valid = true;
 						break;
 					case 3:
-						System.out.println(player[i-1].getName()+" has chossen the Shoe.");
+						System.out.println(player[i-1].getName()+" has chosen the Shoe.");
 						player[i-1].setPiece("Shoe");
 						valid = true;
 						break;
 					case 4:
-						System.out.println(player[i-1].getName()+" has chossen the Dog.");
+						System.out.println(player[i-1].getName()+" has chosen the Dog.");
 						player[i-1].setPiece("Dog");
 						valid = true;
 						break;
 					case 5:
-						System.out.println(player[i-1].getName()+" has chossen the Car.");
+						System.out.println(player[i-1].getName()+" has chosen the Car.");
 						player[i-1].setPiece("Car");
 						valid = true;
 						break;
 					case 6:
-						System.out.println(player[i-1].getName()+" has chossen the Iron.");
+						System.out.println(player[i-1].getName()+" has chosen the Iron.");
 						player[i-1].setPiece("Iron");
 						valid = true;
 						break;
 					case 7:
-						System.out.println(player[i-1].getName()+" has chossen the Hat.");
+						System.out.println(player[i-1].getName()+" has chosen the Hat.");
 						player[i-1].setPiece("Hat");
 						valid = true;
 						break;
 					case 8:
-						System.out.println(player[i-1].getName()+" has chossen the Battleship.");
+						System.out.println(player[i-1].getName()+" has chosen the Battleship.");
 						player[i-1].setPiece("Battleship");
 						valid = true;
 						break;
