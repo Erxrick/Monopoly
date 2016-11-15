@@ -135,14 +135,39 @@ public class Game {
 		//when the property is chosen, can remove house to get money back.
 	}
 	
-	private static void Buy_houses(){
+	private static void Buy_houses() throws IOException{
 		//when the property is chosen, can add house to property, for money, if you have all corresponding colors.
+		int house = ConsoleUI.promptForInt("How many houses do you wish to buy?", 1, 5);
+		switch(house){
+		case 1:
+			//player[i].addMoney(-cost of one house);
+			//player[i].addHouseTotal(1);
+			break;
+		case 2:
+			//player[i].addMoney(-cost of two houses);
+			//player[i].addHouseTotal(2);
+			break;
+		case 3:
+			//player[i].addMoney(-cost of three houses);
+			//player[i].addHouseTotal(3);
+			break;
+		case 4:
+			//player[i].addMoney(-cost of four houses);
+			//player[i].addHouseTotal(4);
+			break;
+		}
 		//after four houses have been built, remove the houses and put hotel.
 	}
 	
 	private static void buy_property() throws IOException{
 		//when bought it will subtract the money from the player,
-		ConsoleUI.promptForBool("Will you buy this property(y/n)", "y", "n");
+		boolean buy = ConsoleUI.promptForBool("Will you buy this property(y/n)", "y", "n");
+		if(buy == true){
+			//player[i].buyFromBanker(card, bank);
+			//player[i].addMoney(-Price);
+		}else{
+			System.out.println("That is your choice.");
+		}
 		//subtract property card from bank,
 		//and give the player the property card.
 	}
