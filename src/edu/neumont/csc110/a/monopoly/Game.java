@@ -9,7 +9,7 @@ public class Game {
 	static Player[] player = new Player[8];
 	
 	public void run() throws IOException {
-		//pick_players();
+		pick_players();
 		boolean anyoneWin = false;
 		while(!anyoneWin) {
 			for(int i=0;i<player.length;i++) {
