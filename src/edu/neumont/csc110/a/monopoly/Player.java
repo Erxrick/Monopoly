@@ -10,8 +10,7 @@ public class Player {
 	private boolean isPlayerInJail;
 	private int houseTotal;
 	private int hotelTotal;
-
-	private ArrayList<PropertyCards> property;
+	private ArrayList<PropertyCards> property; //taking from the arraylist from the bank
 
 	public int getHotelTotal() {
 		return hotelTotal;
@@ -34,7 +33,7 @@ public class Player {
 	}
 	
 	public void buyFromBanker(PropertyCards card, Banker bank) {
-		this.property.add(card);
+		this.property.add(card); /// set isbought
 		this.addMoney(-1*card.getPrice());
 		bank.removeCard(card);
 	}
