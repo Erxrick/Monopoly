@@ -76,24 +76,19 @@ public class Game {
 			}
 		}while(diceRoll == 0 && player.isPlayerInJail() == true);
 		Board.moveFromDice(diceRoll, player);
+		boolean endTurn = false;
 		do{
 			int otherSelection = -1;
 			String[] turnOptions3 = {"End Turn", "Trade", "Buy or Sell houses"};
-			String[] turnOptions4 = {"End Turn", "Trade", "Buy or Sell houses"};
+			String[] turnOptions4 = {"End Turn", "Trade", "Buy or Sell houses", "Go Bankrupt"};
 			if(player.getMoney() < 0) {
 				otherSelection = ConsoleUI.promptForMenuSelection(turnOptions3, false);
 			} else {
-				otherSelection = ConsoleUI.promptForMenuSelection(turnOptions3, false);
+				otherSelection = ConsoleUI.promptForMenuSelection(turnOptions4, false);
 			}
-			switch(userSelection){
+			switch(otherSelection){
 				case 1:
-					diceRoll = roll();
-					//System.out.println("You rolled a " + roll());
-					if (diceRoll == 0){
-						player.setPlayerInJail(true);
-						//move player to jail
-						//make jail turn
-					}
+					endTurn = true;
 					break;
 				case 2:
 					trading();
@@ -115,9 +110,11 @@ public class Game {
 						}	
 					}while(otherUserSelection != 0);
 					break;
+				case 4:
+					endTurn = true;
+					break;
 			}
-		}while(diceRoll == 0 && player.isPlayerInJail() == true);
-		}while();
+		}while(endTurn == false);
 		//prompt for roll, trade, buy house, sell house,		done 
 		//move player
 		//option to buy or if bought have to pay rent
