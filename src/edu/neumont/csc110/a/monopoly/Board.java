@@ -61,6 +61,7 @@ public class Board {
 	}
 
 	public static void position0() {
+		BoardLogic.Go();
 		asciiArt.asciiBoard[52][110] = '(';
 		asciiArt.asciiBoard[52][111] = 'T';
 		asciiArt.asciiBoard[52][112] = ')';
@@ -95,6 +96,7 @@ public class Board {
 	}
 
 	public static void position1() {
+		BoardLogic.Mediterranean_Avenue();
 		asciiArt.asciiBoard[52][100] = '(';
 		asciiArt.asciiBoard[52][101] = 'T';
 		asciiArt.asciiBoard[52][102] = ')';
@@ -129,6 +131,7 @@ public class Board {
 	}
 
 	public static void position2() {
+		BoardLogic.Community_Chest();
 		asciiArt.asciiBoard[52][90] = '(';
 		asciiArt.asciiBoard[52][91] = 'T';
 		asciiArt.asciiBoard[52][92] = ')';
@@ -163,6 +166,7 @@ public class Board {
 	}
 
 	public static void position3() {
+		BoardLogic.Baltic_Avenue();
 		asciiArt.asciiBoard[52][80] = '(';
 		asciiArt.asciiBoard[52][81] = 'T';
 		asciiArt.asciiBoard[52][82] = ')';
@@ -197,6 +201,7 @@ public class Board {
 	}
 
 	public static void position4() {
+		BoardLogic.Income_Tax();
 		asciiArt.asciiBoard[52][70] = '(';
 		asciiArt.asciiBoard[52][71] = 'T';
 		asciiArt.asciiBoard[52][72] = ')';
@@ -231,6 +236,7 @@ public class Board {
 	}
 
 	public static void position5() {
+		BoardLogic.Reading_Railroad();
 		asciiArt.asciiBoard[52][60] = '(';
 		asciiArt.asciiBoard[52][61] = 'T';
 		asciiArt.asciiBoard[52][62] = ')';
@@ -265,6 +271,7 @@ public class Board {
 	}
 
 	public static void position6() {
+		BoardLogic.Oriental_Avenue();
 		asciiArt.asciiBoard[52][50] = '(';
 		asciiArt.asciiBoard[52][51] = 'T';
 		asciiArt.asciiBoard[52][52] = ')';
@@ -299,6 +306,7 @@ public class Board {
 	}
 
 	public static void position7() {
+		BoardLogic.Chance();
 		asciiArt.asciiBoard[52][40] = '(';
 		asciiArt.asciiBoard[52][41] = 'T';
 		asciiArt.asciiBoard[52][42] = ')';
@@ -333,6 +341,7 @@ public class Board {
 	}
 
 	public static void position8() {
+		BoardLogic.Vermont_Avenue();
 		asciiArt.asciiBoard[52][30] = '(';
 		asciiArt.asciiBoard[52][31] = 'T';
 		asciiArt.asciiBoard[52][32] = ')';
@@ -367,6 +376,7 @@ public class Board {
 	}
 
 	public static void position9() {
+		BoardLogic.Connecticut_Avenue();
 		asciiArt.asciiBoard[52][20] = '(';
 		asciiArt.asciiBoard[52][21] = 'T';
 		asciiArt.asciiBoard[52][22] = ')';
@@ -401,6 +411,7 @@ public class Board {
 	}
 
 	public static void position10() {
+		BoardLogic.Jail();
 		asciiArt.asciiBoard[52][10] = '(';
 		asciiArt.asciiBoard[52][11] = 'T';
 		asciiArt.asciiBoard[52][12] = ')';
@@ -435,6 +446,7 @@ public class Board {
 	}
 
 	public static void position11() {
+		BoardLogic.StCharles_Place();
 		asciiArt.asciiBoard[43][9] = '(';
 		asciiArt.asciiBoard[43][10] = 'T';
 		asciiArt.asciiBoard[43][11] = ')';
@@ -469,6 +481,7 @@ public class Board {
 	}
 
 	public static void position12() {
+		BoardLogic.Electric_Company();
 		asciiArt.asciiBoard[39][9] = '(';
 		asciiArt.asciiBoard[39][10] = 'T';
 		asciiArt.asciiBoard[39][11] = ')';
@@ -503,6 +516,7 @@ public class Board {
 	}
 
 	public static void position13() {
+		BoardLogic.States_Avenue();
 		asciiArt.asciiBoard[35][9] = '(';
 		asciiArt.asciiBoard[35][10] = 'T';
 		asciiArt.asciiBoard[35][11] = ')';
@@ -537,6 +551,7 @@ public class Board {
 	}
 
 	public static void position14() {
+		BoardLogic.Virginia_Avenue();
 		asciiArt.asciiBoard[31][9] = '(';
 		asciiArt.asciiBoard[31][10] = 'T';
 		asciiArt.asciiBoard[31][11] = ')';
@@ -571,6 +586,7 @@ public class Board {
 	}
 
 	public static void position15() {
+		BoardLogic.Pennsylvania_Railroad();
 		asciiArt.asciiBoard[27][9] = '(';
 		asciiArt.asciiBoard[27][10] = 'T';
 		asciiArt.asciiBoard[27][11] = ')';
@@ -605,6 +621,8 @@ public class Board {
 	}
 
 	public static void position16() {
+		BoardLogic.StJames_Place();
+		
 		asciiArt.asciiBoard[23][9] = '(';
 		asciiArt.asciiBoard[23][10] = 'T';
 		asciiArt.asciiBoard[23][11] = ')';
@@ -639,6 +657,8 @@ public class Board {
 	}
 
 	public static void position17() {
+		BoardLogic.Community_Chest();
+	
 		asciiArt.asciiBoard[19][9] = '(';
 		asciiArt.asciiBoard[19][10] = 'T';
 		asciiArt.asciiBoard[19][11] = ')';
@@ -673,6 +693,8 @@ public class Board {
 	}
 
 	public static void position18() {
+		BoardLogic.Tennessee_Avenue();
+	
 		asciiArt.asciiBoard[15][9] = '(';
 		asciiArt.asciiBoard[15][10] = 'T';
 		asciiArt.asciiBoard[15][11] = ')';
@@ -707,6 +729,8 @@ public class Board {
 	}
 
 	public static void position19() {
+		BoardLogic.New_York_Avenue();
+		
 		asciiArt.asciiBoard[11][9] = '(';
 		asciiArt.asciiBoard[11][10] = 'T';
 		asciiArt.asciiBoard[11][11] = ')';
@@ -741,6 +765,8 @@ public class Board {
 	}
 
 	public static void position20() {
+		BoardLogic.Free_Parking();
+	
 		asciiArt.asciiBoard[5][10] = '(';
 		asciiArt.asciiBoard[5][11] = 'T';
 		asciiArt.asciiBoard[5][12] = ')';
@@ -775,6 +801,8 @@ public class Board {
 	}
 
 	public static void position21() {
+		BoardLogic.Kentucky_Avenue();
+	
 		asciiArt.asciiBoard[5][20] = '(';
 		asciiArt.asciiBoard[5][21] = 'T';
 		asciiArt.asciiBoard[5][22] = ')';
@@ -809,6 +837,8 @@ public class Board {
 	}
 
 	public static void position22() {
+		BoardLogic.Chance();
+
 		asciiArt.asciiBoard[5][30] = '(';
 		asciiArt.asciiBoard[5][31] = 'T';
 		asciiArt.asciiBoard[5][32] = ')';
@@ -843,6 +873,8 @@ public class Board {
 	}
 
 	public static void position23() {
+		BoardLogic.Indiana_Avenue();
+		
 		asciiArt.asciiBoard[5][40] = '(';
 		asciiArt.asciiBoard[5][41] = 'T';
 		asciiArt.asciiBoard[5][42] = ')';
@@ -877,6 +909,8 @@ public class Board {
 	}
 
 	public static void position24() {
+		BoardLogic.Illinois_Avenue();
+	
 		asciiArt.asciiBoard[5][50] = '(';
 		asciiArt.asciiBoard[5][51] = 'T';
 		asciiArt.asciiBoard[5][52] = ')';
@@ -911,6 +945,8 @@ public class Board {
 	}
 
 	public static void position25() {
+		BoardLogic.BO_Railroad();
+	
 		asciiArt.asciiBoard[5][60] = '(';
 		asciiArt.asciiBoard[5][61] = 'T';
 		asciiArt.asciiBoard[5][62] = ')';
@@ -945,6 +981,8 @@ public class Board {
 	}
 
 	public static void position26() {
+		BoardLogic.Atlantic_Avenue();
+	
 		asciiArt.asciiBoard[5][70] = '(';
 		asciiArt.asciiBoard[5][71] = 'T';
 		asciiArt.asciiBoard[5][72] = ')';
@@ -979,6 +1017,8 @@ public class Board {
 	}
 
 	public static void position27() {
+		BoardLogic.Ventor_Avenue();
+	
 		asciiArt.asciiBoard[5][80] = '(';
 		asciiArt.asciiBoard[5][81] = 'T';
 		asciiArt.asciiBoard[5][82] = ')';
@@ -1013,6 +1053,8 @@ public class Board {
 	}
 
 	public static void position28() {
+		BoardLogic.Water_Works();
+		
 		asciiArt.asciiBoard[5][90] = '(';
 		asciiArt.asciiBoard[5][91] = 'T';
 		asciiArt.asciiBoard[5][92] = ')';
@@ -1047,6 +1089,8 @@ public class Board {
 	}
 
 	public static void position29() {
+		BoardLogic.Marvin_Gardens();
+	
 		asciiArt.asciiBoard[5][100] = '(';
 		asciiArt.asciiBoard[5][101] = 'T';
 		asciiArt.asciiBoard[5][102] = ')';
@@ -1081,6 +1125,8 @@ public class Board {
 	}
 
 	public static void position30() {
+		BoardLogic.Go_To_Jail();
+	
 		asciiArt.asciiBoard[5][110] = '(';
 		asciiArt.asciiBoard[5][111] = 'T';
 		asciiArt.asciiBoard[5][112] = ')';
@@ -1115,6 +1161,8 @@ public class Board {
 	}
 
 	public static void position31() {
+		BoardLogic.Pacific_Avenue();
+	
 		asciiArt.asciiBoard[11][123] = '(';
 		asciiArt.asciiBoard[11][124] = 'T';
 		asciiArt.asciiBoard[11][125] = ')';
@@ -1149,6 +1197,8 @@ public class Board {
 	}
 
 	public static void position32() {
+		BoardLogic.North_Carolina_Avenue();
+		
 		asciiArt.asciiBoard[15][123] = '(';
 		asciiArt.asciiBoard[15][124] = 'T';
 		asciiArt.asciiBoard[15][125] = ')';
@@ -1183,6 +1233,8 @@ public class Board {
 	}
 
 	public static void position33() {
+		BoardLogic.Community_Chest();
+		
 		asciiArt.asciiBoard[19][123] = '(';
 		asciiArt.asciiBoard[19][124] = 'T';
 		asciiArt.asciiBoard[19][125] = ')';
@@ -1218,6 +1270,8 @@ public class Board {
 	}
 
 	public static void position34() {
+		BoardLogic.Pennslvania_Avenue();
+		
 		asciiArt.asciiBoard[23][123] = '(';
 		asciiArt.asciiBoard[23][124] = 'T';
 		asciiArt.asciiBoard[23][125] = ')';
@@ -1253,6 +1307,8 @@ public class Board {
 	}
 
 	public static void position35() {
+		BoardLogic.Pennslvania_Avenue();
+		
 		asciiArt.asciiBoard[27][123] = '(';
 		asciiArt.asciiBoard[27][124] = 'T';
 		asciiArt.asciiBoard[27][125] = ')';
@@ -1287,6 +1343,8 @@ public class Board {
 	}
 
 	public static void position36() {
+		BoardLogic.Chance();
+
 		asciiArt.asciiBoard[31][123] = '(';
 		asciiArt.asciiBoard[31][124] = 'T';
 		asciiArt.asciiBoard[31][125] = ')';
@@ -1321,6 +1379,8 @@ public class Board {
 	}
 
 	public static void position37() {
+		BoardLogic.Park_Place();
+	
 		asciiArt.asciiBoard[35][123] = '(';
 		asciiArt.asciiBoard[35][124] = 'T';
 		asciiArt.asciiBoard[35][125] = ')';
@@ -1356,6 +1416,8 @@ public class Board {
 	}
 
 	public static void position38() {
+		BoardLogic.Luxury_Tax();
+		
 		asciiArt.asciiBoard[39][123] = '(';
 		asciiArt.asciiBoard[39][124] = 'T';
 		asciiArt.asciiBoard[39][125] = ')';
@@ -1391,6 +1453,7 @@ public class Board {
 	}
 
 	public static void position39() {
+		BoardLogic.Boardwalk();
 		asciiArt.asciiBoard[43][123] = '(';
 		asciiArt.asciiBoard[43][124] = 'T';
 		asciiArt.asciiBoard[43][125] = ')';
