@@ -31,11 +31,65 @@ public class BoardTiles {
 	PropertyCards Short_Line = new PropertyCards();
 	PropertyCards Electric_Company = new PropertyCards();
 	PropertyCards Water_Works = new PropertyCards();
-
+	//TODO Replace Com Chest and Chance right now just a placeholder
+	PropertyCards Community_Chest = new PropertyCards();
+	PropertyCards Chance = new PropertyCards();
+	PropertyCards Income_Tax = new PropertyCards();
+	PropertyCards Jail = new PropertyCards();
+	PropertyCards Free_Parking = new PropertyCards();
+	PropertyCards Go_To_Jail = new PropertyCards();
+	PropertyCards Luxury_Tax = new PropertyCards();
+	PropertyCards GO = new PropertyCards();
+	//TODO Ends
+	PropertyCards[] PropCards = { 
+		
+		Mediterranean_Avenue,
+		Community_Chest,
+		Baltic_Avenue, 
+		Income_Tax, 
+		Reading_Railroad, 
+		Oriental_Avenue,
+		Chance,
+		Vermont_Avenue,
+		Connecticut_Avenue,
+		Jail,
+		StCharles_Place,
+		Electric_Company, 
+		States_Avenue,
+		Virginia_Avenue,
+		Pennsylvania_Railroad,
+		StJames_Place,
+		Community_Chest,
+		Tennessee_Avenue,
+		New_York_Avenue,
+		Free_Parking,
+		Kentucky_Avenue,
+		Chance,
+		Indiana_Avenue,
+		Illinois_Avenue,
+		BO_Railroad,
+		Atlantic_Avenue,
+		Ventor_Avenue,
+		Water_Works,
+		Marvin_Gardens,
+		Go_To_Jail,
+		Pacific_Avenue,
+		North_Carolina_Avenue,
+		Community_Chest,
+		Pennslvania_Avenue,
+		Short_Line,
+		Chance,
+		Park_Place,
+		Luxury_Tax,
+		Boardwalk,
+		GO
+	
+	};
 	public void init() {
 		
 		//ArrayList<PropertyCards> bankerProperty = new ArrayList<PropertyCards>();
 		//1 Mediterranean_Avenue
+		
 		
 		Mediterranean_Avenue.setName("Mediterranean Avenue");
 		Mediterranean_Avenue.setColor(PropertyType.brown);

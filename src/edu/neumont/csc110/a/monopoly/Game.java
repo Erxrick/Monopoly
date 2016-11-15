@@ -7,10 +7,82 @@ import edu.neumont.csc110.a.utilities.ConsoleUI;
 
 public class Game {
 	static Player[] player = new Player[8];
+	CommunityChanceText decks = new CommunityChanceText();
+	BoardTiles allTheProperty = new BoardTiles();
 	
 	public void run() throws IOException {
-		//pick_players();
+		
+		intitializeTheGame();
+		boolean anyoneWin = false;
+		while(!anyoneWin) {
+			for(int i=0;i<player.length;i++) {
+				if(player[i].isPlayerInJail()) {
+					playerInJailTurn(player[i]);
+				} else {
+					turn(player[i]);
+				}
+				anyoneWin = win(player[i]);
+			}
+		}
 		//System.out.println("You rolled a " + roll());
+	}
+	
+	private void intitializeTheGame() throws IOException {
+		decks.resetBothDecks();
+		allTheProperty.init();
+		pick_players();
+	}
+
+	private void turn(Player player) throws IOException {
+		int diceRoll = 0;
+		do{
+			System.out.println(player.getName() + " would you like to:");
+			String[] turnOptions = {"Roll the die", "Trade", "Buy or Sell houses"};
+			int userSelection = ConsoleUI.promptForMenuSelection(turnOptions, false);
+			switch(userSelection){
+				case 1:
+					diceRoll = roll();
+					//System.out.println("You rolled a " + roll());
+					if (diceRoll == 0){
+						player.setPlayerInJail(true);
+						//move player to jail
+						//make jail turn
+					}
+					break;
+				case 2:
+					trading();
+					break;
+				case 3:
+					int otherUserSelection = -1;
+					String[] otherOptions = {"Buy Houses", "Sell Houses"};
+					do{
+						otherUserSelection = ConsoleUI.promptForMenuSelection(otherOptions, true);
+						switch(otherUserSelection){
+							case 0:
+								break;
+							case 1:
+								buy_Houses();
+								break;
+							case 2:
+								sell_Houses();
+								break;
+						}	
+					}while(otherUserSelection != 0);
+					break;
+			}
+		}while(diceRoll == 0 && player.isPlayerInJail() == true);
+		Board.moveFromDice(diceRoll, player);
+		//prompt for roll, trade, buy house, sell house,		done 
+		//move player
+		//option to buy or if bought have to pay rent
+		//trade buy house sell house end turn
+	}
+	private boolean win(Player player) {
+		return true;
+	}
+	
+	private void playerInJailTurn(Player player) {
+		
 	}
 	
 	private void chanceORChest(){
@@ -131,11 +203,13 @@ public class Game {
 		ConsoleUI.promptForInput("What are you getting?", false);
 	}
 	
-	private static void sell_houses(){
+	{
+	private static void sell_Houses(){
 		//when the property is chosen, can remove house to get money back.
 	}
 	
-	private static void Buy_houses() throws IOException{
+	
+	private static void buy_Houses() throws IOException{
 		//when the property is chosen, can add house to property, for money, if you have all corresponding colors.
 		int house = ConsoleUI.promptForInt("How many houses do you wish to buy?", 1, 5);
 		switch(house){
@@ -161,6 +235,7 @@ public class Game {
 	
 	private static void buy_property() throws IOException{
 		//when bought it will subtract the money from the player,
+		
 		boolean buy = ConsoleUI.promptForBool("Will you buy this property(y/n)", "y", "n");
 		if(buy == true){
 			//player[i].buyFromBanker(card, bank);
@@ -239,17 +314,49 @@ public class Game {
 	public int roll(){
 		Random rando = new Random();
 		final int times = 2;
-		int[] rolls = new int[times];
+		
+		int[] rolls1 = new int[times];
+		int[] rolls2 = new int[times];
+		int[] rolls3 = new int[times];
 		for(int i = 0; i < times; i++){
-			rolls[i] = rando.nextInt(6)+1;
-			System.out.print(rolls[i] + " ");
+			rolls1[i] = rando.nextInt(6)+1;
+			System.out.print(rolls1[i] + " ");
 		}
-		return sum(rolls);
+		if(rolls1[0] == rolls1[1]) {
+			for(int i = 0; i < times; i++){
+				rolls1[i] = rando.nextInt(6)+1;
+				System.out.print(rolls2[i] + " ");
+			}
+		} 
+		else {
+			rolls2[0] = 0;
+			rolls2[1] = 0;
+		}
+		if(rolls2[0] == rolls2[1] && rolls2[1] != 0) {
+			for(int i = 0; i < times; i++){
+				rolls3[i] = rando.nextInt(6)+1;
+				System.out.print(rolls3[i] + " ");
+			}
+		} else {
+			rolls3[0] = 0;
+			rolls3[1] = 0;
+		}
+		if(rolls3[0] == rolls3[1] && rolls3[1] != 0) {
+			return 0;
+		}
+		return sum(rolls1, rolls2, rolls3);
 	}
-	public static int sum(int[] array){
+	
+	public static int sum(int[] array, int[] array1, int[] array2){
 		int sum = 0;
 		for(int i=0; i<array.length; i++){
 			sum=sum+array[i];
+		}
+		for(int i=0; i<array1.length; i++){
+			sum=sum+array1[i];
+		}
+		for(int i=0; i<array2.length; i++){
+			sum=sum+array2[i];
 		}
 		return sum;
 	}
