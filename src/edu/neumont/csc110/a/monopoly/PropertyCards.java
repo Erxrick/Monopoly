@@ -7,7 +7,8 @@ public class PropertyCards {
 	private PropertyType color;
 	private int price;
 	private int house;
-	public int rent;
+	private boolean isBought;
+	private int rent;
 	private int rentH1;
 	private int rentH2;
 	private int rentH3;
@@ -22,7 +23,12 @@ public class PropertyCards {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+	public boolean isBought() {
+		return isBought;
+	}
+	public void setBought(boolean isBought) {
+		this.isBought = isBought;
+	}
 	public int getPrice() {
 		return price;
 	}
