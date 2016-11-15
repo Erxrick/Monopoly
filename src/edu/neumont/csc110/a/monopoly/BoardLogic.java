@@ -20,7 +20,7 @@ public static void Park_Place() {
 	
 }
 
-//TODO Chance!!!!!
+
 
 public static void Short_Line() {
 	// TODO Auto-generated method stub
@@ -31,7 +31,7 @@ public static void Pennslvania_Avenue() {
 	
 }
 
-//TODO COM CHEST!!!
+
 
 static void North_Carolina_Avenue() {
 	// TODO Auto-generated method stub
@@ -84,7 +84,6 @@ public static void Indiana_Avenue() {
 	// TODO Auto-generated method stub
 	
 }
-//TODO Chance!!!!
 
 public static void Kentucky_Avenue() {
 	// TODO Auto-generated method stub
@@ -108,7 +107,7 @@ public static void Tennessee_Avenue() {
 	
 }
 
-//TODO com chest!!!!!!
+
 
 public static void StJames_Place() {
 	// TODO Auto-generated method stub
