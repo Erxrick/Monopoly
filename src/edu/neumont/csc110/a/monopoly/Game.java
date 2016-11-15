@@ -9,6 +9,7 @@ public class Game {
 	static Player[] player = new Player[8];
 	CommunityChanceText decks = new CommunityChanceText();
 	BoardTiles allTheProperty = new BoardTiles();
+	Banker bank = new Banker();
 	
 	public void run() throws IOException {
 		
@@ -16,12 +17,14 @@ public class Game {
 		boolean anyoneWin = false;
 		while(!anyoneWin) {
 			for(int i=0;i<player.length;i++) {
-				if(player[i].isPlayerInJail()) {
-					playerInJailTurn(player[i]);
-				} else {
-					turn(player[i]);
+				if(player[i].getMoney() > -1) {	
+					if(player[i].isPlayerInJail()) {
+						playerInJailTurn(player[i]);
+					} else {
+						turn(player[i]);
+					}
+					anyoneWin = win(player[i]);
 				}
-				anyoneWin = win(player[i]);
 			}
 		}
 		//System.out.println("You rolled a " + roll());
@@ -30,6 +33,7 @@ public class Game {
 	private void intitializeTheGame() throws IOException {
 		decks.resetBothDecks();
 		allTheProperty.init();
+		bank.bankinit();
 		pick_players();
 	}
 
@@ -72,6 +76,48 @@ public class Game {
 			}
 		}while(diceRoll == 0 && player.isPlayerInJail() == true);
 		Board.moveFromDice(diceRoll, player);
+		do{
+			int otherSelection = -1;
+			String[] turnOptions3 = {"End Turn", "Trade", "Buy or Sell houses"};
+			String[] turnOptions4 = {"End Turn", "Trade", "Buy or Sell houses"};
+			if(player.getMoney() < 0) {
+				otherSelection = ConsoleUI.promptForMenuSelection(turnOptions3, false);
+			} else {
+				otherSelection = ConsoleUI.promptForMenuSelection(turnOptions3, false);
+			}
+			switch(userSelection){
+				case 1:
+					diceRoll = roll();
+					//System.out.println("You rolled a " + roll());
+					if (diceRoll == 0){
+						player.setPlayerInJail(true);
+						//move player to jail
+						//make jail turn
+					}
+					break;
+				case 2:
+					trading();
+					break;
+				case 3:
+					int otherUserSelection = -1;
+					String[] otherOptions = {"Buy Houses", "Sell Houses"};
+					do{
+						otherUserSelection = ConsoleUI.promptForMenuSelection(otherOptions, true);
+						switch(otherUserSelection){
+							case 0:
+								break;
+							case 1:
+								buy_Houses();
+								break;
+							case 2:
+								sell_Houses();
+								break;
+						}	
+					}while(otherUserSelection != 0);
+					break;
+			}
+		}while(diceRoll == 0 && player.isPlayerInJail() == true);
+		}while();
 		//prompt for roll, trade, buy house, sell house,		done 
 		//move player
 		//option to buy or if bought have to pay rent
@@ -203,7 +249,7 @@ public class Game {
 		ConsoleUI.promptForInput("What are you getting?", false);
 	}
 	
-	{
+	
 	private static void sell_Houses(){
 		//when the property is chosen, can remove house to get money back.
 	}
