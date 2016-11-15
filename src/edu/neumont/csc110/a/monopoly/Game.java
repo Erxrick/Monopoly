@@ -7,19 +7,31 @@ import edu.neumont.csc110.a.utilities.ConsoleUI;
 
 public class Game {
 	static Player[] player = new Player[8];
+	CommunityChanceText decks = new CommunityChanceText();
+	BoardTiles allTheProperty = new BoardTiles();
 	
 	public void run() throws IOException {
-		pick_players();
+		intitializeTheGame();
 		boolean anyoneWin = false;
 		while(!anyoneWin) {
 			for(int i=0;i<player.length;i++) {
-				turn(player[i]);
+				if(player[i].isPlayerInJail()) {
+					playerInJailTurn(player[i]);
+				} else {
+					turn(player[i]);
+				}
 				anyoneWin = win(player[i]);
 			}
 		}
 		//System.out.println("You rolled a " + roll());
 	}
 	
+	private void intitializeTheGame() throws IOException {
+		decks.resetBothDecks();
+		allTheProperty.init();
+		pick_players();
+	}
+
 	private void turn(Player player) throws IOException {
 		int diceRoll = 0;
 		do{
@@ -29,6 +41,7 @@ public class Game {
 			switch(userSelection){
 				case 1:
 					diceRoll = roll();
+					//System.out.println("You rolled a " + roll());
 					if (diceRoll == 0){
 						player.setPlayerInJail(true);
 						//move player to jail
@@ -56,7 +69,7 @@ public class Game {
 					}while(otherUserSelection != 0);
 					break;
 			}
-		}while(diceRoll == 0);
+		}while(diceRoll == 0 && player.isPlayerInJail() == true);
 		Board.moveFromDice(diceRoll, player);
 		//prompt for roll, trade, buy house, sell house,		done 
 		//move player
@@ -65,6 +78,10 @@ public class Game {
 	}
 	private boolean win(Player player) {
 		return true;
+	}
+	
+	private void playerInJailTurn(Player player) {
+		
 	}
 	
 	private void chanceORChest(){
