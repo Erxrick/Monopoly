@@ -61,6 +61,7 @@ public class Board {
 	}
 
 	public static void position0() {
+		
 		asciiArt.asciiBoard[52][110] = '(';
 		asciiArt.asciiBoard[52][111] = 'T';
 		asciiArt.asciiBoard[52][112] = ')';
