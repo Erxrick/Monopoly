@@ -203,7 +203,7 @@ public class Game {
 		ConsoleUI.promptForInput("What are you getting?", false);
 	}
 	
-	{
+	
 	private static void sell_Houses(){
 		//when the property is chosen, can remove house to get money back.
 	}
