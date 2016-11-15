@@ -8,8 +8,6 @@ public static void Boardwalk() {
 	
 }
 
-
-
 public static void Luxury_Tax() {
 	// TODO Auto-generated method stub
 	
@@ -19,8 +17,6 @@ public static void Park_Place() {
 	// TODO Auto-generated method stub
 	
 }
-
-
 
 public static void Short_Line() {
 	// TODO Auto-generated method stub
