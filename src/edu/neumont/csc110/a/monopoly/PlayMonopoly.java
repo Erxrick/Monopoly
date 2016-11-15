@@ -3,7 +3,7 @@ import java.io.IOException;
 
 public class PlayMonopoly {
 	public static void main(String[] args) throws IOException {
-		//Board.printMainBoard();
+		Board.printMainBoard();
 		Game play = new Game();
 		play.run();
 	}
