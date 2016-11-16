@@ -131,7 +131,10 @@ public class Game {
 	}
 
 	private void playerInJailTurn(Player player) {
-
+		// you must either roll doubles to set jail = false,
+		// use "get out of jail free" card,
+		// or pay 50 money before rolling the dice.
+	
 	}
 
 	private void chanceORChest() {
@@ -206,10 +209,7 @@ public class Game {
 
 
 		// }
-		// you must either roll doubles to set jail = false,
-		// use "get out of jail free" card,
-		// or pay 50 money before rolling the dice.
-	}
+	
 
 	private static void mortgage() {
 		// when all houses have been sold, you can mortgage property for money
@@ -228,8 +228,8 @@ public class Game {
 	}
 
 		
-
-int sell = ConsoleUI.promptForInt("How many houses do you wish to sell?", 1, 5);
+	private void sell_Houses() throws IOException {
+	int sell = ConsoleUI.promptForInt("How many houses do you wish to sell?", 1, 5);
 		switch (sell) {
 		case 1:
 			// player[i].addMoney(half the cost of one house);
