@@ -21,31 +21,30 @@ public class Game {
 		}
 		while (!anyoneWin) {
 			for (int i = 0; i < person; i++) {
-					if (player[i].isPlayerInJail()) {
-						Board.printMainBoard(player[i]);
-						playerInJailTurn(player[i]);
-					} else {
-						Board.printMainBoard(player[i]);
-						turn(player[i]);
-					}
-					
+				if (player[i].isPlayerInJail()) {
+					Board.printMainBoard(player[i]);
+					playerInJailTurn(player[i]);
+				} else {
+					Board.printMainBoard(player[i]);
+					turn(player[i]);
+				}
+
 				anyoneWin = win(player[i]);
 			}
 		}
-		
+
 		// System.out.println("You rolled a " + roll());
 	}
 
 	private void intitializeTheGame() throws IOException {
 		decks.resetBothDecks();
 		allTheProperty.init();
-				
 
 	}
 
 	private void turn(Player player) throws IOException {
 		int diceRoll = 0;
-		
+
 		do {
 			System.out.println(player.getName() + " would you like to:");
 			String[] turnOptions = { "Roll the die", "Trade", "Buy or Sell houses" };
@@ -86,50 +85,50 @@ public class Game {
 
 		} while (diceRoll == 0 && player.isPlayerInJail() == true);
 		Board.moveFromDice(diceRoll, player);
-		
+
 		boolean endTurn = false;
-		do{
+		do {
 			int otherSelection = -1;
-			String[] turnOptions3 = {"End Turn", "Trade", "Buy or Sell houses"};
-			String[] turnOptions4 = {"End Turn", "Trade", "Buy or Sell houses", "Go Bankrupt"};
-			if(player.getMoney() < 0) {
+			String[] turnOptions3 = { "End Turn", "Trade", "Buy or Sell houses" };
+			String[] turnOptions4 = { "End Turn", "Trade", "Buy or Sell houses", "Go Bankrupt" };
+			if (player.getMoney() < 0) {
 				otherSelection = ConsoleUI.promptForMenuSelection(turnOptions3, false);
 			} else {
 				otherSelection = ConsoleUI.promptForMenuSelection(turnOptions4, false);
 			}
-			switch(otherSelection){
-				case 1:
-					endTurn = true;
-					break;
-				case 2:
-					trading();
-					break;
-				case 3:
-					int otherUserSelection = -1;
-					String[] otherOptions = {"Buy Houses", "Sell Houses"};
-					do{
-						otherUserSelection = ConsoleUI.promptForMenuSelection(otherOptions, true);
-						switch(otherUserSelection){
-							case 0:
-								break;
-							case 1:
-								buy_Houses();
-								break;
-							case 2:
-								sell_Houses();
-								break;
-						}	
-					}while(otherUserSelection != 0);
-					break;
-				case 4:
-					endTurn = true;
-					break;
+			switch (otherSelection) {
+			case 1:
+				endTurn = true;
+				break;
+			case 2:
+				trading();
+				break;
+			case 3:
+				int otherUserSelection = -1;
+				String[] otherOptions = { "Buy Houses", "Sell Houses" };
+				do {
+					otherUserSelection = ConsoleUI.promptForMenuSelection(otherOptions, true);
+					switch (otherUserSelection) {
+					case 0:
+						break;
+					case 1:
+						buy_Houses();
+						break;
+					case 2:
+						sell_Houses();
+						break;
+					}
+				} while (otherUserSelection != 0);
+				break;
+			case 4:
+				endTurn = true;
+				break;
 			}
-		}while(endTurn == false);
-		//prompt for roll, trade, buy house, sell house,		done 
-		//move player
-		//option to buy or if bought have to pay rent
-		//trade buy house sell house end turn
+		} while (endTurn == false);
+		// prompt for roll, trade, buy house, sell house, done
+		// move player
+		// option to buy or if bought have to pay rent
+		// trade buy house sell house end turn
 	}
 
 	private boolean win(Player player) {
@@ -139,18 +138,15 @@ public class Game {
 	private void playerInJailTurn(Player player) {
 
 	}
-	
 
 	private void chanceORChest() {
 		/*
-		 * if(player is on chance){ 
-		 * }else
-		 * if(player is on chest){
-		 * CommunityChanceText.CommunityChestText(player[i], otherPlayers); 
-		 * }
+		 * if(player[i].getPlayerPosition() = BoardLogic.Chance()){
+		 * CommunityChanceText.chanceText(player, player); 
+		 * }else if(player[i].getPlayerPosition() = BoardLogic.Community_Chest()){
+		 * CommunityChanceText.communityChestText(player, player); }
 		 */
 	}
-	
 
 	private static void rent() {
 		/*
@@ -213,21 +209,20 @@ public class Game {
 		 */
 	}
 
-
 	private static void jail() {
-		// when player in jail = true, end that players turn,
+		// if(Player.setPlayerInJail == true){
+
+		// }
 		// you must either roll doubles to set jail = false,
 		// use "get out of jail free" card,
 		// or pay 50 money before rolling the dice.
 	}
-
 
 	private static void mortgage() {
 		// when all houses have been sold, you can mortgage property for money
 		// if players money is in the negatives.
 		// when mortgaged, you cannot get money from players that land on it.
 	}
-
 
 	private static void trading() throws IOException {
 		// can trade with a player for property, with property, money, or get
@@ -239,11 +234,32 @@ public class Game {
 		ConsoleUI.promptForInput("What are you getting?", false);
 	}
 
-
-	private static void sell_Houses() {
+	private static void sell_Houses() throws IOException {
 		// when the property is chosen, can remove house to get money back.
-	}
+		int sell = ConsoleUI.promptForInt("How many houses do you wish to sell?", 1, 5);
 
+		switch (sell) {
+		case 1:
+			// player[i].addMoney(half the cost of one house);
+			// player[i].addHouseTotal(-1);
+			break;
+		case 2:
+			// player[i].addMoney(half the cost of two houses);
+			// player[i].addHouseTotal(-2);
+			break;
+		case 3:
+			// player[i].addMoney(half the cost of three houses);
+			// player[i].addHouseTotal(-3);
+			break;
+		case 4:
+			// player[i].addMoney(half the cost of four houses);
+			// player[i].addHouseTotal(-4);
+			break;
+		case 5:
+			// player[i].addMoney(-cost of four houses and hotel);
+			break;
+		}
+	}
 
 	private static void buy_Houses() throws IOException {
 		// when the property is chosen, can add house to property, for money, if
@@ -267,11 +283,13 @@ public class Game {
 			// player[i].addMoney(-cost of four houses);
 			// player[i].addHouseTotal(4);
 			break;
+		case 5:
+			// player[i].addMoney(-cost of four houses and hotel);
+			break;
 		}
 
 		// after four houses have been built, remove the houses and put hotel.
 	}
-
 
 	private static void buy_property() throws IOException {
 		// when bought it will subtract the money from the player,
@@ -288,7 +306,6 @@ public class Game {
 		// subtract property card from bank,
 		// and give the player the property card.
 	}
-
 
 	private static int pick_players() throws IOException {
 		boolean valid = false;
@@ -416,7 +433,6 @@ public class Game {
 		}
 		return sum(rolls1, rolls2, rolls3);
 	}
-
 
 	public static int sum(int[] array, int[] array1, int[] array2) {
 		int sum = 0;
