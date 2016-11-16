@@ -3,8 +3,10 @@ package edu.neumont.csc110.a.monopoly;
 public class BoardLogic {
 
 
-public static void Boardwalk() {
-	// TODO Auto-generated method stub
+public static void Boardwalk(PropertyCards cards) {
+	if(cards.isBought() == true){
+		
+	}
 	
 }
 
@@ -26,8 +28,6 @@ public static void Pennslvania_Avenue() {
 	// TODO Auto-generated method stub
 	
 }
-
-
 
 static void North_Carolina_Avenue() {
 	// TODO Auto-generated method stub
