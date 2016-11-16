@@ -2,6 +2,7 @@ package edu.neumont.csc110.a.monopoly;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 import edu.neumont.csc110.a.utilities.ConsoleUI;
@@ -28,7 +29,7 @@ public class Game {
 						turn(player[i]);
 					}
 					
-				anyoneWin = win(player[i]);
+				//anyoneWin = win(player[i]);
 			}
 		}
 		
@@ -84,7 +85,8 @@ public class Game {
 			}
 
 		} while (diceRoll == 0 && player.isPlayerInJail() == true);
-		Board.moveFromDice(diceRoll, player);
+		Board.moveFromDice(diceRoll, player, allTheProperty);
+		
 		
 		boolean endTurn = false;
 		do{
@@ -291,88 +293,22 @@ public class Game {
 
 
 	private static int pick_players() throws IOException {
-		boolean valid = false;
 		int person = ConsoleUI.promptForInt("How many players are playing?", 2, 8);
 		ArrayList<Integer> chosen = new ArrayList<Integer>();
+		ArrayList<String> pieces = new ArrayList<String>(Arrays.asList("Thimble", "Wheel Barrel", "Shoe", "Dog", "Car", "Iron", "Hat", "Battleship"));
 
 		for (int i = 0; i < person; i++) {
 			player[i] = new Player();
 		}
 
-		for (int i = 1; i <= person; i++) {
-			valid = false;
-
-			player[i - 1].setName(ConsoleUI.promptForInput("What is player " + i + "'s name?", false));
-			System.out.println("Player " + player[i - 1].getName() + ", what is the piece you wish to be?");
-			String[] pieces = { "Thimble", "Wheel Barrel", "Shoe", "Dog", "Car", "Iron", "Hat", "Battleship" };
-
-			while (valid == false) {
-				int choose = ConsoleUI.promptForMenuSelection(pieces, false);
-
-				boolean temp = chosen.contains(choose);
-				if (temp == false) {
-					chosen.add(choose);
-
-					switch (choose) {
-					case 1:
-
-						System.out.println(player[i - 1].getName() + " has chosen the Thimble.");
-						player[i - 1].setPiece("Thimble");
-						player[i - 1].addMoney(1500);
-						valid = true;
-						break;
-					case 2:
-
-						System.out.println(player[i - 1].getName() + " has chosen the Wheel Barrel.");
-						player[i - 1].setPiece("Wheel Barrel");
-						player[i - 1].addMoney(1500);
-						valid = true;
-						break;
-					case 3:
-
-						System.out.println(player[i - 1].getName() + " has chosen the Shoe.");
-						player[i - 1].setPiece("Shoe");
-						player[i - 1].addMoney(1500);
-						valid = true;
-						break;
-					case 4:
-
-						System.out.println(player[i - 1].getName() + " has chosen the Dog.");
-						player[i - 1].setPiece("Dog");
-						player[i - 1].addMoney(1500);
-						valid = true;
-						break;
-					case 5:
-
-						System.out.println(player[i - 1].getName() + " has chosen the Car.");
-						player[i - 1].setPiece("Car");
-						player[i - 1].addMoney(1500);
-						valid = true;
-						break;
-					case 6:
-
-						System.out.println(player[i - 1].getName() + " has chosen the Iron.");
-						player[i - 1].setPiece("Iron");
-						player[i - 1].addMoney(1500);
-						valid = true;
-						break;
-					case 7:
-
-						System.out.println(player[i - 1].getName() + " has chosen the Hat.");
-						player[i - 1].setPiece("Hat");
-						player[i - 1].addMoney(1500);
-						valid = true;
-						break;
-					case 8:
-
-						System.out.println(player[i - 1].getName() + " has chosen the Battleship.");
-						player[i - 1].setPiece("Battleship");
-						player[i - 1].addMoney(1500);
-						valid = true;
-						break;
-					}
-				}
-			}
+		for (int i = 0; i < person; i++) {
+			player[i].setName(ConsoleUI.promptForInput("What is player " + (i+1) + "'s name?", false));
+			System.out.println("Player " + player[i].getName() + ", what is the piece you wish to be?");
+			int choose = (ConsoleUI.promptForMenuSelectionWithArrayList(pieces, false) - 1);
+			player[i].setPiece(pieces.get(choose));
+			System.out.println(player[i].getName() + " has chosen the " + player[i].getPiece() + ".");
+			player[i].setStartingMoney();
+			pieces.remove(choose);
 		}
 		return person;
 	}
@@ -389,13 +325,13 @@ public class Game {
 			rolls1[i] = rando.nextInt(6) + 1;
 			System.out.print(rolls1[i] + " ");
 		}
-
+		System.out.println();
 		if (rolls1[0] == rolls1[1]) {
 			for (int i = 0; i < times; i++) {
-				rolls1[i] = rando.nextInt(6) + 1;
+				rolls2[i] = rando.nextInt(6) + 1;
 				System.out.print(rolls2[i] + " ");
 			}
-
+			System.out.println();
 		} else {
 			rolls2[0] = 0;
 			rolls2[1] = 0;
@@ -406,6 +342,7 @@ public class Game {
 				rolls3[i] = rando.nextInt(6) + 1;
 				System.out.print(rolls3[i] + " ");
 			}
+			System.out.println();
 		} else {
 			rolls3[0] = 0;
 			rolls3[1] = 0;

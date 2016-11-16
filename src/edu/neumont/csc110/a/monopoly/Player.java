@@ -11,7 +11,7 @@ public class Player {
 	private int houseTotal;
 	private int hotelTotal;
 	private ArrayList<PropertyCards> property; //taking from the arraylist from the bank
-
+	
 	public int getHotelTotal() {
 		return hotelTotal;
 	}

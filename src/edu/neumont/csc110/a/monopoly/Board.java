@@ -1,7 +1,7 @@
 package edu.neumont.csc110.a.monopoly;
 
 public class Board {
-	public static void moveFromDice(int diceRoll, Player player) {
+	public static void moveFromDice(int diceRoll, Player player, BoardTiles allTheProperty) {
 		/*
 		 * removeOldPosition(currentPlayersPosition); currentPlayersPosition +=
 		 * diceRoll; newPlayerPosition(currentPLayerPosition);
