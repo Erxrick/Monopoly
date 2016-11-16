@@ -16,6 +16,7 @@ public class Game {
 		intitializeTheGame();
 		boolean anyoneWin = false;
 		for (int j = 0; j < person; j++) {
+				player[j].setPlayerPosition(0);
 				Board.printMainBoard(player[j]);
 		}
 		while (!anyoneWin) {
