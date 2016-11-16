@@ -10,8 +10,16 @@ public class Player {
 	private boolean isPlayerInJail;
 	private int houseTotal;
 	private int hotelTotal;
+	private int playerPosition;
 	private ArrayList<PropertyCards> property; //taking from the arraylist from the bank
 	
+	public int getPlayerPosition() {
+		return playerPosition;
+	}
+	
+	public void setPlayerPosition(int playerPos) {
+		this.playerPosition += playerPos;
+	}
 	public int getHotelTotal() {
 		return hotelTotal;
 	}

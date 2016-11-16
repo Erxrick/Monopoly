@@ -8,56 +8,138 @@ public class Board {
 		 */
 	}
 
+	public static void setMainBoard(Player player) {
+		reinitializeBoard();
+		if (player.getPlayerPosition() == 0) {
+			position0(player);
+		}
+		if (player.getPlayerPosition() == 1) {
+			position1(player);
+		}
+		if (player.getPlayerPosition() == 2) {
+			position2(player);
+		}
+		if (player.getPlayerPosition() == 3) {
+			position3(player);
+		}
+		if (player.getPlayerPosition() == 4) {
+			position4(player);
+		}
+		if (player.getPlayerPosition() == 5) {
+			position5(player);
+		}
+		if (player.getPlayerPosition() == 6) {
+			position6(player);
+		}
+		if (player.getPlayerPosition() == 7) {
+			position7(player);
+		}
+		if (player.getPlayerPosition() == 8) {
+			position8(player);
+		}
+		if (player.getPlayerPosition() == 9) {
+			position9(player);
+		}
+		if (player.getPlayerPosition() == 10) {
+			position10(player);
+		}
+		if (player.getPlayerPosition() == 11) {
+			position11(player);
+		}
+		if (player.getPlayerPosition() == 12) {
+			position12(player);
+		}
+		if (player.getPlayerPosition() == 13) {
+			position13(player);
+		}
+		if (player.getPlayerPosition() == 14) {
+			position14(player);
+		}
+		if (player.getPlayerPosition() == 15) {
+			position15(player);
+		}
+		if (player.getPlayerPosition() == 16) {
+			position16(player);
+		}
+		if (player.getPlayerPosition() == 17) {
+			position17(player);
+		}
+		if (player.getPlayerPosition() == 18) {
+			position18(player);
+		}
+		if (player.getPlayerPosition() == 19) {
+			position19(player);
+		}
+		if (player.getPlayerPosition() == 20) {
+			position20(player);
+		}
+		if (player.getPlayerPosition() == 21) {
+			position21(player);
+		}
+		if (player.getPlayerPosition() == 22) {
+			position22(player);
+		}
+		if (player.getPlayerPosition() == 23) {
+			position23(player);
+		}
+		if (player.getPlayerPosition() == 24) {
+			position24(player);
+		}
+		if (player.getPlayerPosition() == 25) {
+			position25(player);
+		}
+		if (player.getPlayerPosition() == 26) {
+			position26(player);
+		}
+		if (player.getPlayerPosition() == 27) {
+			position27(player);
+		}
+		if (player.getPlayerPosition() == 28) {
+			position28(player);
+		}
+		if (player.getPlayerPosition() == 29) {
+			position29(player);
+		}
+		if (player.getPlayerPosition() == 30) {
+			position30(player);
+		}
+		if (player.getPlayerPosition() == 31) {
+			position31(player);
+		}
+		if (player.getPlayerPosition() == 32) {
+			position32(player);
+		}
+		if (player.getPlayerPosition() == 33) {
+			position33(player);
+		}
+		if (player.getPlayerPosition() == 34) {
+			position34(player);
+		}
+		if (player.getPlayerPosition() == 35) {
+			position35(player);
+		}
+		if (player.getPlayerPosition() == 36) {
+			position36(player);
+		}
+		if (player.getPlayerPosition() == 37) {
+			position37(player);
+		}
+		if (player.getPlayerPosition() == 38) {
+			position38(player);
+		}
+		if (player.getPlayerPosition() == 39) {
+			position39(player);
+		}
+	}
 	public static void printMainBoard(Player player) {
-		position0(player);
-		position1(player);
-		position2(player);
-		position3(player);
-		position4(player);
-		position5(player);
-		position6(player);
-		position7(player);
-		position8(player);
-		position9(player);
-		position10(player);
-		position11(player);
-		position12(player);
-		position13(player);
-		position14(player);
-		position15(player);
-		position16(player);
-		position17(player);
-		position18(player);
-		position19(player);
-		position20(player);
-		position21(player);
-		position22(player);
-		position23(player);
-		position24(player);
-		position25(player);
-		position26(player);
-		position27(player);
-		position28(player);
-		position29(player);
-		position30(player);
-		position31(player);
-		position32(player);
-		position33(player);
-		position34(player);
-		position35(player);
-		position36(player);
-		position37(player);
-		position38(player);
-		position39(player);
-
 		for (int i = 0; i < asciiArt.asciiBoard.length; i++) {
 			for (int j = 0; j < asciiArt.asciiBoard[i].length; j++) {
 				System.out.print(asciiArt.asciiBoard[i][j]);
 			}
 			System.out.println();
 		}
-
 	}
+	
 
 	public static void position0(Player player) {
 		BoardLogic.Go();
@@ -1821,5 +1903,8 @@ public class Board {
 			asciiArt.asciiBoard[43][120] = 'B';
 			asciiArt.asciiBoard[43][121] = ')';
 		}
+	}
+	private static void reinitializeBoard() {
+		asciiArt.asciiBoard = asciiArt.asciiBoardCopy;
 	}
 }
