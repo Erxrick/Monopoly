@@ -19,6 +19,10 @@ public class Player {
 	
 	public void setPlayerPosition(int playerPos) {
 		this.playerPosition += playerPos;
+		if(this.playerPosition > 39) {
+			this.addMoney(200);
+			this.playerPosition -= 39;
+		}
 	}
 	public int getHotelTotal() {
 		return hotelTotal;

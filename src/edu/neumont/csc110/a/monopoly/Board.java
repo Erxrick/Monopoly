@@ -8,130 +8,133 @@ public class Board {
 		 */
 	}
 
-	public static void setMainBoard(Player player) {
+	public static void setMainBoard(Player[] Player, int person) {
 		reinitializeBoard();
-		if (player.getPlayerPosition() == 0) {
-			position0(player);
-		}
-		if (player.getPlayerPosition() == 1) {
-			position1(player);
-		}
-		if (player.getPlayerPosition() == 2) {
-			position2(player);
-		}
-		if (player.getPlayerPosition() == 3) {
-			position3(player);
-		}
-		if (player.getPlayerPosition() == 4) {
-			position4(player);
-		}
-		if (player.getPlayerPosition() == 5) {
-			position5(player);
-		}
-		if (player.getPlayerPosition() == 6) {
-			position6(player);
-		}
-		if (player.getPlayerPosition() == 7) {
-			position7(player);
-		}
-		if (player.getPlayerPosition() == 8) {
-			position8(player);
-		}
-		if (player.getPlayerPosition() == 9) {
-			position9(player);
-		}
-		if (player.getPlayerPosition() == 10) {
-			position10(player);
-		}
-		if (player.getPlayerPosition() == 11) {
-			position11(player);
-		}
-		if (player.getPlayerPosition() == 12) {
-			position12(player);
-		}
-		if (player.getPlayerPosition() == 13) {
-			position13(player);
-		}
-		if (player.getPlayerPosition() == 14) {
-			position14(player);
-		}
-		if (player.getPlayerPosition() == 15) {
-			position15(player);
-		}
-		if (player.getPlayerPosition() == 16) {
-			position16(player);
-		}
-		if (player.getPlayerPosition() == 17) {
-			position17(player);
-		}
-		if (player.getPlayerPosition() == 18) {
-			position18(player);
-		}
-		if (player.getPlayerPosition() == 19) {
-			position19(player);
-		}
-		if (player.getPlayerPosition() == 20) {
-			position20(player);
-		}
-		if (player.getPlayerPosition() == 21) {
-			position21(player);
-		}
-		if (player.getPlayerPosition() == 22) {
-			position22(player);
-		}
-		if (player.getPlayerPosition() == 23) {
-			position23(player);
-		}
-		if (player.getPlayerPosition() == 24) {
-			position24(player);
-		}
-		if (player.getPlayerPosition() == 25) {
-			position25(player);
-		}
-		if (player.getPlayerPosition() == 26) {
-			position26(player);
-		}
-		if (player.getPlayerPosition() == 27) {
-			position27(player);
-		}
-		if (player.getPlayerPosition() == 28) {
-			position28(player);
-		}
-		if (player.getPlayerPosition() == 29) {
-			position29(player);
-		}
-		if (player.getPlayerPosition() == 30) {
-			position30(player);
-		}
-		if (player.getPlayerPosition() == 31) {
-			position31(player);
-		}
-		if (player.getPlayerPosition() == 32) {
-			position32(player);
-		}
-		if (player.getPlayerPosition() == 33) {
-			position33(player);
-		}
-		if (player.getPlayerPosition() == 34) {
-			position34(player);
-		}
-		if (player.getPlayerPosition() == 35) {
-			position35(player);
-		}
-		if (player.getPlayerPosition() == 36) {
-			position36(player);
-		}
-		if (player.getPlayerPosition() == 37) {
-			position37(player);
-		}
-		if (player.getPlayerPosition() == 38) {
-			position38(player);
-		}
-		if (player.getPlayerPosition() == 39) {
-			position39(player);
+		for(int i=0;i<person;i++) {
+			if (Player[i].getPlayerPosition() == 0) {
+				position0(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 1) {
+				position1(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 2) {
+				position2(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 3) {
+				position3(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 4) {
+				position4(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 5) {
+				position5(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 6) {
+				position6(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 7) {
+				position7(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 8) {
+				position8(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 9) {
+				position9(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 10) {
+				position10(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 11) {
+				position11(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 12) {
+				position12(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 13) {
+				position13(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 14) {
+				position14(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 15) {
+				position15(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 16) {
+				position16(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 17) {
+				position17(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 18) {
+				position18(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 19) {
+				position19(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 20) {
+				position20(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 21) {
+				position21(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 22) {
+				position22(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 23) {
+				position23(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 24) {
+				position24(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 25) {
+				position25(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 26) {
+				position26(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 27) {
+				position27(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 28) {
+				position28(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 29) {
+				position29(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 30) {
+				position30(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 31) {
+				position31(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 32) {
+				position32(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 33) {
+				position33(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 34) {
+				position34(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 35) {
+				position35(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 36) {
+				position36(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 37) {
+				position37(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 38) {
+				position38(Player[i]);
+			}
+			if (Player[i].getPlayerPosition() == 39) {
+				position39(Player[i]);
+			}
 		}
 	}
-	public static void printMainBoard(Player player) {
+	public static void printMainBoard() {
+		//System.out.println(asciiArt.asciiBoard);
 		for (int i = 0; i < asciiArt.asciiBoard.length; i++) {
 			for (int j = 0; j < asciiArt.asciiBoard[i].length; j++) {
 				System.out.print(asciiArt.asciiBoard[i][j]);
@@ -1862,7 +1865,7 @@ public class Board {
 	}
 
 	public static void position39(Player player) {
-		BoardLogic.Boardwalk();
+	//	BoardLogic.Boardwalk();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[43][123] = '(';
 			asciiArt.asciiBoard[43][124] = 'T';
@@ -1905,6 +1908,12 @@ public class Board {
 		}
 	}
 	private static void reinitializeBoard() {
-		asciiArt.asciiBoard = asciiArt.asciiBoardCopy;
+		for (int i = 0; i < asciiArt.asciiBoard.length; i++) {
+			for (int j = 0; j < asciiArt.asciiBoard[i].length; j++) {
+				asciiArt.asciiBoard[i][j] = asciiArt.asciiBoardCopy[i][j];
+			}
+		
+		}
+//		asciiArt.asciiBoard = asciiArt.asciiBoardCopy.clone();
 	}
 }
