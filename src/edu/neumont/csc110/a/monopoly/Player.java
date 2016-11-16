@@ -17,6 +17,9 @@ public class Player {
 		return playerPosition;
 	}
 	
+	public void setPlayerPosition(int playerPos) {
+		this.playerPosition += playerPos;
+	}
 	public int getHotelTotal() {
 		return hotelTotal;
 	}
