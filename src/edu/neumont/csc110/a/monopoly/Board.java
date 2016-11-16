@@ -8,7 +8,7 @@ public class Board {
 		 */
 	}
 
-	public static void printMainBoard(Player player) {
+	public static void setMainBoard(Player player) {
 		reinitializeBoard();
 		if (player.getPlayerPosition() == 0) {
 			position0(player);
@@ -130,17 +130,15 @@ public class Board {
 		if (player.getPlayerPosition() == 39) {
 			position39(player);
 		}
-		
-
+	}
+	public static void printMainBoard(Player player) {
 		for (int i = 0; i < asciiArt.asciiBoard.length; i++) {
 			for (int j = 0; j < asciiArt.asciiBoard[i].length; j++) {
 				System.out.print(asciiArt.asciiBoard[i][j]);
 			}
 			System.out.println();
 		}
-
 	}
-
 	
 
 	public static void position0(Player player) {
