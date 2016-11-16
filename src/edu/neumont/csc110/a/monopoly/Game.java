@@ -142,9 +142,11 @@ public class Game {
 
 	private void chanceORChest() {
 		/*
-		 * if(player is on chance){ CommunityChanceText.chanceText(); }else
+		 * if(player is on chance){ 
+		 * }else
 		 * if(player is on chest){
-		 * CommunityChanceText.CommunityChestText(player[i], otherPlayers); }
+		 * CommunityChanceText.CommunityChestText(player[i], otherPlayers); 
+		 * }
 		 */
 	}
 	
@@ -230,6 +232,7 @@ public class Game {
 		// can trade with a player for property, with property, money, or get
 		// out of jail free cards.
 		String[] players = {};
+		System.out.println("Which player are you trading with?");
 		ConsoleUI.promptForMenuSelection(players, false);
 		ConsoleUI.promptForInput("What are you giving?", false);
 		ConsoleUI.promptForInput("What are you getting?", false);
@@ -248,22 +251,18 @@ public class Game {
 
 		switch (house) {
 		case 1:
-
 			// player[i].addMoney(-cost of one house);
 			// player[i].addHouseTotal(1);
 			break;
 		case 2:
-
 			// player[i].addMoney(-cost of two houses);
 			// player[i].addHouseTotal(2);
 			break;
 		case 3:
-
 			// player[i].addMoney(-cost of three houses);
 			// player[i].addHouseTotal(3);
 			break;
 		case 4:
-
 			// player[i].addMoney(-cost of four houses);
 			// player[i].addHouseTotal(4);
 			break;
