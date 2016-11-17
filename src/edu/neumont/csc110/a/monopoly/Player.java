@@ -20,8 +20,13 @@ public class Player {
 	public int getPlayerPosition() {
 		return playerPosition;
 	}
-	
-	public void setPlayerPosition(int playerPos) {
+	public void setPlayerPosition(int playerPos){
+		if(this.playerPosition > playerPos) {
+			this.addMoney(200);
+		}
+		this.playerPosition = playerPos;
+	}
+	public void addPlayerPosition(int playerPos) {
 		this.playerPosition += playerPos;
 		if(this.playerPosition > 39) {
 			this.addMoney(200);
