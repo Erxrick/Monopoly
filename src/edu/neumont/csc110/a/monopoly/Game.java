@@ -18,11 +18,18 @@ public class Game {
 		boolean anyoneWin = false;
 		for (int j = 0; j < person; j++) {
 				player[j].setPlayerPosition(0);
-				Board.printMainBoard(player[j]);
+				Board.setMainBoard(player, person);
 		}
+		//Board.printMainBoard();
 		while (!anyoneWin) {
 			for (int i = 0; i < person; i++) {
-					
+					if(player[i].isPlayerInJail() == true) {
+						Board.printMainBoard();
+						playerInJailTurn(player[i]);
+					} else {
+						Board.printMainBoard();
+						turn(player[i], player, person);
+					}
 				//anyoneWin = win(player[i]);
 			}
 		}
@@ -36,7 +43,7 @@ public class Game {
 
 	}
 
-	private void turn(Player player) throws IOException {
+	private void turn(Player player, Player[] Player, int person) throws IOException {
 		int diceRoll = 0;
 
 		do {
@@ -47,6 +54,8 @@ public class Game {
 			switch (userSelection) {
 			case 1:
 				diceRoll = roll();
+				player.setPlayerPosition((player.getPlayerPosition() + diceRoll));
+				Board.setMainBoard(Player, person);
 				// System.out.println("You rolled a " + roll());
 				if (diceRoll == 0) {
 					player.setPlayerInJail(true);
@@ -78,8 +87,8 @@ public class Game {
 			}
 
 		} while (diceRoll == 0 && player.isPlayerInJail() == true);
-		Board.moveFromDice(diceRoll, player, allTheProperty);
-
+	//	Board.moveFromDice(diceRoll, player, allTheProperty);
+		Board.printMainBoard();
 		
 		boolean endTurn = false;
 		do {
