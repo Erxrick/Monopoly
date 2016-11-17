@@ -3,6 +3,7 @@ package edu.neumont.csc110.a.monopoly;
 public class BoardLogic {
 
 
+
 public static void Boardwalk(PropertyCards cards) {
 	if(cards.isBought() == true){
 		

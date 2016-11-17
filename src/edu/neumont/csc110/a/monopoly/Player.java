@@ -13,6 +13,10 @@ public class Player {
 	private int playerPosition;
 	private ArrayList<PropertyCards> property; //taking from the arraylist from the bank
 	
+	
+	public boolean ownProperty(PropertyCards card) {
+		return property.contains(card);
+	}
 	public int getPlayerPosition() {
 		return playerPosition;
 	}
