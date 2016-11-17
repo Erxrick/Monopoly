@@ -12,13 +12,21 @@ public class Player {
 	private int hotelTotal;
 	private int playerPosition;
 	private ArrayList<PropertyCards> property; //taking from the arraylist from the bank
-
+	
+	
+	public boolean ownProperty(PropertyCards card) {
+		return property.contains(card);
+	}
 	public int getPlayerPosition() {
 		return playerPosition;
 	}
 	
 	public void setPlayerPosition(int playerPos) {
 		this.playerPosition += playerPos;
+		if(this.playerPosition > 39) {
+			this.addMoney(200);
+			this.playerPosition -= 39;
+		}
 	}
 	public int getHotelTotal() {
 		return hotelTotal;
@@ -63,6 +71,7 @@ public class Player {
 	}
 
 	public void setStartingMoney() {
+		this.property = new ArrayList<PropertyCards>();
 		money = 1500;
 	}
 	

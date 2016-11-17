@@ -94,5 +94,30 @@ public class PropertyCards {
 	}
 	public PropertyType getColor() {
 		return color;
-	}	
+	}
+	public int getPropertyRentWhenLandedOn() {
+		int propRent = 0;
+		switch(this.house) {
+		case 0:
+			propRent = this.rent;
+			break;
+		case 1:
+			propRent = this.rentH1;
+			break;
+		case 2: 
+			propRent = this.rentH2;
+			break;
+		case 3:
+			propRent = this.rentH3;
+			break;
+		case 4:
+			propRent = this.rentH4;
+			break;
+		case 5:
+			propRent = this.rentH5;
+			break;
+		}
+		
+		return propRent;
+	}
 }
