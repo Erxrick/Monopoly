@@ -19,7 +19,7 @@ public class Game {
 		intitializeTheGame();
 		boolean anyoneWin = false;
 		for (int j = 0; j < person; j++) {
-				player[j].setPlayerPosition(0);
+				player[j].addPlayerPosition(0);
 				Board.setMainBoard(player, person);
 		}
 		//Board.printMainBoard();
@@ -61,9 +61,16 @@ public class Game {
 				diceRoll = roll();
 				sumOfDiceRoll = sum(diceRoll);
 				timesRolled++;
-				player.setPlayerPosition((player.getPlayerPosition() + sumOfDiceRoll));
+				player.addPlayerPosition((player.getPlayerPosition() + sumOfDiceRoll));
+				sumOfDiceRoll = 0;
 				Board.setMainBoard(Player, person);
 				Board.printMainBoard();
+				System.out.println("You rolled: ");
+				for (int i = 0; i < 2; i++) {
+					System.out.print(diceRoll[i] + " ");
+				}
+				System.out.println();
+				//System.out.println();
 				PropertyCards card = allTheProperty.PropCards[player.getPlayerPosition()];
 				if(player.getPlayerPosition() == 7 || player.getPlayerPosition() == 22 || player.getPlayerPosition() == 36) {
 					//chance tiles
@@ -386,9 +393,9 @@ public class Game {
 		
 		for (int i = 0; i < times; i++) {
 			rolls[i] = rando.nextInt(6) + 1;
-			System.out.print(rolls[i] + " ");
+			//System.out.print(rolls[i] + " ");
 		}
-		System.out.println();
+		//System.out.println();
 		return rolls;
 	}
 
