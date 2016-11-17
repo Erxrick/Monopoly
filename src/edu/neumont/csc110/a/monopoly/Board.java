@@ -318,7 +318,7 @@ public class Board {
 	}
 
 	public static void position4(Player player) {
-		BoardLogic.Income_Tax();
+		BoardLogic.Income_Tax(player);
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[52][70] = '(';
 			asciiArt.asciiBoard[52][71] = 'T';
@@ -577,7 +577,7 @@ public class Board {
 	}
 
 	public static void position10(Player player) {
-		BoardLogic.Jail();
+		BoardLogic.Jail(player);
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[52][10] = '(';
 			asciiArt.asciiBoard[52][11] = 'T';
@@ -1442,7 +1442,7 @@ public class Board {
 	}
 
 	public static void position30(Player player) {
-		BoardLogic.Go_To_Jail();
+		BoardLogic.Go_To_Jail(player);
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[5][110] = '(';
 			asciiArt.asciiBoard[5][111] = 'T';
