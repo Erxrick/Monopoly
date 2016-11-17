@@ -11,8 +11,9 @@ public class Game {
 	static Player[] player = new Player[8];
 	CommunityChanceText decks = new CommunityChanceText();
 	BoardTiles allTheProperty = new BoardTiles();
-	Banker banker = new Banker();
-
+	static Banker banker = new Banker();
+	
+	
 	public void run() throws IOException {
 		int person = pick_players();
 		intitializeTheGame();
@@ -62,6 +63,7 @@ public class Game {
 				timesRolled++;
 				player.setPlayerPosition((player.getPlayerPosition() + sumOfDiceRoll));
 				Board.setMainBoard(Player, person);
+				Board.printMainBoard();
 				PropertyCards card = allTheProperty.PropCards[player.getPlayerPosition()];
 				if(player.getPlayerPosition() == 7 || player.getPlayerPosition() == 22 || player.getPlayerPosition() == 36) {
 					//chance tiles

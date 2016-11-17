@@ -6,6 +6,8 @@ public class Banker {
 	private ArrayList<PropertyCards> property;
 	
 	public void bankinit() {
+		ArrayList<PropertyCards> property = new ArrayList<PropertyCards>();
+		bTiles.init();
 		property.add(bTiles.Mediterranean_Avenue);
 		property.add(bTiles.Baltic_Avenue);
 		property.add(bTiles.Oriental_Avenue);
@@ -36,7 +38,7 @@ public class Banker {
 		property.add(bTiles.Water_Works);
 	}
 	public void removeCard(PropertyCards card) {
-		int index = property.indexOf(card);
-		property.remove(index);
+	//	int index = this.property.indexOf(card);
+		this.property.remove(this.property.indexOf(card));
 	}
 }

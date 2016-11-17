@@ -71,6 +71,7 @@ public class Player {
 	}
 
 	public void setStartingMoney() {
+		this.property = new ArrayList<PropertyCards>();
 		money = 1500;
 	}
 	
