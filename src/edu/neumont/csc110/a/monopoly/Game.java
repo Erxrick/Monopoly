@@ -72,6 +72,7 @@ public class Game {
 				System.out.println();
 				//System.out.println();
 				PropertyCards card = allTheProperty.PropCards[player.getPlayerPosition()];
+				//moce all the logic in the if else if statement to boarlogic
 				if(player.getPlayerPosition() == 7 || player.getPlayerPosition() == 22 || player.getPlayerPosition() == 36) {
 					//chance tiles
 					decks.chanceText(player, Player);
