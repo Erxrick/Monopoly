@@ -21,6 +21,16 @@ public class PropertyCards {
 	public void setcardAscii(char[][] Ascii) {
 		this.ascii = Ascii;
 	}
+	public void printCardAscii() {
+		for(int i=0;i<this.ascii.length;i++) {
+			System.out.print(this.ascii[i]);
+			for(int j=0;j<this.ascii[i].length;i++) {
+				System.out.print(this.ascii[i][j]);
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
 	public String getName() {
 		return name;
 	}

@@ -1,5 +1,7 @@
 package edu.neumont.csc110.a.monopoly;
 
+import java.io.IOException;
+
 public class Board {
 	public static void moveFromDice(int diceRoll, Player player, BoardTiles allTheProperty) {
 		/*
@@ -8,7 +10,7 @@ public class Board {
 		 */
 	}
 
-	public static void setMainBoard(Player[] Player, int person) {
+	public static void setMainBoard(Player[] Player, int person) throws IOException {
 		reinitializeBoard();
 		for(int i=0;i<person;i++) {
 			if (Player[i].getPlayerPosition() == 0) {
@@ -317,7 +319,7 @@ public class Board {
 		}
 	}
 
-	public static void position4(Player player) {
+	public static void position4(Player player) throws IOException {
 		BoardLogic.Income_Tax(player);
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[52][70] = '(';

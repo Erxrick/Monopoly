@@ -13,7 +13,16 @@ public class Player {
 	private int playerPosition;
 	private ArrayList<PropertyCards> property; //taking from the arraylist from the bank
 	
-	
+	public void printAsciiOwned(int i) {
+		//use in for loop only
+		PropertyCards card = this.property.get(i);
+		for(int j=0;j<property.size();j++) {
+			card.printCardAscii();
+		}
+	}
+	public int lengthOfProperties() {
+		return this.property.size();
+	}
 	public boolean ownProperty(PropertyCards card) {
 		return property.contains(card);
 	}

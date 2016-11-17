@@ -53,7 +53,7 @@ public class Game {
 
 		do {
 			System.out.println(player.getName() + " would you like to:");
-			String[] turnOptions = { "Roll the die", "Trade", "Buy or Sell houses" };
+			String[] turnOptions = { "Roll the die", "Trade", "Buy or Sell houses", "View your properties" };
 			int userSelection = ConsoleUI.promptForMenuSelection(turnOptions, false);
 
 			switch (userSelection) {
@@ -70,18 +70,8 @@ public class Game {
 					System.out.print(diceRoll[i] + " ");
 				}
 				System.out.println();
-				//System.out.println();
 				PropertyCards card = allTheProperty.PropCards[player.getPlayerPosition()];
-				//moce all the logic in the if else if statement to boarlogic
-				if(player.getPlayerPosition() == 7 || player.getPlayerPosition() == 22 || player.getPlayerPosition() == 36) {
-					//chance tiles
-					decks.chanceText(player, Player);
-				} else if(player.getPlayerPosition() == 2 || player.getPlayerPosition() == 17 || player.getPlayerPosition() == 33){
-					//community tiles
-					decks.communityChestText(player, Player);
-				} else {
-					purchaseOrRent(card, player, Player, person);
-				}
+				BoardLogic.mainBoardLogic(player, Player, card, decks, person, banker);
 				// System.out.println("You rolled a " + roll());
 				if (timesRolled == 3) {
 					player.setPlayerInJail(true);
@@ -110,6 +100,16 @@ public class Game {
 
 				} while (otherUserSelection != 0);
 				break;
+			case 4:
+				if(player.lengthOfProperties()>0) {
+					System.out.println("These are your properties " + player.getName());
+					for(int i=0;i<player.lengthOfProperties();i++) {
+						player.printAsciiOwned(i);
+					} 
+				}else if(player.lengthOfProperties() == 0) {
+					System.out.println("You currently don't own any properties");
+				}
+				break;
 			}
 			Board.printMainBoard();
 		} while ((diceRoll[0] == diceRoll[1]) && player.isPlayerInJail() == false);
@@ -118,13 +118,8 @@ public class Game {
 		boolean endTurn = false;
 		do {
 			int otherSelection = -1;
-			String[] turnOptions3 = { "End Turn", "Trade", "Buy or Sell houses" };
-			String[] turnOptions4 = { "End Turn", "Trade", "Buy or Sell houses", "Go Bankrupt" };
-			if (player.getMoney() < 0) {
-				otherSelection = ConsoleUI.promptForMenuSelection(turnOptions3, false);
-			} else {
+			String[] turnOptions4 = { "End Turn", "Trade", "Buy or Sell houses", "View your properties", "Go Bankrupt" };
 				otherSelection = ConsoleUI.promptForMenuSelection(turnOptions4, false);
-			}
 			switch (otherSelection) {
 			case 1:
 				endTurn = true;
@@ -150,6 +145,16 @@ public class Game {
 				} while (otherUserSelection != 0);
 				break;
 			case 4:
+				if(player.lengthOfProperties()>0) {
+					System.out.println("These are your properties " + player.getName());
+					for(int i=0;i<player.lengthOfProperties();i++) {
+						player.printAsciiOwned(i);
+					} 
+				}else if(player.lengthOfProperties() == 0) {
+					System.out.println("You currently don't own any properties");
+				}
+				break;
+			case 5:
 				endTurn = true;
 				break;
 			}
@@ -180,103 +185,6 @@ public class Game {
 		 * CommunityChanceText.communityChestText(player, player); }
 		 */
 	}
-
-	private static void purchaseOrRent(PropertyCards card, Player player, Player[] Player, int person) throws IOException {
-		//idk if this is being built elsewhere, but feel free to let me know if it is that way I can rework it
-		
-		
-		if(card.isBought() == true) {
-			for(int i=0;i<person;i++) {
-				if(Player[i].ownProperty(card)){
-					System.out.println("You pay $" + card.getPropertyRentWhenLandedOn() + " to " + Player[i].getName());
-					Player[i].addMoney(card.getPropertyRentWhenLandedOn());
-				}
-			}
-			player.addMoney(card.getPropertyRentWhenLandedOn() * -1);
-		} else {
-			//this is where its bought
-			System.out.println("Would you like to:");
-			String[] buyOptions = {"Buy this property", "Auction this Property"};
-			int buy = ConsoleUI.promptForMenuSelection(buyOptions, true);
-			switch(buy) {
-				case 0:
-					break;
-				case 1:
-					player.buyFromBanker(card, banker);
-					break;
-				case 2:
-					auction(card, player, Player);
-					break;
-			}
-		}
-		
-		
-		//sorry jasper
-		
-		/*
-		 * if(player[i].getPlayerPosition() = Mediterranean_Avenue){
-		 * Mediterranean_Avenue.getRent(); subtract money from current player
-		 * and add it to owner. }else if(player[i].getPlayerPosition() Baltic_Avenue){
-		 * Baltic_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player[i].getPlayerPosition() = Oriental_Avenue){
-		 * Oriental_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player[i].getPlayerPostion = Vermont_Avenue){
-		 * Vermont_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player[i].getPlayerPosition() = Connecticut_Avenue){
-		 * Connecticut_Avenue.getRent(); subtract money from current player and
-		 * add it to owner. }else if(player[i].getPlayerPosition() = StCharles_Place){
-		 * StCharles_Place.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player[i].getPlayerPosition() = States_Avenue){
-		 * States_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player[i].getPlayerPosition() = Virginia_Avenue){
-		 * Virginia_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player[i].getPlayerPosition() = StJames_Place){
-		 * StJames_Place.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player[i].getPlayerPosition() = Tennessee_Avenue){
-		 * Tennessee_Avenue.getRent(); subtract money from current player and
-		 * add it to owner. }else if(player[i].getPlayerPosition() = New_York_Avenue){
-		 * New_York_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player[i].getPlayerPosition() = Kentucky_Avenue){
-		 * Kentucky_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player[i].getPlayerPosition() = Indiana_Avenue){
-		 * Indiana_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player[i].getPlayerPosition() = Illinois_Avenue){
-		 * Illinois_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player[i].getPlayerPosition() = Atlantic_Avenue){
-		 * Atlantic_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player[i].getPlayerPosition() = Ventor_Avenue){
-		 * Ventor_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player[i].getPlayerPosition() = Marvin_Gardens){
-		 * Marvin_Gardens.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player[i].getPlayerPosition() = Pacific_Avenue){
-		 * Pacific_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player[i].getPlayerPosition() = North_Carolina_Avenue){
-		 * North_Carolina_Avenue.getRent(); subtract money from current player
-		 * and add it to owner. }else if(player[i].getPlayerPosition() = Pennslvania_Avenue){
-		 * Pennslvania_Avenue.getRent(); subtract money from current player and
-		 * add it to owner. }else if(player[i].getPlayerPosition() = Park_Place){
-		 * Park_Place.getRent(); subtract money from current player and add it
-		 * to owner. }else if(player[i].getPlayerPosition() = Boardwalk){ Boardwalk.getRent();
-		 * subtract money from current player and add it to owner. }else
-		 * if(player[i].getPlayerPosition() = Reading_Railroad){ Reading_Railroad.getRent();
-		 * subtract money from current player and add it to owner. }else
-		 * if(player[i].getPlayerPosition() = Pennsylvania_Railroad){
-		 * Pennsylvania_Railroad.getRent(); subtract money from current player
-		 * and add it to owner. }else if(player[i].getPlayerPosition() = BO_Railroad){
-		 * BO_Railroad.getRent(); subtract money from current player and add it
-		 * to owner. }else if(player[i].getPlayerPosition() = Short_Line){ Short_Line.getRent();
-		 * subtract money from current player and add it to owner. }else
-		 * if(player[i].getPlayerPosition() = Electric_Company){ Electric_Company.getRent();
-		 * subtract money from current player and add it to owner. }else
-		 * if(player[i].getPlayerPosition() = Water_Works){ Water_Works.getRent(); subtract money
-		 * from current player and add it to owner. }
-		 */
-	}
-
-	private static void auction(PropertyCards card, Player player, Player[] Player) {
-		System.out.println("Not implemented yet");
-	}
-	
 	
 
 	private static void mortgage() {

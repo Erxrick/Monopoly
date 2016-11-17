@@ -159,6 +159,7 @@ public class BoardTiles {
 		Baltic_Avenue.setHouseCost(50);
 		Baltic_Avenue.setMortgage(30);
 		Baltic_Avenue.setBought(false);
+		Baltic_Avenue.setcardAscii(asciiArt.Baltic_Avenue_Ascii);
 		//3 Oriental_Avenue
 		
 		Oriental_Avenue.setName("Oriental Avenue");
@@ -174,6 +175,7 @@ public class BoardTiles {
 		Oriental_Avenue.setHouseCost(50);
 		Oriental_Avenue.setMortgage(50);
 		Oriental_Avenue.setBought(false);
+		Oriental_Avenue.setcardAscii(asciiArt.Oriental_Avenue_Ascii);
 		//4 Vermont_Avenue
 		
 		Vermont_Avenue.setName("Vermont Avenue");
@@ -189,6 +191,7 @@ public class BoardTiles {
 		Vermont_Avenue.setHouseCost(50);
 		Vermont_Avenue.setMortgage(50);
 		Vermont_Avenue.setBought(false);
+		Vermont_Avenue.setcardAscii(asciiArt.Oriental_Avenue_Ascii);
 		
 		//5 Connecticut_Avenue
 		
@@ -205,6 +208,7 @@ public class BoardTiles {
 		Connecticut_Avenue.setHouseCost(50);
 		Connecticut_Avenue.setMortgage(60);
 		Connecticut_Avenue.setBought(false);
+		Connecticut_Avenue.setcardAscii(asciiArt.Connecticut_Avenue_Ascii);
 		//6 StCharles_Place
 	
 		StCharles_Place.setName("St. Charles Place");
@@ -220,6 +224,7 @@ public class BoardTiles {
 		StCharles_Place.setHouseCost(100);
 		StCharles_Place.setMortgage(70);
 		StCharles_Place.setBought(false);
+		StCharles_Place.setcardAscii(asciiArt.StCharles_Place_Ascii);
 		//7 States_Avenue
 		
 		States_Avenue.setName("States Avenue");
@@ -235,6 +240,7 @@ public class BoardTiles {
 		States_Avenue.setHouseCost(100);
 		States_Avenue.setMortgage(70);
 		States_Avenue.setBought(false);
+		States_Avenue.setcardAscii(asciiArt.States_Avenue_Ascii);
 		//8 Virginia_Avenue
 		
 		Virginia_Avenue.setName("Virginia Avenue");
