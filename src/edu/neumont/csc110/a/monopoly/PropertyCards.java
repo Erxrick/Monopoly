@@ -18,8 +18,8 @@ public class PropertyCards {
 	private int mortgage;
 	private char[][] ascii;
 	
-	public void cardAscii(char[][] mediterranean_Avenue_Ascii) {
-		this.ascii = mediterranean_Avenue_Ascii;
+	public void setcardAscii(char[][] Ascii) {
+		this.ascii = Ascii;
 	}
 	public String getName() {
 		return name;

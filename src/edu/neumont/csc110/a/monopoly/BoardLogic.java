@@ -1,6 +1,7 @@
 package edu.neumont.csc110.a.monopoly;
 
 public class BoardLogic {
+	
 
 public static void Luxury_Tax(Player player) {
 	player.addMoney(-75);
