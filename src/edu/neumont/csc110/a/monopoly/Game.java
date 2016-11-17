@@ -42,7 +42,7 @@ public class Game {
 	private void intitializeTheGame() throws IOException {
 		decks.resetBothDecks();
 		allTheProperty.init();
-		banker.bankinit();
+		banker.bankinit(allTheProperty);
 
 	}
 
