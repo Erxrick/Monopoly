@@ -189,7 +189,6 @@ public class Board {
 	}
 
 	public static void position1(Player player) {
-		BoardLogic.Mediterranean_Avenue();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[52][100] = '(';
 			asciiArt.asciiBoard[52][101] = 'T';
@@ -233,7 +232,6 @@ public class Board {
 	}
 
 	public static void position2(Player player) {
-		BoardLogic.Community_Chest();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[52][90] = '(';
 			asciiArt.asciiBoard[52][91] = 'T';
@@ -277,7 +275,6 @@ public class Board {
 	}
 
 	public static void position3(Player player) {
-		BoardLogic.Baltic_Avenue();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[52][80] = '(';
 			asciiArt.asciiBoard[52][81] = 'T';
@@ -365,7 +362,6 @@ public class Board {
 	}
 
 	public static void position5(Player player) {
-		BoardLogic.Reading_Railroad();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[52][60] = '(';
 			asciiArt.asciiBoard[52][61] = 'T';
@@ -409,7 +405,6 @@ public class Board {
 	}
 
 	public static void position6(Player player) {
-		BoardLogic.Oriental_Avenue();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[52][50] = '(';
 			asciiArt.asciiBoard[52][51] = 'T';
@@ -453,7 +448,6 @@ public class Board {
 	}
 
 	public static void position7(Player player) {
-		BoardLogic.Chance();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[52][40] = '(';
 			asciiArt.asciiBoard[52][41] = 'T';
@@ -497,7 +491,6 @@ public class Board {
 	}
 
 	public static void position8(Player player) {
-		BoardLogic.Vermont_Avenue();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[52][30] = '(';
 			asciiArt.asciiBoard[52][31] = 'T';
@@ -541,7 +534,6 @@ public class Board {
 	}
 
 	public static void position9(Player player) {
-		BoardLogic.Connecticut_Avenue();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[52][20] = '(';
 			asciiArt.asciiBoard[52][21] = 'T';
@@ -629,7 +621,6 @@ public class Board {
 	}
 
 	public static void position11(Player player) {
-		BoardLogic.StCharles_Place();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[43][9] = '(';
 			asciiArt.asciiBoard[43][10] = 'T';
@@ -673,7 +664,7 @@ public class Board {
 	}
 
 	public static void position12(Player player) {
-		BoardLogic.Electric_Company();
+		//BoardLogic.Electric_Company();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[39][9] = '(';
 			asciiArt.asciiBoard[39][10] = 'T';
@@ -717,7 +708,6 @@ public class Board {
 	}
 
 	public static void position13(Player player) {
-		BoardLogic.States_Avenue();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[35][9] = '(';
 			asciiArt.asciiBoard[35][10] = 'T';
@@ -761,7 +751,6 @@ public class Board {
 	}
 
 	public static void position14(Player player) {
-		BoardLogic.Virginia_Avenue();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[31][9] = '(';
 			asciiArt.asciiBoard[31][10] = 'T';
@@ -805,7 +794,6 @@ public class Board {
 	}
 
 	public static void position15(Player player) {
-		BoardLogic.Pennsylvania_Railroad();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[27][9] = '(';
 			asciiArt.asciiBoard[27][10] = 'T';
@@ -849,7 +837,6 @@ public class Board {
 	}
 
 	public static void position16(Player player) {
-		BoardLogic.StJames_Place();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[23][9] = '(';
 			asciiArt.asciiBoard[23][10] = 'T';
@@ -893,7 +880,6 @@ public class Board {
 	}
 
 	public static void position17(Player player) {
-		BoardLogic.Community_Chest();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[19][9] = '(';
 			asciiArt.asciiBoard[19][10] = 'T';
@@ -937,7 +923,6 @@ public class Board {
 	}
 
 	public static void position18(Player player) {
-		BoardLogic.Tennessee_Avenue();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[15][9] = '(';
 			asciiArt.asciiBoard[15][10] = 'T';
@@ -981,7 +966,6 @@ public class Board {
 	}
 
 	public static void position19(Player player) {
-		BoardLogic.New_York_Avenue();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[11][9] = '(';
 			asciiArt.asciiBoard[11][10] = 'T';
@@ -1069,7 +1053,6 @@ public class Board {
 	}
 
 	public static void position21(Player player) {
-		BoardLogic.Kentucky_Avenue();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[5][20] = '(';
 			asciiArt.asciiBoard[5][21] = 'T';
@@ -1113,7 +1096,6 @@ public class Board {
 	}
 
 	public static void position22(Player player) {
-		BoardLogic.Chance();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[5][30] = '(';
 			asciiArt.asciiBoard[5][31] = 'T';
@@ -1157,7 +1139,6 @@ public class Board {
 	}
 
 	public static void position23(Player player) {
-		BoardLogic.Indiana_Avenue();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[5][40] = '(';
 			asciiArt.asciiBoard[5][41] = 'T';
@@ -1201,7 +1182,6 @@ public class Board {
 	}
 
 	public static void position24(Player player) {
-		BoardLogic.Illinois_Avenue();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[5][50] = '(';
 			asciiArt.asciiBoard[5][51] = 'T';
@@ -1289,7 +1269,6 @@ public class Board {
 	}
 
 	public static void position26(Player player) {
-		BoardLogic.Atlantic_Avenue();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[5][70] = '(';
 			asciiArt.asciiBoard[5][71] = 'T';
@@ -1333,7 +1312,6 @@ public class Board {
 	}
 
 	public static void position27(Player player) {
-		BoardLogic.Ventor_Avenue();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[5][80] = '(';
 			asciiArt.asciiBoard[5][81] = 'T';
@@ -1421,7 +1399,6 @@ public class Board {
 	}
 
 	public static void position29(Player player) {
-		BoardLogic.Marvin_Gardens();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[5][100] = '(';
 			asciiArt.asciiBoard[5][101] = 'T';
@@ -1509,7 +1486,6 @@ public class Board {
 	}
 
 	public static void position31(Player player) {
-		BoardLogic.Pacific_Avenue();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[11][123] = '(';
 			asciiArt.asciiBoard[11][124] = 'T';
@@ -1553,7 +1529,6 @@ public class Board {
 	}
 
 	public static void position32(Player player) {
-		BoardLogic.North_Carolina_Avenue();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[15][123] = '(';
 			asciiArt.asciiBoard[15][124] = 'T';
@@ -1597,7 +1572,6 @@ public class Board {
 	}
 
 	public static void position33(Player player) {
-		BoardLogic.Community_Chest();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[19][123] = '(';
 			asciiArt.asciiBoard[19][124] = 'T';
@@ -1642,7 +1616,6 @@ public class Board {
 	}
 
 	public static void position34(Player player) {
-		BoardLogic.Pennslvania_Avenue();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[23][123] = '(';
 			asciiArt.asciiBoard[23][124] = 'T';
@@ -1687,7 +1660,6 @@ public class Board {
 	}
 
 	public static void position35(Player player) {
-		BoardLogic.Pennslvania_Avenue();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[27][123] = '(';
 			asciiArt.asciiBoard[27][124] = 'T';
@@ -1731,7 +1703,6 @@ public class Board {
 	}
 
 	public static void position36(Player player) {
-		BoardLogic.Chance();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[31][123] = '(';
 			asciiArt.asciiBoard[31][124] = 'T';
@@ -1775,7 +1746,6 @@ public class Board {
 	}
 
 	public static void position37(Player player) {
-		BoardLogic.Park_Place();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[35][123] = '(';
 			asciiArt.asciiBoard[35][124] = 'T';
@@ -1865,7 +1835,6 @@ public class Board {
 	}
 
 	public static void position39(Player player) {
-	//	BoardLogic.Boardwalk();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[43][123] = '(';
 			asciiArt.asciiBoard[43][124] = 'T';

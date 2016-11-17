@@ -2,7 +2,6 @@ package edu.neumont.csc110.a.monopoly;
 
 public class BoardLogic {
 
-	public static boolean canbeBought();
 
 
 
