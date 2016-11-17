@@ -1225,7 +1225,7 @@ public class Board {
 	}
 
 	public static void position25(Player player) {
-		BoardLogic.BO_Railroad();
+		
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[5][60] = '(';
 			asciiArt.asciiBoard[5][61] = 'T';
@@ -1355,7 +1355,7 @@ public class Board {
 	}
 
 	public static void position28(Player player) {
-		BoardLogic.Water_Works();
+	
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[5][90] = '(';
 			asciiArt.asciiBoard[5][91] = 'T';
@@ -1790,7 +1790,7 @@ public class Board {
 	}
 
 	public static void position38(Player player) {
-		BoardLogic.Luxury_Tax();
+		BoardLogic.Luxury_Tax(player);
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[39][123] = '(';
 			asciiArt.asciiBoard[39][124] = 'T';
