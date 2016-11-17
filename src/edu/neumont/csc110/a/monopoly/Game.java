@@ -64,6 +64,12 @@ public class Game {
 				player.setPlayerPosition((player.getPlayerPosition() + sumOfDiceRoll));
 				Board.setMainBoard(Player, person);
 				Board.printMainBoard();
+				System.out.println("You rolled: ");
+				for (int i = 0; i < 2; i++) {
+					System.out.print(diceRoll[i] + " ");
+				}
+				System.out.println();
+				//System.out.println();
 				PropertyCards card = allTheProperty.PropCards[player.getPlayerPosition()];
 				if(player.getPlayerPosition() == 7 || player.getPlayerPosition() == 22 || player.getPlayerPosition() == 36) {
 					//chance tiles
@@ -386,9 +392,9 @@ public class Game {
 		
 		for (int i = 0; i < times; i++) {
 			rolls[i] = rando.nextInt(6) + 1;
-			System.out.print(rolls[i] + " ");
+			//System.out.print(rolls[i] + " ");
 		}
-		System.out.println();
+		//System.out.println();
 		return rolls;
 	}
 
