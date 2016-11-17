@@ -19,7 +19,7 @@ public class Game {
 		intitializeTheGame();
 		boolean anyoneWin = false;
 		for (int j = 0; j < person; j++) {
-				player[j].setPlayerPosition(0);
+				player[j].addPlayerPosition(0);
 				Board.setMainBoard(player, person);
 		}
 		//Board.printMainBoard();
@@ -61,7 +61,7 @@ public class Game {
 				diceRoll = roll();
 				sumOfDiceRoll = sum(diceRoll);
 				timesRolled++;
-				player.setPlayerPosition((player.getPlayerPosition() + sumOfDiceRoll));
+				player.addPlayerPosition((player.getPlayerPosition() + sumOfDiceRoll));
 				Board.setMainBoard(Player, person);
 				Board.printMainBoard();
 				System.out.println("You rolled: ");
