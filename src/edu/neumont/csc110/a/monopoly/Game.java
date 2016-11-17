@@ -62,6 +62,7 @@ public class Game {
 				sumOfDiceRoll = sum(diceRoll);
 				timesRolled++;
 				player.setPlayerPosition((player.getPlayerPosition() + sumOfDiceRoll));
+				sumOfDiceRoll = 0;
 				Board.setMainBoard(Player, person);
 				Board.printMainBoard();
 				System.out.println("You rolled: ");
