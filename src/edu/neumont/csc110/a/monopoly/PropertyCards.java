@@ -16,7 +16,11 @@ public class PropertyCards {
 	private int rentH5;
 	private int houseCost;
 	private int mortgage;
+	private char[][] ascii;
 	
+	public void setcardAscii(char[][] Ascii) {
+		this.ascii = Ascii;
+	}
 	public String getName() {
 		return name;
 	}

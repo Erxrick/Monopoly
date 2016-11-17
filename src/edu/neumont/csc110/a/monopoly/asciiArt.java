@@ -115,5 +115,28 @@ public class asciiArt {
 		("@`````````````````@`````````@`````````@`````````@`````````@`````````@`````````@`````````@`````````@`````````@`````````````````@").toCharArray(),
 		("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@").toCharArray(),
 		};
-	
+	static char[][] Mediterranean_Avenue_Ascii =
+		{
+			("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@").toCharArray(),	
+			("@```````````````````````````````@").toCharArray(),	
+			("@``````T`I`T`L`E```D`E`E`D``````@").toCharArray(),	
+			("@`````Mediterranean``Avenue`````@").toCharArray(),	
+			("@```````````````````````````````@").toCharArray(),	
+			("@```````````````````````````````@").toCharArray(),	
+			("@            RENT $2            @").toCharArray(),	
+			("@                               @").toCharArray(),	
+			("@  With 1 House        $    10  @").toCharArray(),	
+			("@  With 2 Houses            30  @").toCharArray(),	
+			("@  With 3 Houses            90  @").toCharArray(),	
+			("@  With 4 Houses           160  @").toCharArray(),	
+			("@                               @").toCharArray(),	
+			("@        With HOTEL $250        @").toCharArray(),	
+			("@       Mortgage Value $30      @").toCharArray(),	
+			("@      Houses cost $50 each     @").toCharArray(),	
+			("@   Hotels, $50 plus 4 houses   @").toCharArray(),	
+			("@                               @").toCharArray(),	
+			("@                               @").toCharArray(),	
+			("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@").toCharArray(),	
+		};
 }
+

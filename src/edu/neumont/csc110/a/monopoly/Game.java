@@ -42,7 +42,7 @@ public class Game {
 	private void intitializeTheGame() throws IOException {
 		decks.resetBothDecks();
 		allTheProperty.init();
-		banker.bankinit();
+		banker.bankinit(allTheProperty);
 
 	}
 
@@ -61,7 +61,7 @@ public class Game {
 				diceRoll = roll();
 				sumOfDiceRoll = sum(diceRoll);
 				timesRolled++;
-				player.addPlayerPosition((player.getPlayerPosition() + sumOfDiceRoll));
+				player.addPlayerPosition(sumOfDiceRoll);
 				sumOfDiceRoll = 0;
 				Board.setMainBoard(Player, person);
 				Board.printMainBoard();
@@ -72,6 +72,7 @@ public class Game {
 				System.out.println();
 				//System.out.println();
 				PropertyCards card = allTheProperty.PropCards[player.getPlayerPosition()];
+				//moce all the logic in the if else if statement to boarlogic
 				if(player.getPlayerPosition() == 7 || player.getPlayerPosition() == 22 || player.getPlayerPosition() == 36) {
 					//chance tiles
 					decks.chanceText(player, Player);
@@ -213,61 +214,61 @@ public class Game {
 		//sorry jasper
 		
 		/*
-		 * if(player is on Mediterranean_Avenue){
+		 * if(player[i].getPlayerPosition() = Mediterranean_Avenue){
 		 * Mediterranean_Avenue.getRent(); subtract money from current player
-		 * and add it to owner. }else if(player is on Baltic_Avenue){
+		 * and add it to owner. }else if(player[i].getPlayerPosition() Baltic_Avenue){
 		 * Baltic_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player is on Oriental_Avenue){
+		 * it to owner. }else if(player[i].getPlayerPosition() = Oriental_Avenue){
 		 * Oriental_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player is on Vermont_Avenue){
+		 * it to owner. }else if(player[i].getPlayerPostion = Vermont_Avenue){
 		 * Vermont_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player is on Connecticut_Avenue){
+		 * it to owner. }else if(player[i].getPlayerPosition() = Connecticut_Avenue){
 		 * Connecticut_Avenue.getRent(); subtract money from current player and
-		 * add it to owner. }else if(player is on StCharles_Place){
+		 * add it to owner. }else if(player[i].getPlayerPosition() = StCharles_Place){
 		 * StCharles_Place.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player is on States_Avenue){
+		 * it to owner. }else if(player[i].getPlayerPosition() = States_Avenue){
 		 * States_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player is on Virginia_Avenue){
+		 * it to owner. }else if(player[i].getPlayerPosition() = Virginia_Avenue){
 		 * Virginia_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player is on StJames_Place){
+		 * it to owner. }else if(player[i].getPlayerPosition() = StJames_Place){
 		 * StJames_Place.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player is on Tennessee_Avenue){
+		 * it to owner. }else if(player[i].getPlayerPosition() = Tennessee_Avenue){
 		 * Tennessee_Avenue.getRent(); subtract money from current player and
-		 * add it to owner. }else if(player is on New_York_Avenue){
+		 * add it to owner. }else if(player[i].getPlayerPosition() = New_York_Avenue){
 		 * New_York_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player is on Kentucky_Avenue){
+		 * it to owner. }else if(player[i].getPlayerPosition() = Kentucky_Avenue){
 		 * Kentucky_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player is on Indiana_Avenue){
+		 * it to owner. }else if(player[i].getPlayerPosition() = Indiana_Avenue){
 		 * Indiana_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player is on Illinois_Avenue){
+		 * it to owner. }else if(player[i].getPlayerPosition() = Illinois_Avenue){
 		 * Illinois_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player is on Atlantic_Avenue){
+		 * it to owner. }else if(player[i].getPlayerPosition() = Atlantic_Avenue){
 		 * Atlantic_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player is on Ventor_Avenue){
+		 * it to owner. }else if(player[i].getPlayerPosition() = Ventor_Avenue){
 		 * Ventor_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player is on Marvin_Gardens){
+		 * it to owner. }else if(player[i].getPlayerPosition() = Marvin_Gardens){
 		 * Marvin_Gardens.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player is on Pacific_Avenue){
+		 * it to owner. }else if(player[i].getPlayerPosition() = Pacific_Avenue){
 		 * Pacific_Avenue.getRent(); subtract money from current player and add
-		 * it to owner. }else if(player is on North_Carolina_Avenue){
+		 * it to owner. }else if(player[i].getPlayerPosition() = North_Carolina_Avenue){
 		 * North_Carolina_Avenue.getRent(); subtract money from current player
-		 * and add it to owner. }else if(player is on Pennslvania_Avenue){
+		 * and add it to owner. }else if(player[i].getPlayerPosition() = Pennslvania_Avenue){
 		 * Pennslvania_Avenue.getRent(); subtract money from current player and
-		 * add it to owner. }else if(player is on Park_Place){
+		 * add it to owner. }else if(player[i].getPlayerPosition() = Park_Place){
 		 * Park_Place.getRent(); subtract money from current player and add it
-		 * to owner. }else if(player is on Boardwalk){ Boardwalk.getRent();
+		 * to owner. }else if(player[i].getPlayerPosition() = Boardwalk){ Boardwalk.getRent();
 		 * subtract money from current player and add it to owner. }else
-		 * if(player is on Reading_Railroad){ Reading_Railroad.getRent();
+		 * if(player[i].getPlayerPosition() = Reading_Railroad){ Reading_Railroad.getRent();
 		 * subtract money from current player and add it to owner. }else
-		 * if(player is on Pennsylvania_Railroad){
+		 * if(player[i].getPlayerPosition() = Pennsylvania_Railroad){
 		 * Pennsylvania_Railroad.getRent(); subtract money from current player
-		 * and add it to owner. }else if(player is on BO_Railroad){
+		 * and add it to owner. }else if(player[i].getPlayerPosition() = BO_Railroad){
 		 * BO_Railroad.getRent(); subtract money from current player and add it
-		 * to owner. }else if(player is on Short_Line){ Short_Line.getRent();
+		 * to owner. }else if(player[i].getPlayerPosition() = Short_Line){ Short_Line.getRent();
 		 * subtract money from current player and add it to owner. }else
-		 * if(player is on Electric_Company){ Electric_Company.getRent();
+		 * if(player[i].getPlayerPosition() = Electric_Company){ Electric_Company.getRent();
 		 * subtract money from current player and add it to owner. }else
-		 * if(player is on Water_Works){ Water_Works.getRent(); subtract money
+		 * if(player[i].getPlayerPosition() = Water_Works){ Water_Works.getRent(); subtract money
 		 * from current player and add it to owner. }
 		 */
 	}

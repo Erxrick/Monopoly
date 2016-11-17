@@ -5,7 +5,7 @@ import java.io.IOException;
 import edu.neumont.csc110.a.utilities.ConsoleUI;
 
 public class BoardLogic {
-	
+	player.addMoney(-75);	
 public static void mainBoardLogic(Player player, Player[] Players){
 	
 }
