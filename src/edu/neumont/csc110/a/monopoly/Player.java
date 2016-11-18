@@ -16,9 +16,9 @@ public class Player {
 	public void printAsciiOwned(int i) {
 		//use in for loop only
 		PropertyCards card = this.property.get(i);
-		for(int j=0;j<property.size();j++) {
-			card.printCardAscii();
-		}
+//		for(int j=0;j<property.size();j++) {
+		card.printCardAscii();
+//		}
 	}
 	public int lengthOfProperties() {
 		return this.property.size();

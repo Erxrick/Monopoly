@@ -23,8 +23,8 @@ public class PropertyCards {
 	}
 	public void printCardAscii() {
 		for(int i=0;i<this.ascii.length;i++) {
-			System.out.print(this.ascii[i]);
-			for(int j=0;j<this.ascii[i].length;i++) {
+			//System.out.print(this.ascii[i]);
+			for(int j=0;j<this.ascii[i].length;j++) {
 				System.out.print(this.ascii[i][j]);
 			}
 			System.out.println();
