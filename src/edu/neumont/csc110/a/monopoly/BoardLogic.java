@@ -12,14 +12,22 @@ public class BoardLogic {
 		} else if(player.getPlayerPosition() == 2 || player.getPlayerPosition() == 17 || player.getPlayerPosition() == 33){
 			//community tiles
 			decks.communityChestText(player, Player);
+		} else if(player.getPlayerPosition() == 10) {
+			System.out.println("You are visiting jail.");
+		} else if(player.getPlayerPosition() == 20) {
+			System.out.println("You at free parking.");
+		} else if(player.getPlayerPosition() == 4) {
+			System.out.println("Pay Income Tax"); // annoying one have gabe do it
+		} else if(player.getPlayerPosition() == 30) {
+			System.out.println("Go to jail. Go directly to jail. Do not pass Go. Do not collect $200.");
+		} else if(player.getPlayerPosition() == 38) {
+			System.out.println("Pay Luxury Tax of $75.");
+			player.addMoney(-75);
 		} else {
 			purchaseOrRent(card, player, Player, person, banker);
 		}
 	}
 	private static void purchaseOrRent(PropertyCards card, Player player, Player[] Player, int person, Banker banker) throws IOException {
-		//idk if this is being built elsewhere, but feel free to let me know if it is that way I can rework it
-		
-		
 		if(card.isBought() == true) {
 			for(int i=0;i<person;i++) {
 				if(Player[i].ownProperty(card)){
