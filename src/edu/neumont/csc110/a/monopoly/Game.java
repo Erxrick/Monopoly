@@ -127,6 +127,8 @@ public class Game {
 				switch(debugselection) {
 					case 1:
 						player.setPlayerPosition(ConsoleUI.promptForInt("What number tile would you like to move to?", 0, 39));
+						PropertyCards debugcard = allTheProperty.PropCards[player.getPlayerPosition()];
+						BoardLogic.mainBoardLogic(player, Player, debugcard, decks, person, banker);
 						break;
 					case 2:
 						player.addMoney(ConsoleUI.promptForInt("How much money would you like to add?", -20000, 20000));
