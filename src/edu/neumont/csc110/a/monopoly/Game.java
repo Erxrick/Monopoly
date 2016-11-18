@@ -32,7 +32,12 @@ public class Game {
 						Board.printMainBoard();
 						turn(player[i], player, person);
 					}
-				anyoneWin = win(player[i]);
+				anyoneWin = win(player, person);
+			}
+			for(int i=0;i<person;i++) {
+				if(player[i].getMoney()>0) {
+					System.out.println(player[i].getName() + " wins!");
+				}
 			}
 		}
 
@@ -175,8 +180,16 @@ public class Game {
 		// trade buy house sell house end turn
 	}
 
-	private boolean win(Player player) {
-		//needs to be made still
+	private boolean win(Player[] player, int person) {
+		int counter = 0;
+		for(int i=0;i<person;i++) {
+			if(player[i].getMoney()<0 && player[i].lengthOfProperties() == 0) {
+				counter++;
+			}
+		}
+		if(counter == (person - 1)) {
+			return true;
+		}
 		return false;
 	}
 
