@@ -210,6 +210,7 @@ public class Game {
 		// or pay 50 money before rolling the dice.
 	
 	}
+	
 	private void printPlayerMoney(Player[] Player, Player player, int person) {
 		System.out.println("Player's Money:");
 		for(int z=0;z<person;z++) {
