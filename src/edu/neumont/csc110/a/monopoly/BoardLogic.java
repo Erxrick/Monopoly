@@ -20,11 +20,12 @@ public class BoardLogic {
 			System.out.println("Pay Income Tax");
 			String[] choice = {"[1] Pay 200$", "[2] Pay 10%"};
 			int userSelection = ConsoleUI.promptForMenuSelection(choice, false);
-			if(userSelection == 1){
+			switch(userSelection) {
+			case 1:
 				player.addMoney(-200);
-			}
-			if(userSelection == 2){
-				player.addMoney(-(player.getMoney() * (1/10)));
+				break;
+			case 2:
+				player.addMoney((int) (-1 * ((double) player.getMoney() * (double)(1/10))));
 			}
 		} else if(player.getPlayerPosition() == 30) {
 			System.out.println("Go to jail. Go directly to jail. Do not pass Go. Do not collect $200.");
