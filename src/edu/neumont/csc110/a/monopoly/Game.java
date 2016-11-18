@@ -276,8 +276,6 @@ public class Game {
 	private static void auction(PropertyCards card, Player player, Player[] Player) {
 		System.out.println("Not implemented yet");
 	}
-	
-	
 
 	private static void mortgage() {
 		// when all houses have been sold, you can mortgage property for money
@@ -295,7 +293,6 @@ public class Game {
 		ConsoleUI.promptForInput("What are you getting?", false);
 	}
 
-		
 	private void sell_Houses() throws IOException {
 	int sell = ConsoleUI.promptForInt("How many houses do you wish to sell?", 1, 5);
 		switch (sell) {
