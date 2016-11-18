@@ -63,7 +63,8 @@ public class Player {
 	}
 	
 	public void buyFromBanker(PropertyCards card, Banker bank) {
-		this.property.add(card); /// set isbought
+		this.property.add(card);
+		card.setBought(true);/// set isbought
 		this.addMoney(-1*card.getPrice());
 		bank.removeCard(card);
 	}
