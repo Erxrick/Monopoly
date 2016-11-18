@@ -142,6 +142,8 @@ public class BoardTiles {
 		Mediterranean_Avenue.setRentH5(250);
 		Mediterranean_Avenue.setHouseCost(50);
 		Mediterranean_Avenue.setMortgage(30);
+		Mediterranean_Avenue.setUnMortgage(33);
+	
 		Mediterranean_Avenue.setBought(false);
 		Mediterranean_Avenue.setcardAscii(asciiArt.Mediterranean_Avenue_Ascii);
 		//2 Baltic_Avenue

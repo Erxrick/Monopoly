@@ -16,6 +16,7 @@ public class PropertyCards {
 	private int rentH5;
 	private int houseCost;
 	private int mortgage;
+	private int unmortgage;
 	private char[][] ascii;
 	
 	public void setcardAscii(char[][] Ascii) {
@@ -102,6 +103,12 @@ public class PropertyCards {
 	}
 	public void setMortgage(int mortgage) {
 		this.mortgage = mortgage;
+	}
+	public int getUnMortgage() {
+		return unmortgage;
+	}
+	public void setUnMortgage(int unmortgage) {
+		this.unmortgage = unmortgage;
 	}
 	public void setColor(PropertyType color) {
 		this.color = color;
