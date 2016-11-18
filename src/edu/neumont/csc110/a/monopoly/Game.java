@@ -224,7 +224,6 @@ public class Game {
 		ConsoleUI.promptForInput("What are you getting?", false);
 	}
 
-		
 	private void sell_Houses() throws IOException {
 		System.out.println("Not fully implemented yet");
 	int sell = ConsoleUI.promptForInt("How many houses do you wish to sell?", 1, 5);
