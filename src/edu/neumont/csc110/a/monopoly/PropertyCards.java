@@ -16,6 +16,8 @@ public class PropertyCards {
 	private int rentH5;
 	private int houseCost;
 	private int mortgage;
+	private int unmortgage;
+	private boolean ismortgaged;
 	private char[][] ascii;
 	
 	public void setcardAscii(char[][] Ascii) {
@@ -43,6 +45,13 @@ public class PropertyCards {
 	public void setBought(boolean isBought) {
 		this.isBought = isBought;
 	}
+	public boolean isIsmortgaged() {
+		return ismortgaged;
+	}
+	public void setIsmortgaged(boolean ismortgaged) {
+		this.ismortgaged = ismortgaged;
+	}
+	
 	public int getPrice() {
 		return price;
 	}
@@ -103,6 +112,12 @@ public class PropertyCards {
 	public void setMortgage(int mortgage) {
 		this.mortgage = mortgage;
 	}
+	public int getUnMortgage() {
+		return unmortgage;
+	}
+	public void setUnMortgage(int unmortgage) {
+		this.unmortgage = unmortgage;
+	}
 	public void setColor(PropertyType color) {
 		this.color = color;
 	}
@@ -134,4 +149,6 @@ public class PropertyCards {
 		
 		return propRent;
 	}
+	
+
 }

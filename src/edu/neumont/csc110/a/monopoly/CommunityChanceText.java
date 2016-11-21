@@ -54,7 +54,7 @@ public class CommunityChanceText {
 	}
 	
 
-	public void communityChestText(Player player, Player[] otherPlayers){
+	public void communityChestText(Player player, Player[] otherPlayers, int person){
 		while(true) {
 			int comNum = communityChest.get(cardnum1);
 			cardnum1++;
@@ -81,7 +81,7 @@ public class CommunityChanceText {
 			else if(comNum == 3){
 				System.out.println("Grand Opera Night—Collect $50 from every player for opening night seats");
 				int transferValue = 0;
-				for(int i=0;i<otherPlayers.length;i++) {
+				for(int i=0;i<person;i++) {
 					if(otherPlayers[i].getMoney() > 0) {
 						otherPlayers[i].addMoney(-50);
 						transferValue += 50;
@@ -170,7 +170,7 @@ public class CommunityChanceText {
 		
 	}
 		// if Statement Incrementing chaNum after printing text
-	public void chanceText(Player player, Player[] otherPlayers){
+	public void chanceText(Player player, Player[] otherPlayers, int person){
 		while(true) {
 			int chaNum = chance.get(cardnum2);
 			cardnum2++;
@@ -182,28 +182,39 @@ public class CommunityChanceText {
 			}
 			else if(chaNum == 1){
 				System.out.println("Advance to Illinois Ave—If you pass Go, collect $200");
-				
+				player.setPlayerPosition(24);
 				break;
 			}
 			else if(chaNum == 2){
 				System.out.println("Advance to St. Charles Place – If you pass Go, collect $200");
-				
+				player.setPlayerPosition(11);
 				break;
 			}
 			else if(chaNum == 3){
 				System.out.println("Advance token to nearest Utility. If unowned, you may buy it from the Bank. If owned, throw dice and pay owner a total ten times the amount thrown.");
-			
+				if(player.getPlayerPosition() > 12 && player.getPlayerPosition() < 28) {
+					player.setPlayerPosition(28);
+				} else if(player.getPlayerPosition() < 12 && player.getPlayerPosition() > 28) {
+					player.setPlayerPosition(12);
+				}
 				break;
 			}
 			else if(chaNum == 4){
 				System.out.println("Advance token to the nearest Railroad and pay owner twice the rental to which he/she {he} is otherwise entitled. If Railroad is unowned, you may buy it from the Bank.");
-				
+				if(player.getPlayerPosition() < 5 && player.getPlayerPosition() > 35) {
+					player.setPlayerPosition(5);
+				} else if(player.getPlayerPosition() > 5 && player.getPlayerPosition() < 15) {
+					player.setPlayerPosition(15);
+				} else if(player.getPlayerPosition() > 15 && player.getPlayerPosition() < 25) {
+					player.setPlayerPosition(25);
+				} else if(player.getPlayerPosition() > 25 && player.getPlayerPosition() < 35) {
+					player.setPlayerPosition(35);
+				}
 				break;
 			}
 			else if(chaNum == 5){
 				System.out.println("Bank pays you dividend of $50");
 				player.addMoney(50);
-		
 				break;
 			}
 			else if(chaNum == 6){
@@ -231,22 +242,25 @@ public class CommunityChanceText {
 			}
 			else if(chaNum == 10){
 				System.out.println("Take a trip to Reading Railroad–If you pass Go, collect $200");				
+				player.setPlayerPosition(5);
 				break;
 			}
 			else if(chaNum == 11){
-				System.out.println("Take a walk on the Boardwalk–Advance token to Boardwalk");
+				System.out.println("Take a walk on the Boardwalk");
+				player.setPlayerPosition(39);
 				break;
 			}
 			else if(chaNum == 12){
 				System.out.println("You have been elected Chairman of the Board–Pay each player $50");
 				int transferValue = 0;
-				for(int i=0;i<otherPlayers.length;i++) {
+				for(int i=0;i<person;i++) {
 					if(otherPlayers[i].getMoney() > 0) {
 						otherPlayers[i].addMoney(50);
 						transferValue += 50;
 					}
 				}
 				player.addMoney(transferValue * -1);
+				player.addMoney(50);
 				break;
 			}
 			else if(chaNum == 13){
@@ -261,6 +275,7 @@ public class CommunityChanceText {
 			}
 			else if(chaNum == 15){
 				System.out.println("Advance to Go (Collect $200)");
+				player.setPlayerPosition(0);
 				chaNum++;
 				break;
 			}

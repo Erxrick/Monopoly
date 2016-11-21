@@ -17,7 +17,15 @@ public class BoardLogic {
 		} else if(player.getPlayerPosition() == 20) {
 			System.out.println("You at free parking.");
 		} else if(player.getPlayerPosition() == 4) {
-			System.out.println("Pay Income Tax"); // annoying one have gabe do it
+			System.out.println("Pay Income Tax");
+			String[] choice = {"[1] Pay 200$", "[2] Pay 10%"};
+			int userSelection = ConsoleUI.promptForMenuSelection(choice, false);
+			if(userSelection == 1){
+				player.addMoney(-200);
+			}
+			if(userSelection == 2){
+				player.addMoney(-(player.getMoney() * (1/10)));
+			}
 		} else if(player.getPlayerPosition() == 30) {
 			System.out.println("Go to jail. Go directly to jail. Do not pass Go. Do not collect $200.");
 		} else if(player.getPlayerPosition() == 38) {
@@ -54,7 +62,8 @@ public class BoardLogic {
 		}	
 	}
 	private static void auction(PropertyCards card, Player player, Player[] Player) {
-		System.out.println("Not implemented yet");
+		
+		
 	}
 	public static void Luxury_Tax(Player player) {
 		player.addMoney(-75);	
@@ -67,15 +76,9 @@ public class BoardLogic {
 		player.addMoney(-200);
 	}
 	
-	public static void Free_Parking() {
-	
-		
-	}
 	
 	
-	public static void Jail(Player player) {
-		
-	}
+	
 	
 	
 	public static void Chance() {

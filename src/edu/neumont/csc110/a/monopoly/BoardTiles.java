@@ -142,6 +142,8 @@ public class BoardTiles {
 		Mediterranean_Avenue.setRentH5(250);
 		Mediterranean_Avenue.setHouseCost(50);
 		Mediterranean_Avenue.setMortgage(30);
+		Mediterranean_Avenue.setUnMortgage(33);
+		Mediterranean_Avenue.setIsmortgaged(false);
 		Mediterranean_Avenue.setBought(false);
 		Mediterranean_Avenue.setcardAscii(asciiArt.Mediterranean_Avenue_Ascii);
 		//2 Baltic_Avenue
@@ -158,6 +160,8 @@ public class BoardTiles {
 		Baltic_Avenue.setRentH5(450);
 		Baltic_Avenue.setHouseCost(50);
 		Baltic_Avenue.setMortgage(30);
+		Baltic_Avenue.setUnMortgage(33);
+		Baltic_Avenue.setIsmortgaged(false);
 		Baltic_Avenue.setBought(false);
 		Baltic_Avenue.setcardAscii(asciiArt.Baltic_Avenue_Ascii);
 		//3 Oriental_Avenue
@@ -174,6 +178,8 @@ public class BoardTiles {
 		Oriental_Avenue.setRentH5(550);
 		Oriental_Avenue.setHouseCost(50);
 		Oriental_Avenue.setMortgage(50);
+		Oriental_Avenue.setUnMortgage(55);
+		Oriental_Avenue.setIsmortgaged(false);
 		Oriental_Avenue.setBought(false);
 		Oriental_Avenue.setcardAscii(asciiArt.Oriental_Avenue_Ascii);
 		//4 Vermont_Avenue
@@ -190,6 +196,8 @@ public class BoardTiles {
 		Vermont_Avenue.setRentH5(550);
 		Vermont_Avenue.setHouseCost(50);
 		Vermont_Avenue.setMortgage(50);
+		Vermont_Avenue.setUnMortgage(55);
+		Vermont_Avenue.setIsmortgaged(false);
 		Vermont_Avenue.setBought(false);
 		Vermont_Avenue.setcardAscii(asciiArt.Oriental_Avenue_Ascii);
 		
@@ -207,6 +215,8 @@ public class BoardTiles {
 		Connecticut_Avenue.setRentH5(600);
 		Connecticut_Avenue.setHouseCost(50);
 		Connecticut_Avenue.setMortgage(60);
+		Connecticut_Avenue.setUnMortgage(66);
+		Connecticut_Avenue.setIsmortgaged(false);
 		Connecticut_Avenue.setBought(false);
 		Connecticut_Avenue.setcardAscii(asciiArt.Connecticut_Avenue_Ascii);
 		//6 StCharles_Place
@@ -223,6 +233,8 @@ public class BoardTiles {
 		StCharles_Place.setRentH5(750);
 		StCharles_Place.setHouseCost(100);
 		StCharles_Place.setMortgage(70);
+		StCharles_Place.setUnMortgage(77);
+		StCharles_Place.setIsmortgaged(false);
 		StCharles_Place.setBought(false);
 		StCharles_Place.setcardAscii(asciiArt.StCharles_Place_Ascii);
 		//7 States_Avenue
@@ -239,6 +251,8 @@ public class BoardTiles {
 		States_Avenue.setRentH5(750);
 		States_Avenue.setHouseCost(100);
 		States_Avenue.setMortgage(70);
+		States_Avenue.setUnMortgage(77);
+		States_Avenue.setIsmortgaged(false);
 		States_Avenue.setBought(false);
 		States_Avenue.setcardAscii(asciiArt.States_Avenue_Ascii);
 		//8 Virginia_Avenue
@@ -255,6 +269,8 @@ public class BoardTiles {
 		Virginia_Avenue.setRentH5(900);
 		Virginia_Avenue.setHouseCost(100);
 		Virginia_Avenue.setMortgage(80);
+		Virginia_Avenue.setUnMortgage(88);
+		Virginia_Avenue.setIsmortgaged(false);
 		Virginia_Avenue.setBought(false);
 		Virginia_Avenue.setcardAscii(asciiArt.Virginia_Avenue_Ascii);
 		//9 StJames_Place
@@ -271,6 +287,8 @@ public class BoardTiles {
 		StJames_Place.setRentH5(950);
 		StJames_Place.setHouseCost(100);
 		StJames_Place.setMortgage(90);
+		StJames_Place.setUnMortgage(99);
+		StJames_Place.setIsmortgaged(false);
 		StJames_Place.setBought(false);
 		StJames_Place.setcardAscii(asciiArt.StJames_Place_Ascii);
 		//10 Tennessee_Avenue
@@ -287,6 +305,8 @@ public class BoardTiles {
 		Tennessee_Avenue.setRentH5(950);
 		Tennessee_Avenue.setHouseCost(100);
 		Tennessee_Avenue.setMortgage(90);
+		Tennessee_Avenue.setUnMortgage(99);
+		Tennessee_Avenue.setIsmortgaged(false);
 		Tennessee_Avenue.setBought(false);
 		Tennessee_Avenue.setcardAscii(asciiArt.Tennessee_Avenue_Ascii);
 		//11 New_York_Avenue
@@ -303,6 +323,8 @@ public class BoardTiles {
 		New_York_Avenue.setRentH5(1000);
 		New_York_Avenue.setHouseCost(100);
 		New_York_Avenue.setMortgage(100);
+		New_York_Avenue.setUnMortgage(110);
+		New_York_Avenue.setIsmortgaged(false);
 		New_York_Avenue.setBought(false);
 		New_York_Avenue.setcardAscii(asciiArt.New_York_Avenue_Ascii);
 		//12 Kentucky_Avenue
@@ -319,6 +341,8 @@ public class BoardTiles {
 		Kentucky_Avenue.setRentH5(1050);
 		Kentucky_Avenue.setHouseCost(150);
 		Kentucky_Avenue.setMortgage(110);
+		Kentucky_Avenue.setUnMortgage(121);
+		Kentucky_Avenue.setIsmortgaged(false);
 		Kentucky_Avenue.setBought(false);
 		Kentucky_Avenue.setcardAscii(asciiArt.Kentucky_Avenue_Ascii);
 		//13 Indiana_Avenue
@@ -335,6 +359,8 @@ public class BoardTiles {
 		Indiana_Avenue.setRentH5(1050);
 		Indiana_Avenue.setHouseCost(150);
 		Indiana_Avenue.setMortgage(110);
+		Indiana_Avenue.setUnMortgage(121);
+		Indiana_Avenue.setIsmortgaged(false);
 		Indiana_Avenue.setBought(false);
 		Indiana_Avenue.setcardAscii(asciiArt.Indiana_Avenue_Ascii);	
 		//14 Illinois_Avenue
@@ -351,6 +377,8 @@ public class BoardTiles {
 		Illinois_Avenue.setRentH5(1100);
 		Illinois_Avenue.setHouseCost(150);
 		Illinois_Avenue.setMortgage(120);
+		Illinois_Avenue.setUnMortgage(122);
+		Illinois_Avenue.setIsmortgaged(false);
 		Illinois_Avenue.setBought(false);
 		Illinois_Avenue.setcardAscii(asciiArt.Illinios_Avenue_Ascii);
 		//15 Atlantic_Avenue
@@ -367,6 +395,8 @@ public class BoardTiles {
 		Atlantic_Avenue.setRentH5(1150);
 		Atlantic_Avenue.setHouseCost(150);
 		Atlantic_Avenue.setMortgage(130);
+		Atlantic_Avenue.setUnMortgage(143);
+		Atlantic_Avenue.setIsmortgaged(false);
 		Atlantic_Avenue.setBought(false);
 		Atlantic_Avenue.setcardAscii(asciiArt.Atlantic_Avenue_Ascii);
 		//16 Ventor_Avenue
@@ -383,6 +413,8 @@ public class BoardTiles {
 		Ventor_Avenue.setRentH5(1150);
 		Ventor_Avenue.setHouseCost(150);
 		Ventor_Avenue.setMortgage(130);
+		Ventor_Avenue.setUnMortgage(143);
+		Ventor_Avenue.setIsmortgaged(false);
 		Ventor_Avenue.setBought(false);
 		Ventor_Avenue.setcardAscii(asciiArt.Ventor_Avenue);
 		//17 Marvin_Gardens
@@ -399,6 +431,8 @@ public class BoardTiles {
 		Marvin_Gardens.setRentH5(1200);
 		Marvin_Gardens.setHouseCost(150);
 		Marvin_Gardens.setMortgage(140);
+		Marvin_Gardens.setUnMortgage(154);
+		Marvin_Gardens.setIsmortgaged(false);
 		Marvin_Gardens.setBought(false);
 		Marvin_Gardens.setcardAscii(asciiArt.Marvin_Gardens_Ascii);
 		//18 Pacific_Avenue
@@ -415,6 +449,8 @@ public class BoardTiles {
 		Pacific_Avenue.setRentH5(1275);
 		Pacific_Avenue.setHouseCost(200);
 		Pacific_Avenue.setMortgage(150);
+		Pacific_Avenue.setUnMortgage(165);
+		Pacific_Avenue.setIsmortgaged(false);
 		Pacific_Avenue.setBought(false);
 		Pacific_Avenue.setcardAscii(asciiArt.Pacific_Avenue_Ascii);
 		//19 North_Carolina_Avenue
@@ -431,6 +467,8 @@ public class BoardTiles {
 		North_Carolina_Avenue.setRentH5(1275);
 		North_Carolina_Avenue.setHouseCost(200);
 		North_Carolina_Avenue.setMortgage(150);
+		North_Carolina_Avenue.setUnMortgage(165);
+		North_Carolina_Avenue.setIsmortgaged(false);
 		North_Carolina_Avenue.setBought(false);
 		North_Carolina_Avenue.setcardAscii(asciiArt.North_Carolina_Avenue_Ascii);
 		//20 Pennslvania_Avenue
@@ -447,6 +485,8 @@ public class BoardTiles {
 		Pennslvania_Avenue.setRentH5(1400);
 		Pennslvania_Avenue.setHouseCost(200);
 		Pennslvania_Avenue.setMortgage(160);
+		Pennslvania_Avenue.setUnMortgage(176);
+		Pennslvania_Avenue.setIsmortgaged(false);
 		Pennslvania_Avenue.setBought(false);
 		Pennslvania_Avenue.setcardAscii(asciiArt.Pennsylvania_Avenue_Ascii);
 		//21 Park_Place
@@ -463,6 +503,8 @@ public class BoardTiles {
 		Park_Place.setRentH5(1500);
 		Park_Place.setHouseCost(200);
 		Park_Place.setMortgage(175);
+		Park_Place.setUnMortgage(193);
+		Park_Place.setIsmortgaged(false);
 		Park_Place.setBought(false);
 		Park_Place.setcardAscii(asciiArt.Park_Place_Ascii);
 		//22 Boardwalk_
@@ -479,6 +521,8 @@ public class BoardTiles {
 		Boardwalk.setRentH5(2000);
 		Boardwalk.setHouseCost(200);
 		Boardwalk.setMortgage(200);
+		Boardwalk.setUnMortgage(220);
+		Boardwalk.setIsmortgaged(false);
 		Boardwalk.setBought(false);
 		Boardwalk.setcardAscii(asciiArt.Boardwalk_Ascii);
 		//23 Reading_Railroad
@@ -488,6 +532,8 @@ public class BoardTiles {
 		Reading_Railroad.setPrice(200);
 		Reading_Railroad.setRent(25);
 		Reading_Railroad.setMortgage(100);
+		Reading_Railroad.setUnMortgage(110);
+		Reading_Railroad.setIsmortgaged(false);
 		Reading_Railroad.setBought(false);
 		Reading_Railroad.setcardAscii(asciiArt.Reading_Railroad_Ascii);
 		//24 Pennsylvania_Railroad
@@ -496,8 +542,7 @@ public class BoardTiles {
 		Pennsylvania_Railroad.setColor(PropertyType.railroad);
 		Pennsylvania_Railroad.setPrice(200);
 		Pennsylvania_Railroad.setRent(25);
-		Pennsylvania_Railroad.setMortgage(100);
-		Pennsylvania_Railroad.setBought(false);
+		Pennsylvania_Railroad.setMortgage(100);		Pennsylvania_Railroad.setUnMortgage(110);		Pennsylvania_Railroad.setIsmortgaged(false);		Pennsylvania_Railroad.setBought(false);
 		Pennsylvania_Railroad.setcardAscii(asciiArt.Pennsylvania_Railroad_Ascii);
 		//25 BO_Railroad
 	//TODO set real rent
@@ -506,6 +551,8 @@ public class BoardTiles {
 		BO_Railroad.setPrice(200);
 		BO_Railroad.setRent(25);
 		BO_Railroad.setMortgage(100);
+		BO_Railroad.setUnMortgage(110);
+		BO_Railroad.setIsmortgaged(false);
 		BO_Railroad.setBought(false);
 		BO_Railroad.setcardAscii(asciiArt.BO_Railroad_Ascii);
 		//26 Short_Line
@@ -515,6 +562,8 @@ public class BoardTiles {
 		Short_Line.setPrice(200);
 		Short_Line.setRent(25);
 		Short_Line.setMortgage(100);
+		Short_Line.setUnMortgage(110);
+		Short_Line.setIsmortgaged(false);
 		Short_Line.setBought(false);
 		Short_Line.setcardAscii(asciiArt.Short_Line_Ascii);
 		//27 Electric_Company
@@ -522,17 +571,33 @@ public class BoardTiles {
 		Electric_Company.setName("Electric Company");
 		Electric_Company.setColor(PropertyType.utility);
 		Electric_Company.setPrice(150);
-		Electric_Company.setRent(1);
+		//if(electriccompany && WaterWorks are in the player array){
+		//Electric_Company.setRent(DiceRoll * 10);
+		//}
+		//else{
+		//Electric_Company.setRent(DiceRoll * 4)
+		//}
+		
 		Electric_Company.setMortgage(75);
+		Electric_Company.setUnMortgage(83);
+		Electric_Company.setIsmortgaged(false);
 		Electric_Company.setBought(false);
 		Electric_Company.setcardAscii(asciiArt.Electric_Company_Ascii);
 		//28 Water_Works
-	//TODO set real rent
+	
+		//TODO set real rent
 		Water_Works.setName("Water Works");
 		Water_Works.setColor(PropertyType.utility);
 		Water_Works.setPrice(150);
-		Water_Works.setRent(1);
+		//if(electriccompany && WaterWorks are in the player array){
+				//Water_Works.setRent(DiceRoll * 10);
+				//}
+				//else{
+				//Water_Works.setRent(DiceRoll * 4)
+				//}
 		Water_Works.setMortgage(75);
+		Water_Works.setUnMortgage(83);
+		Water_Works.setIsmortgaged(false);
 		Water_Works.setBought(false);
 		Water_Works.setcardAscii(asciiArt.Water_Works_Ascii);
 
