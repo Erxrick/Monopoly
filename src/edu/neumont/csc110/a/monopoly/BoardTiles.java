@@ -268,7 +268,7 @@ public class BoardTiles {
 		StJames_Place.setRentH2(200);
 		StJames_Place.setRentH3(550);
 		StJames_Place.setRentH4(750);
-		StJames_Place.setRentH5(1);
+		StJames_Place.setRentH5(950);
 		StJames_Place.setHouseCost(100);
 		StJames_Place.setMortgage(90);
 		StJames_Place.setBought(false);
@@ -301,7 +301,7 @@ public class BoardTiles {
 		New_York_Avenue.setRentH3(600);
 		New_York_Avenue.setRentH4(800);
 		New_York_Avenue.setRentH5(1000);
-		New_York_Avenue.setHouseCost(200);
+		New_York_Avenue.setHouseCost(100);
 		New_York_Avenue.setMortgage(100);
 		New_York_Avenue.setBought(false);
 		New_York_Avenue.setcardAscii(asciiArt.New_York_Avenue_Ascii);
@@ -496,7 +496,7 @@ public class BoardTiles {
 		Pennsylvania_Railroad.setColor(PropertyType.railroad);
 		Pennsylvania_Railroad.setPrice(200);
 		Pennsylvania_Railroad.setRent(25);
-		Pennsylvania_Railroad.setMortgage(1);
+		Pennsylvania_Railroad.setMortgage(100);
 		Pennsylvania_Railroad.setBought(false);
 		Pennsylvania_Railroad.setcardAscii(asciiArt.Pennsylvania_Railroad_Ascii);
 		//25 BO_Railroad
