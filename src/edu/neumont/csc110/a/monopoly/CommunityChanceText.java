@@ -232,6 +232,7 @@ public class CommunityChanceText {
 				System.out.println("Go to Jail–Go directly to Jail–Do not pass Go, do not collect $200");
 				player.setPlayerInJail(true);
 				player.setPlayerPosition(10);
+				player.addMoney(-200);
 				break;
 			}
 			else if(chaNum == 9){

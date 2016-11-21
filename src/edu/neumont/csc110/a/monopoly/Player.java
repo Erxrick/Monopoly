@@ -11,6 +11,7 @@ public class Player {
 	private int houseTotal;
 	private int hotelTotal;
 	private int playerPosition;
+	private int turnsInJail;
 	private ArrayList<PropertyCards> property; //taking from the arraylist from the bank
 	
 	
@@ -120,5 +121,11 @@ public class Player {
 
 	public void addMoney(int money) {
 		this.money += money;
+	}
+	public int getTurnsInJail() {
+		return turnsInJail;
+	}
+	public void addTurnsInJail(int counter) {
+		this.turnsInJail += counter;
 	}
 }

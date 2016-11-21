@@ -26,7 +26,7 @@ public class Game {
 			for (int i = 0; i < person; i++) {
 				if (player[i].isPlayerInJail() == true) {
 					Board.printMainBoard();
-					playerInJailTurn(player[i]);
+					playerInJailTurn(player[i], player, person);
 				} else {
 					Board.printMainBoard();
 					turn(player[i], player, person);
@@ -207,7 +207,27 @@ public class Game {
 		return false;
 	}
 
-	private void playerInJailTurn(Player player) {
+	private void playerInJailTurn(Player player, Player[] Player, int person) throws IOException {
+		String[] optionsWCard = {"Pay $50 before rolling", "Roll for doubles", "Use get out of Jail card"}; 
+		String[] options = {"Pay $50 before rolling", "Roll for doubles"}; 
+		int userSelection = 0;
+		if(player.getGetOutOfJailCard() == 0) {
+			userSelection = ConsoleUI.promptForMenuSelection(options, false);
+		} else if(player.getGetOutOfJailCard() > 0) {
+			userSelection = ConsoleUI.promptForMenuSelection(optionsWCard, false);
+		}
+		switch (userSelection) {
+			case 1:
+				player.addMoney(-50);
+				turn(player, Player, person);
+				break;
+			case 2:
+				System.out.println("Work in progress");
+				break;
+			case 3:
+				System.out.println("Work in progress");
+				break;
+		}
 		// you must either roll doubles to set jail = false,
 		// use "get out of jail free" card,
 		// or pay 50 money before rolling the dice.

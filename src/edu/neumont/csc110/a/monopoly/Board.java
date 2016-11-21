@@ -579,7 +579,7 @@ public class Board {
 	}
 
 	public static void position10(Player player) {
-		BoardLogic.Jail(player);
+		//BoardLogic.Jail(player);
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[52][10] = '(';
 			asciiArt.asciiBoard[52][11] = 'T';
@@ -1011,7 +1011,7 @@ public class Board {
 	}
 
 	public static void position20(Player player) {
-		BoardLogic.Free_Parking();
+	//	BoardLogic.Free_Parking();
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[5][10] = '(';
 			asciiArt.asciiBoard[5][11] = 'T';
