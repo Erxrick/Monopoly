@@ -17,6 +17,7 @@ public class PropertyCards {
 	private int houseCost;
 	private int mortgage;
 	private int unmortgage;
+	private boolean ismortgaged;
 	private char[][] ascii;
 	
 	public void setcardAscii(char[][] Ascii) {
@@ -44,6 +45,13 @@ public class PropertyCards {
 	public void setBought(boolean isBought) {
 		this.isBought = isBought;
 	}
+	public boolean isIsmortgaged() {
+		return ismortgaged;
+	}
+	public void setIsmortgaged(boolean ismortgaged) {
+		this.ismortgaged = ismortgaged;
+	}
+	
 	public int getPrice() {
 		return price;
 	}
@@ -141,4 +149,6 @@ public class PropertyCards {
 		
 		return propRent;
 	}
+	
+
 }
