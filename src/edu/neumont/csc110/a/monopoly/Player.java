@@ -13,6 +13,21 @@ public class Player {
 	private int playerPosition;
 	private ArrayList<PropertyCards> property; //taking from the arraylist from the bank
 	
+	
+	public boolean allMortgaged() {
+		boolean maybe = false;
+		int counter = 0;
+		for(int i=0;i<this.property.size();i++) {
+			if(this.property.get(i).isIsmortgaged()) {
+				counter++;
+			}
+		}
+		if(counter == property.size()) {
+			return true;
+		} else {
+		return maybe;
+		}
+	}
 	public void printAsciiOwned(int i) {
 		//use in for loop only
 		PropertyCards card = this.property.get(i);
@@ -75,6 +90,7 @@ public class Player {
 
 	public void setPlayerInJail(boolean isPlayerInJail) {
 		this.isPlayerInJail = isPlayerInJail;
+		this.setPlayerPosition(10);
 	}
 
 	public int getGetOutOfJailCard() {

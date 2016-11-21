@@ -199,7 +199,7 @@ public class Game {
 	private boolean win(Player[] player, int person) {
 		int counter = 0;
 		for (int i = 0; i < person; i++) {
-			if (player[i].getMoney() < 0 && player[i].lengthOfProperties() == 0) {
+			if (player[i].getMoney() < 0 && player[i].allMortgaged() == true) {
 				counter++;
 			}
 		}
