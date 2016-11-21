@@ -650,7 +650,6 @@ public class asciiArt {
 				("@                               @").toCharArray(),	
 				("@         .++.      .....       @").toCharArray(),	
 				("@          ==       '||'        @").toCharArray(),	
-				("@          ##        ##         @").toCharArray(),	
 				("@          ||        |.         @").toCharArray(),	
 				("@        +|||||||||||(          @").toCharArray(),	
 				("@        +||||||||||||.         @").toCharArray(),	
