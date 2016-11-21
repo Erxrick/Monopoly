@@ -76,7 +76,9 @@ public class BoardLogic {
 		player.addMoney(-200);
 	}
 	
-	
+	public static void fullSet(Player player){
+		
+	}
 	
 	
 	
