@@ -8,10 +8,10 @@ public class BoardLogic {
 	public static void mainBoardLogic(Player player, Player[] Player, PropertyCards card, CommunityChanceText decks, int person, Banker banker) throws IOException{
 		if(player.getPlayerPosition() == 7 || player.getPlayerPosition() == 22 || player.getPlayerPosition() == 36) {
 			//chance tiles
-			decks.chanceText(player, Player);
+			decks.chanceText(player, Player, person);
 		} else if(player.getPlayerPosition() == 2 || player.getPlayerPosition() == 17 || player.getPlayerPosition() == 33){
 			//community tiles
-			decks.communityChestText(player, Player);
+			decks.communityChestText(player, Player, person);
 		} else if(player.getPlayerPosition() == 10) {
 			System.out.println("You are visiting jail.");
 		} else if(player.getPlayerPosition() == 20) {
@@ -76,7 +76,9 @@ public class BoardLogic {
 		player.addMoney(-200);
 	}
 	
-	
+	public static void fullSet(Player player){
+		
+	}
 	
 	
 	

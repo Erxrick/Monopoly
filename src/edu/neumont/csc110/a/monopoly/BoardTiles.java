@@ -321,7 +321,7 @@ public class BoardTiles {
 		New_York_Avenue.setRentH3(600);
 		New_York_Avenue.setRentH4(800);
 		New_York_Avenue.setRentH5(1000);
-		New_York_Avenue.setHouseCost(200);
+		New_York_Avenue.setHouseCost(100);
 		New_York_Avenue.setMortgage(100);
 		New_York_Avenue.setUnMortgage(110);
 		New_York_Avenue.setIsmortgaged(false);
@@ -542,10 +542,7 @@ public class BoardTiles {
 		Pennsylvania_Railroad.setColor(PropertyType.railroad);
 		Pennsylvania_Railroad.setPrice(200);
 		Pennsylvania_Railroad.setRent(25);
-		Pennsylvania_Railroad.setMortgage(100);
-		Pennsylvania_Railroad.setUnMortgage(110);
-		Pennsylvania_Railroad.setIsmortgaged(false);
-		Pennsylvania_Railroad.setBought(false);
+		Pennsylvania_Railroad.setMortgage(100);		Pennsylvania_Railroad.setUnMortgage(110);		Pennsylvania_Railroad.setIsmortgaged(false);		Pennsylvania_Railroad.setBought(false);
 		Pennsylvania_Railroad.setcardAscii(asciiArt.Pennsylvania_Railroad_Ascii);
 		//25 BO_Railroad
 	//TODO set real rent
