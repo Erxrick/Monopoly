@@ -31,9 +31,7 @@ public class Game {
 					Board.printMainBoard();
 					turn(player[i], player, person);
 				}
-				anyoneWin = win(player, person);
-				if (anyoneWin)
-					break;
+				if (win(player, person)) break;
 			}
 		}
 		for (int i = 0; i < person; i++) {
@@ -41,7 +39,7 @@ public class Game {
 				System.out.println(player[i].getName() + " wins!");
 			}
 		}
-
+		System.out.println("bitch work");
 		// System.out.println("You rolled a " + roll());
 	}
 
