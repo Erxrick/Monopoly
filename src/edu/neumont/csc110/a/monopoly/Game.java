@@ -138,6 +138,14 @@ public class Game {
 		} while ((diceRoll[0] == diceRoll[1]) && player.isPlayerInJail() == false);
 
 		Board.printMainBoard();
+		secondHalfOfTheTurn(player, Player, person);
+		// prompt for roll, trade, buy house, sell house, done
+		// move player
+		// option to buy or if bought have to pay rent
+		// trade buy house sell house end turn
+	}
+
+	private void secondHalfOfTheTurn(Player player, Player[] Player, int person) throws IOException {
 		boolean endTurn = false;
 		do {
 			int otherSelection = -1;
@@ -188,12 +196,8 @@ public class Game {
 				break;
 			}
 		} while (endTurn == false);
-		// prompt for roll, trade, buy house, sell house, done
-		// move player
-		// option to buy or if bought have to pay rent
-		// trade buy house sell house end turn
 	}
-
+	
 	private boolean win(Player[] player, int person) {
 		int counter = 0;
 		for (int i = 0; i < person; i++) {
@@ -211,33 +215,46 @@ public class Game {
 		String[] optionsWCard = {"Pay $50 before rolling", "Roll for doubles", "Use get out of Jail card"}; 
 		String[] options = {"Pay $50 before rolling", "Roll for doubles"}; 
 		int userSelection = 0;
-		if(player.getGetOutOfJailCard() == 0) {
-			userSelection = ConsoleUI.promptForMenuSelection(options, false);
-		} else if(player.getGetOutOfJailCard() > 0) {
-			userSelection = ConsoleUI.promptForMenuSelection(optionsWCard, false);
-		}
-		switch (userSelection) {
-			case 1:
-				player.addMoney(-50);
-				player.setPlayerInJail(false);
-				turn(player, Player, person);
-				break;
-			case 2:
-				System.out.println("Work in progress");
-				int[] jailRoll = roll();
-				System.out.println("You rolled: " + jailRoll[0] + " " + jailRoll[1]);
-				if(jailRoll[0] == jailRoll[1]) {
-					System.out.println("You have escaped jail.");
-					System.out.println("Not implemented yet.");
-				} else if(jailRoll[0] == jailRoll[1]) {
-					System.out.println("not implemented yet");
-				}
-				break;
-			case 3:
-				System.out.println("You use your Get Out of Jail Free card.");
-				player.setGetOutOfJailCard(-1);
-				turn(player, Player, person);
-				break;
+		if(player.getTurnsInJail() >= 3) {
+			System.out.println("You pay $50 to get out of jail.");
+			player.addMoney(-50);
+			turn(player, Player, person);
+		} else {
+			if(player.getGetOutOfJailCard() == 0) {
+				userSelection = ConsoleUI.promptForMenuSelection(options, false);
+			} else if(player.getGetOutOfJailCard() > 0) {
+				userSelection = ConsoleUI.promptForMenuSelection(optionsWCard, false);
+			}
+			switch (userSelection) {
+				case 1:
+					player.addMoney(-50);
+					player.setPlayerInJail(false);
+					turn(player, Player, person);
+					break;
+				case 2:
+					int[] jailRoll = roll();
+					System.out.println("You rolled: " + jailRoll[0] + " " + jailRoll[1]);
+					if(jailRoll[0] == jailRoll[1]) {
+						System.out.println("You have escaped jail.");
+						player.addPlayerPosition(jailRoll[0] + jailRoll[1]);
+						Board.setMainBoard(Player, person);
+						Board.printMainBoard();
+						printPlayerMoney(Player, player, person);
+						System.out.println();
+						PropertyCards card = allTheProperty.PropCards[player.getPlayerPosition()];
+						BoardLogic.mainBoardLogic(player, Player, card, decks, person, banker);
+						secondHalfOfTheTurn(player, Player, person);
+					} else if(jailRoll[0] != jailRoll[1]) {
+						secondHalfOfTheTurn(player, Player, person);
+						player.addTurnsInJail(1);
+					}
+					break;
+				case 3:
+					System.out.println("You use your Get Out of Jail Free card.");
+					player.setGetOutOfJailCard(-1);
+					turn(player, Player, person);
+					break;
+			}
 		}
 		// you must either roll doubles to set jail = false,
 		// use "get out of jail free" card,
