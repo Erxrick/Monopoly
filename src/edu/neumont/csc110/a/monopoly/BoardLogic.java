@@ -24,7 +24,7 @@ public class BoardLogic {
 				player.addMoney(-200);
 			}
 			if(userSelection == 2){
-				player.addMoney(-(player.getMoney() * (1/10)));
+				player.addMoney((int)-(player.getMoney() * .1));
 			}
 		} else if(player.getPlayerPosition() == 30) {
 			System.out.println("Go to jail. Go directly to jail. Do not pass Go. Do not collect $200.");
@@ -46,6 +46,8 @@ public class BoardLogic {
 			player.addMoney(card.getPropertyRentWhenLandedOn() * -1);
 		} else {
 			//this is where its bought
+			card.printCardAscii();
+			System.out.println("This card costs: " + card.getPrice());
 			System.out.println("Would you like to:");
 			String[] buyOptions = {"Buy this property", "Auction this Property"};
 			int buy = ConsoleUI.promptForMenuSelection(buyOptions, true);
