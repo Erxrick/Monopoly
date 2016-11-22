@@ -24,7 +24,7 @@ public class BoardLogic {
 				player.addMoney(-200);
 			}
 			if(userSelection == 2){
-				player.addMoney(-(player.getMoney() * (1/10)));
+				player.addMoney((int)-(player.getMoney() * .1));
 			}
 		} else if(player.getPlayerPosition() == 30) {
 			System.out.println("Go to jail. Go directly to jail. Do not pass Go. Do not collect $200.");
