@@ -555,6 +555,7 @@ public class BoardTiles {
 		Reading_Railroad.setRent(25);
 		Reading_Railroad.setMortgage(100);
 		Reading_Railroad.setUnMortgage(110);
+		Reading_Railroad.setRailRoadNum(1);
 		Reading_Railroad.setIsmortgaged(false);
 		Reading_Railroad.setBought(false);
 		Reading_Railroad.setcardAscii(asciiArt.Reading_Railroad_Ascii);
@@ -565,7 +566,8 @@ public class BoardTiles {
 		Pennsylvania_Railroad.setPrice(200);
 		Pennsylvania_Railroad.setRent(25);
 		Pennsylvania_Railroad.setMortgage(100);		
-		Pennsylvania_Railroad.setUnMortgage(110);		
+		Pennsylvania_Railroad.setUnMortgage(110);
+		Pennsylvania_Railroad.setRailRoadNum(1);
 		Pennsylvania_Railroad.setIsmortgaged(false);	
 		Pennsylvania_Railroad.setBought(false);
 		Pennsylvania_Railroad.setcardAscii(asciiArt.Pennsylvania_Railroad_Ascii);
@@ -577,6 +579,7 @@ public class BoardTiles {
 		BO_Railroad.setRent(25);
 		BO_Railroad.setMortgage(100);
 		BO_Railroad.setUnMortgage(110);
+		BO_Railroad.setRailRoadNum(1);
 		BO_Railroad.setIsmortgaged(false);
 		BO_Railroad.setBought(false);
 		BO_Railroad.setcardAscii(asciiArt.BO_Railroad_Ascii);
@@ -588,6 +591,7 @@ public class BoardTiles {
 		Short_Line.setRent(25);
 		Short_Line.setMortgage(100);
 		Short_Line.setUnMortgage(110);
+		Short_Line.setRailRoadNum(1);
 		Short_Line.setIsmortgaged(false);
 		Short_Line.setBought(false);
 		Short_Line.setcardAscii(asciiArt.Short_Line_Ascii);
