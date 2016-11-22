@@ -199,7 +199,7 @@ public class BoardTiles {
 		Vermont_Avenue.setUnMortgage(55);
 		Vermont_Avenue.setIsmortgaged(false);
 		Vermont_Avenue.setBought(false);
-		Vermont_Avenue.setcardAscii(asciiArt.Oriental_Avenue_Ascii);
+		Vermont_Avenue.setcardAscii(asciiArt.Vermont_Avenue_Ascii);
 		
 		//5 Connecticut_Avenue
 		

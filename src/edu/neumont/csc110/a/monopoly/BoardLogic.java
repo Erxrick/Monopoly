@@ -90,11 +90,7 @@ public class BoardLogic {
 		
 	}
 	
-	public static void Income_Tax(Player player) throws IOException {
-	
-	
-	
-	}
+
 	
 	public static void Community_Chest() {
 	
