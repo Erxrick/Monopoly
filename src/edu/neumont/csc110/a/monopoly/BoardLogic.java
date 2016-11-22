@@ -46,6 +46,8 @@ public class BoardLogic {
 			player.addMoney(card.getPropertyRentWhenLandedOn() * -1);
 		} else {
 			//this is where its bought
+			card.printCardAscii();
+			System.out.println("This card costs: " + card.getPrice());
 			System.out.println("Would you like to:");
 			String[] buyOptions = {"Buy this property", "Auction this Property"};
 			int buy = ConsoleUI.promptForMenuSelection(buyOptions, true);
