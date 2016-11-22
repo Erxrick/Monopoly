@@ -219,13 +219,24 @@ public class Game {
 		switch (userSelection) {
 			case 1:
 				player.addMoney(-50);
+				player.setPlayerInJail(false);
 				turn(player, Player, person);
 				break;
 			case 2:
 				System.out.println("Work in progress");
+				int[] jailRoll = roll();
+				System.out.println("You rolled: " + jailRoll[0] + " " + jailRoll[1]);
+				if(jailRoll[0] == jailRoll[1]) {
+					System.out.println("You have escaped jail.");
+					System.out.println("Not implemented yet.");
+				} else if(jailRoll[0] == jailRoll[1]) {
+					System.out.println("not implemented yet");
+				}
 				break;
 			case 3:
-				System.out.println("Work in progress");
+				System.out.println("You use your Get Out of Jail Free card.");
+				player.setGetOutOfJailCard(-1);
+				turn(player, Player, person);
 				break;
 		}
 		// you must either roll doubles to set jail = false,
