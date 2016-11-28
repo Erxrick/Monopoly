@@ -12,10 +12,6 @@ public class BoardLogic {
 		} else if(player.getPlayerPosition() == 2 || player.getPlayerPosition() == 17 || player.getPlayerPosition() == 33){
 			//community tiles
 			decks.communityChestText(player, Player, person);
-		} else if(player.getPlayerPosition() == 10) {
-			System.out.println("You are visiting jail.");
-		} else if(player.getPlayerPosition() == 20) {
-			System.out.println("You at free parking.");
 		} else if(player.getPlayerPosition() == 4) {
 			System.out.println("Pay Income Tax");
 			String[] choice = {"[1] Pay 200$", "[2] Pay 10%"};
@@ -26,6 +22,10 @@ public class BoardLogic {
 			if(userSelection == 2){
 				player.addMoney((int)-(player.getMoney() * .1));
 			}
+		} else if(player.getPlayerPosition() == 10) {
+			System.out.println("You are visiting jail.");
+		} else if(player.getPlayerPosition() == 20) {
+			System.out.println("You at free parking.");
 		} else if(player.getPlayerPosition() == 30) {
 			System.out.println("Go to jail. Go directly to jail. Do not pass Go. Do not collect $200.");
 		} else if(player.getPlayerPosition() == 38) {
@@ -71,15 +71,12 @@ public class BoardLogic {
 		player.addMoney(-75);	
 	}
 	
-	public static void Go_To_Jail(Player player) {
-		player.setPlayerInJail(true);
-		player.setPlayerPosition(10);
-		//Only needed if player passing go gives them 200$
-		player.addMoney(-200);
-	}
 	
-	public static void fullSet(Player player){
-		
+	
+	public static void fullSet(Player player, BoardTiles allTheProperty){
+		if(player.ownProperty(allTheProperty.Mediterranean_Avenue) && player.ownProperty(allTheProperty.Baltic_Avenue)){
+			
+		}
 	}
 	
 	
