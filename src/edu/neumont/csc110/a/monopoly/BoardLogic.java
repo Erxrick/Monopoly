@@ -29,6 +29,7 @@ public class BoardLogic {
 		} else if(player.getPlayerPosition() == 30) {
 			System.out.println("Go to jail. Go directly to jail. Do not pass Go. Do not collect $200.");
 			player.setPlayerInJail(true);
+			player.addMoney(-200);
 		} else if(player.getPlayerPosition() == 38) {
 			System.out.println("Pay Luxury Tax of $75.");
 			player.addMoney(-75);
