@@ -42,7 +42,11 @@ public class BoardLogic {
 			for(int i=0;i<person;i++) {
 				if(Player[i].ownProperty(card)){
 					if(player.getMoney() > card.getPropertyRentWhenLandedOn()) {
-						System.out.println("You pay $" + card.getPropertyRentWhenLandedOn() + " to " + Player[i].getName());
+						if(card.isFullSet() && card.getHouse() == 0) {
+							System.out.println("You pay $" + (card.getPropertyRentWhenLandedOn() * 2) + " to " + Player[i].getName());
+						} else {
+							System.out.println("You pay $" + card.getPropertyRentWhenLandedOn() + " to " + Player[i].getName());
+						}
 						Player[i].addMoney(card.getPropertyRentWhenLandedOn());
 					} else {
 						//add removing the player's property when they cant mortgage anymore
