@@ -42,7 +42,11 @@ public class BoardLogic {
 			for(int i=0;i<person;i++) {
 				if(Player[i].ownProperty(card)){
 					if(player.getMoney() > card.getPropertyRentWhenLandedOn()) {
-						System.out.println("You pay $" + card.getPropertyRentWhenLandedOn() + " to " + Player[i].getName());
+						if(card.isFullSet() && card.getHouse() == 0) {
+							System.out.println("You pay $" + (card.getPropertyRentWhenLandedOn() * 2) + " to " + Player[i].getName());
+						} else {
+							System.out.println("You pay $" + card.getPropertyRentWhenLandedOn() + " to " + Player[i].getName());
+						}
 						Player[i].addMoney(card.getPropertyRentWhenLandedOn());
 					} else {
 						//add removing the player's property when they cant mortgage anymore
@@ -123,8 +127,25 @@ public class BoardLogic {
 	
 	public static void fullSet(Player player, BoardTiles allTheProperty){
 		if(player.ownProperty(allTheProperty.Mediterranean_Avenue) && player.ownProperty(allTheProperty.Baltic_Avenue)){
-			
+			allTheProperty.Mediterranean_Avenue.setFullSet(true);
+			allTheProperty.Baltic_Avenue.setFullSet(true);
 		}
+		if(player.ownProperty(allTheProperty.Connecticut_Avenue) && player.ownProperty(allTheProperty.Oriental_Avenue) && player.ownProperty(allTheProperty.Vermont_Avenue)){
+			allTheProperty.Connecticut_Avenue.setFullSet(true);
+			allTheProperty.Oriental_Avenue.setFullSet(true);
+			allTheProperty.Vermont_Avenue.setFullSet(true);
+		}
+		if(player.ownProperty(allTheProperty.StCharles_Place) && player.ownProperty(allTheProperty.States_Avenue) && player.ownProperty(allTheProperty.Virginia_Avenue)){
+			allTheProperty.StCharles_Place.setFullSet(true);
+			allTheProperty.States_Avenue.setFullSet(true);
+			allTheProperty.Virginia_Avenue.setFullSet(true);
+		}
+		if(player.ownProperty(allTheProperty.StJames_Place) && player.ownProperty(allTheProperty.Tennessee_Avenue) && player.ownProperty(allTheProperty.New_York_Avenue)){
+			allTheProperty.StJames_Place.setFullSet(true);
+			allTheProperty.Tennessee_Avenue.setFullSet(true);
+			allTheProperty.New_York_Avenue.setFullSet(true);
+		}
+		
 	}
 	
 	
