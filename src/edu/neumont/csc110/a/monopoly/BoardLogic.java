@@ -5,7 +5,7 @@ import edu.neumont.csc110.a.utilities.ConsoleUI;
 
 public class BoardLogic {
 		
-	public static void mainBoardLogic(Player player, Player[] Player, PropertyCards card, CommunityChanceText decks, int person, Banker banker) throws IOException{
+	public static void mainBoardLogic(Player player, Player[] Player, PropertyCards card, CommunityChanceText decks, int person, Banker banker, BoardTiles allTheProperty) throws IOException{
 		if(player.getPlayerPosition() == 7 || player.getPlayerPosition() == 22 || player.getPlayerPosition() == 36) {
 			//chance tiles
 			decks.chanceText(player, Player, person);
@@ -34,10 +34,11 @@ public class BoardLogic {
 			System.out.println("Pay Luxury Tax of $75.");
 			player.addMoney(-75);
 		} else {
-			purchaseOrRent(card, player, Player, person, banker);
+			purchaseOrRent(card, player, Player, person, banker, allTheProperty);
 		}
 	}
-	private static void purchaseOrRent(PropertyCards card, Player player, Player[] Player, int person, Banker banker) throws IOException {
+	private static void purchaseOrRent(PropertyCards card, Player player, Player[] Player, int person, Banker banker, BoardTiles allTheProperty) throws IOException {
+		fullSet(player, allTheProperty);
 		if(card.isBought() == true) {
 			for(int i=0;i<person;i++) {
 				if(Player[i].ownProperty(card)){
@@ -130,22 +131,81 @@ public class BoardLogic {
 			allTheProperty.Mediterranean_Avenue.setFullSet(true);
 			allTheProperty.Baltic_Avenue.setFullSet(true);
 		}
+			else{
+				allTheProperty.Mediterranean_Avenue.setFullSet(false);
+				allTheProperty.Baltic_Avenue.setFullSet(false);
+			}
 		if(player.ownProperty(allTheProperty.Connecticut_Avenue) && player.ownProperty(allTheProperty.Oriental_Avenue) && player.ownProperty(allTheProperty.Vermont_Avenue)){
 			allTheProperty.Connecticut_Avenue.setFullSet(true);
 			allTheProperty.Oriental_Avenue.setFullSet(true);
 			allTheProperty.Vermont_Avenue.setFullSet(true);
 		}
+			else{
+				allTheProperty.Connecticut_Avenue.setFullSet(false);
+				allTheProperty.Oriental_Avenue.setFullSet(false);
+				allTheProperty.Vermont_Avenue.setFullSet(false);
+			}
 		if(player.ownProperty(allTheProperty.StCharles_Place) && player.ownProperty(allTheProperty.States_Avenue) && player.ownProperty(allTheProperty.Virginia_Avenue)){
 			allTheProperty.StCharles_Place.setFullSet(true);
 			allTheProperty.States_Avenue.setFullSet(true);
 			allTheProperty.Virginia_Avenue.setFullSet(true);
 		}
+			else{
+				allTheProperty.StCharles_Place.setFullSet(false);
+				allTheProperty.States_Avenue.setFullSet(false);
+				allTheProperty.Virginia_Avenue.setFullSet(false);
+			}
+		
 		if(player.ownProperty(allTheProperty.StJames_Place) && player.ownProperty(allTheProperty.Tennessee_Avenue) && player.ownProperty(allTheProperty.New_York_Avenue)){
 			allTheProperty.StJames_Place.setFullSet(true);
 			allTheProperty.Tennessee_Avenue.setFullSet(true);
 			allTheProperty.New_York_Avenue.setFullSet(true);
 		}
-		
+			else{
+				allTheProperty.StJames_Place.setFullSet(false);
+				allTheProperty.Tennessee_Avenue.setFullSet(false);
+				allTheProperty.New_York_Avenue.setFullSet(false);
+			}
+		if(player.ownProperty(allTheProperty.Kentucky_Avenue) && player.ownProperty(allTheProperty.Indiana_Avenue) && player.ownProperty(allTheProperty.Illinois_Avenue)){
+			allTheProperty.Kentucky_Avenue.setFullSet(true);
+			allTheProperty.Indiana_Avenue.setFullSet(true);
+			allTheProperty.Illinois_Avenue.setFullSet(true);
+		}
+			else{
+				allTheProperty.Kentucky_Avenue.setFullSet(false);
+				allTheProperty.Indiana_Avenue.setFullSet(false);
+				allTheProperty.Illinois_Avenue.setFullSet(false);
+			
+		}
+		if(player.ownProperty(allTheProperty.Atlantic_Avenue) && player.ownProperty(allTheProperty.Ventor_Avenue) && player.ownProperty(allTheProperty.Marvin_Gardens)){
+			allTheProperty.Ventor_Avenue.setFullSet(true);
+			allTheProperty.Atlantic_Avenue.setFullSet(true);
+			allTheProperty.Marvin_Gardens.setFullSet(true);
+		}
+			else{
+				allTheProperty.Ventor_Avenue.setFullSet(false);
+				allTheProperty.Atlantic_Avenue.setFullSet(false);
+				allTheProperty.Marvin_Gardens.setFullSet(false);
+		}
+		if(player.ownProperty(allTheProperty.Pacific_Avenue) && player.ownProperty(allTheProperty.North_Carolina_Avenue) && player.ownProperty(allTheProperty.Pennslvania_Avenue)){
+			allTheProperty.Pacific_Avenue.setFullSet(true);
+			allTheProperty.North_Carolina_Avenue.setFullSet(true);
+			allTheProperty.Pennslvania_Avenue.setFullSet(true);
+		}
+			else{
+				allTheProperty.Pacific_Avenue.setFullSet(false);
+				allTheProperty.North_Carolina_Avenue.setFullSet(false);	
+				allTheProperty.Pennslvania_Avenue.setFullSet(false);
+		}
+		if(player.ownProperty(allTheProperty.Park_Place) && player.ownProperty(allTheProperty.Boardwalk)){
+			allTheProperty.Boardwalk.setFullSet(true);
+			allTheProperty.Park_Place.setFullSet(true);
+			
+		} 
+			else{
+				allTheProperty.Boardwalk.setFullSet(false);
+				allTheProperty.Park_Place.setFullSet(false);	
+		}
 	}
 	
 	

@@ -109,7 +109,7 @@ public class Game {
 				}
 				System.out.println();
 				PropertyCards card = allTheProperty.PropCards[player.getPlayerPosition()];
-				BoardLogic.mainBoardLogic(player, playerarray, card, decks, person, banker);
+				BoardLogic.mainBoardLogic(player, playerarray, card, decks, person, banker, allTheProperty);
 				// System.out.println("You rolled a " + roll());
 				if (timesRolled == 3 && diceRoll[0] == diceRoll[1]) {
 					player.setPlayerInJail(true);
@@ -160,7 +160,7 @@ public class Game {
 					player.setPlayerPosition(
 							ConsoleUI.promptForInt("What number tile would you like to move to?", 0, 39));
 					PropertyCards debugcard = allTheProperty.PropCards[player.getPlayerPosition()];
-					BoardLogic.mainBoardLogic(player, playerarray, debugcard, decks, person, banker);
+					BoardLogic.mainBoardLogic(player, playerarray, debugcard, decks, person, banker, allTheProperty);
 					break;
 				case 2:
 					player.addMoney(ConsoleUI.promptForInt("How much money would you like to add?", -20000, 20000));
@@ -311,7 +311,7 @@ public class Game {
 						printPlayerMoney(playerarray, player, person);
 						System.out.println();
 						PropertyCards card = allTheProperty.PropCards[player.getPlayerPosition()];
-						BoardLogic.mainBoardLogic(player, playerarray, card, decks, person, banker);
+						BoardLogic.mainBoardLogic(player, playerarray, card, decks, person, banker, allTheProperty);
 						secondHalfOfTheTurn(player, person);
 					} else if(jailRoll[0] != jailRoll[1]) {
 						secondHalfOfTheTurn(player, person);
