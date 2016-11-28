@@ -12,9 +12,29 @@ public class Player {
 	private int hotelTotal;
 	private int playerPosition;
 	private int turnsInJail;
+	private int turnOrderRoll;
+	private boolean stillBidding;
 	private ArrayList<PropertyCards> property; //taking from the arraylist from the bank
 	
 	
+	public void giveAllPropertyToBanker(Banker banker) {
+		for(int i=0;i<property.size();i++){
+			this.property.get(i).setBought(false);
+			banker.addCard(this.property.get(i));
+		}
+	}
+	public void setBidding(boolean bid){
+		this.stillBidding = bid;
+	}
+	public boolean getStillBidding() {
+		return stillBidding;
+	}
+	public void setTurnOrderRoll(int num) {
+		this.turnOrderRoll = num;
+	}
+	public int getTurnOrderRoll() {
+		return this.turnOrderRoll;
+	}
 	public boolean allMortgaged() {
 		boolean maybe = false;
 		int counter = 0;
@@ -83,6 +103,10 @@ public class Player {
 		card.setBought(true);/// set isbought
 		this.addMoney(-1*card.getPrice());
 		bank.removeCard(card);
+	}
+	public void addPropertyToCollection(PropertyCards card) {
+		this.property.add(card);
+		card.setBought(true);
 	}
 	
 	public boolean isPlayerInJail() {

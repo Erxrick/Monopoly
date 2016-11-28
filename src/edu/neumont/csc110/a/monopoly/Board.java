@@ -320,7 +320,7 @@ public class Board {
 	}
 
 	public static void position4(Player player) throws IOException {
-		//BoardLogic.Income_Tax(player);
+	//	BoardLogic.Income_Tax(player);		
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[52][70] = '(';
 			asciiArt.asciiBoard[52][71] = 'T';

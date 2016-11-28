@@ -14,7 +14,7 @@ public class BoardLogic {
 			decks.communityChestText(player, Player, person);
 		} else if(player.getPlayerPosition() == 4) {
 			System.out.println("Pay Income Tax");
-			String[] choice = {"[1] Pay 200$", "[2] Pay 10%"};
+			String[] choice = {"Pay $200", "Pay 10%"};
 			int userSelection = ConsoleUI.promptForMenuSelection(choice, false);
 			if(userSelection == 1){
 				player.addMoney(-200);
@@ -28,6 +28,7 @@ public class BoardLogic {
 			System.out.println("You at free parking.");
 		} else if(player.getPlayerPosition() == 30) {
 			System.out.println("Go to jail. Go directly to jail. Do not pass Go. Do not collect $200.");
+			player.setPlayerInJail(true);
 		} else if(player.getPlayerPosition() == 38) {
 			System.out.println("Pay Luxury Tax of $75.");
 			player.addMoney(-75);
@@ -39,8 +40,12 @@ public class BoardLogic {
 		if(card.isBought() == true) {
 			for(int i=0;i<person;i++) {
 				if(Player[i].ownProperty(card)){
-					System.out.println("You pay $" + card.getPropertyRentWhenLandedOn() + " to " + Player[i].getName());
-					Player[i].addMoney(card.getPropertyRentWhenLandedOn());
+					if(player.getMoney() > card.getPropertyRentWhenLandedOn()) {
+						System.out.println("You pay $" + card.getPropertyRentWhenLandedOn() + " to " + Player[i].getName());
+						Player[i].addMoney(card.getPropertyRentWhenLandedOn());
+					} else {
+						//add removing the player's property when they cant mortgage anymore
+					}
 				}
 			}
 			player.addMoney(card.getPropertyRentWhenLandedOn() * -1);
@@ -50,22 +55,64 @@ public class BoardLogic {
 			System.out.println("This card costs: " + card.getPrice());
 			System.out.println("Would you like to:");
 			String[] buyOptions = {"Buy this property", "Auction this Property"};
-			int buy = ConsoleUI.promptForMenuSelection(buyOptions, true);
+			int buy = ConsoleUI.promptForMenuSelection(buyOptions, false);
 			switch(buy) {
-				case 0:
-					break;
+//				case 0:
+//					break;
 				case 1:
-					player.buyFromBanker(card, banker);
-					break;
+					if(player.getMoney()>card.getPropertyRentWhenLandedOn()) {
+						player.buyFromBanker(card, banker);
+						break;
+					} else {
+						System.out.println("You cannot afford " + card.getName());
+					}
 				case 2:
 					auction(card, player, Player);
 					break;
 			}
 		}	
 	}
-	private static void auction(PropertyCards card, Player player, Player[] Player) {
-		
-		
+	private static void auction(PropertyCards card, Player player, Player[] Player) throws IOException {
+		System.out.println("The bidding for " + card.getName() + " will start at $1.");
+		int minimumBid = 0;
+		for(int i=0;i<Player.length;i++) {
+			Player[i].setBidding(true);
+		}
+		boolean loop = true;
+		while(loop) {
+			int amountOfBidders = 0;
+			for(int i=0;i<Player.length;i++) {
+				if(amountOfBidders == 1) {
+					if(Player[i].getStillBidding() == true) {
+						player.addPropertyToCollection(card);
+						loop = false;
+					}
+				}
+				if(Player[i].getStillBidding() == true && Player[i].getMoney() > minimumBid) {	
+					//System.out.println(Player[i].getName() + " would you like to bid");
+					boolean choice = ConsoleUI.promptForBool(Player[i].getName() + " would you like to bid on " + card.getName() + "?", "yes", "no");
+					if(choice) {
+						System.out.println("How much would you like to bid?");
+//						System.out.println("The minimun bid is " + minimumBid);
+						minimumBid = ConsoleUI.promptForInt("The minimun bid is " + (minimumBid + 1), minimumBid, Player[i].getMoney());
+						amountOfBidders++;
+					} else {
+						Player[i].setBidding(false);
+					}
+				} else {
+					Player[i].setBidding(false);
+				}
+			}
+			if(amountOfBidders == 1) {
+				loop = false;
+			}
+		}
+		for(int i=0;i<Player.length;i++) {
+			if(Player[i].getStillBidding() == true) {
+				System.out.println(Player[i].getName() + " you have bought " + card.getName() + " for $" + minimumBid);
+				Player[i].addMoney(-1 * minimumBid);
+			}
+		}
 	}
 	public static void Luxury_Tax(Player player) {
 		player.addMoney(-75);	

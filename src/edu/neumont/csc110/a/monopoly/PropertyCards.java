@@ -128,6 +128,9 @@ public class PropertyCards {
 	}
 	public int getPropertyRentWhenLandedOn() {
 		int propRent = 0;
+		if(this.ismortgaged == true) {
+			return 0;
+		}
 		switch(this.house) {
 		case 0:
 			propRent = this.rent;
