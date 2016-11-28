@@ -61,7 +61,7 @@ public class BoardLogic {
 //				case 0:
 //					break;
 				case 1:
-					if(player.getMoney()>card.getPropertyRentWhenLandedOn()) {
+					if(player.getMoney() > card.getPrice()) {
 						player.buyFromBanker(card, banker);
 						break;
 					} else {
