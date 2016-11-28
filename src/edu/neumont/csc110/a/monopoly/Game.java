@@ -3,6 +3,7 @@ package edu.neumont.csc110.a.monopoly;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 
 import edu.neumont.csc110.a.utilities.ConsoleUI;
@@ -16,6 +17,7 @@ public class Game {
 	public void run() throws IOException {
 		int person = pick_players();
 		intitializeTheGame();
+		player = setPlayerOrder(player, person);
 		boolean anyoneWin = false;
 		for (int j = 0; j < person; j++) {
 			player[j].addPlayerPosition(0);
@@ -39,7 +41,7 @@ public class Game {
 				System.out.println(player[i].getName() + " wins!");
 			}
 		}
-		System.out.println("bitch work");
+		
 		// System.out.println("You rolled a " + roll());
 	}
 
@@ -49,7 +51,37 @@ public class Game {
 		banker.bankinit(allTheProperty);
 
 	}
-
+	
+	private Player[] setPlayerOrder(Player[] Player, int person) throws IOException {
+		Player[] playerOrder = new Player[8];
+		Integer[] playerOrderRolls = new Integer[person];
+		for(int i=0;i<person;i++) {
+			System.out.println(Player[i].getName() + " roll to determine turn order.");
+			ConsoleUI.promptForInput("", true);
+			Player[i].setTurnOrderRoll(sum(roll()));
+			System.out.println(Player[i].getName() + " rolled: " + Player[i].getTurnOrderRoll());
+		}
+		for(int i=0;i<person;i++) {
+			playerOrderRolls[i] = Player[i].getTurnOrderRoll();
+		}
+		Arrays.sort(playerOrderRolls, Collections.reverseOrder());
+		//Arrays.sort(playerOrderRolls);
+		
+		for(int i=0;i<person;i++) {
+			int temper = 0;
+			for(int j=0;j<person;j++) {
+				if(playerOrderRolls[i] == Player[j].getTurnOrderRoll()) {
+					temper = j;
+				}
+			}
+			Player player = Player[temper];
+			//System.arraycopy(Player, temper, playerOrder, i, 1);
+			playerOrder[i] = player;
+		}
+		
+		return playerOrder;
+	}
+		
 	private void turn(Player player, Player[] Player, int person) throws IOException {
 		int[] diceRoll = new int[2];
 		int sumOfDiceRoll = 0;
@@ -79,7 +111,7 @@ public class Game {
 				PropertyCards card = allTheProperty.PropCards[player.getPlayerPosition()];
 				BoardLogic.mainBoardLogic(player, Player, card, decks, person, banker);
 				// System.out.println("You rolled a " + roll());
-				if (timesRolled == 3) {
+				if (timesRolled == 3 && diceRoll[0] == diceRoll[1]) {
 					player.setPlayerInJail(true);
 					// move player to jail
 					// make jail turn
@@ -269,12 +301,12 @@ public class Game {
 		}
 	}
 
-	private static void mortgage() {
-		System.out.println("Not implemented yet");
-		// when all houses have been sold, you can mortgage property for money
-		// if players money is in the negatives.
-		// when mortgaged, you cannot get money from players that land on it.
-	}
+//	private static void mortgage() {
+//		System.out.println("Not implemented yet");
+//		// when all houses have been sold, you can mortgage property for money
+//		// if players money is in the negatives.
+//		// when mortgaged, you cannot get money from players that land on it.
+//	}
 
 	private static void trading() throws IOException {
 		System.out.println("Not fully implemented yet");
@@ -378,7 +410,7 @@ public class Game {
 		return rolls;
 	}
 
-	public static int sum(int[] array) {
+	public int sum(int[] array) {
 		int sum = 0;
 
 		for (int i = 0; i < array.length; i++) {

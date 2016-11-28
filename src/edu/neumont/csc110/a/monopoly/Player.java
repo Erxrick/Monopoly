@@ -12,9 +12,15 @@ public class Player {
 	private int hotelTotal;
 	private int playerPosition;
 	private int turnsInJail;
+	private int turnOrderRoll;
 	private ArrayList<PropertyCards> property; //taking from the arraylist from the bank
 	
-	
+	public void setTurnOrderRoll(int num) {
+		this.turnOrderRoll = num;
+	}
+	public int getTurnOrderRoll() {
+		return this.turnOrderRoll;
+	}
 	public boolean allMortgaged() {
 		boolean maybe = false;
 		int counter = 0;
