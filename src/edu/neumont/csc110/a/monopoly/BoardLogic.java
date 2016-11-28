@@ -127,6 +127,7 @@ public class BoardLogic {
 	
 	
 	public static void fullSet(Player player, BoardTiles allTheProperty){
+		
 		if(player.ownProperty(allTheProperty.Mediterranean_Avenue) && player.ownProperty(allTheProperty.Baltic_Avenue)){
 			allTheProperty.Mediterranean_Avenue.setFullSet(true);
 			allTheProperty.Baltic_Avenue.setFullSet(true);
