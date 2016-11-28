@@ -226,16 +226,16 @@ public class Game {
 				}
 				break;
 			case 5:
-				removeThisPlayer(player);
+				removeThisPlayerToBank(player);
 				endTurn = true;
 				break;
 			}
 		} while (endTurn == false);
 		if(player.getMoney() < 0) {
-			removeThisPlayer(player);
+			removeThisPlayerToBank(player);
 		}
 	}
-	private void removeThisPlayer(Player player) {
+	private void removeThisPlayerToBank(Player player) {
 		player.giveAllPropertyToBanker(banker);
 		ArrayList<Player> newSetOfPlayers = new ArrayList<Player>();
 		for(int i=0;i<playerarray.length;i++) {
