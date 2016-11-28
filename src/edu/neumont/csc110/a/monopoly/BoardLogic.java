@@ -50,10 +50,10 @@ public class BoardLogic {
 			System.out.println("This card costs: " + card.getPrice());
 			System.out.println("Would you like to:");
 			String[] buyOptions = {"Buy this property", "Auction this Property"};
-			int buy = ConsoleUI.promptForMenuSelection(buyOptions, true);
+			int buy = ConsoleUI.promptForMenuSelection(buyOptions, false);
 			switch(buy) {
-				case 0:
-					break;
+//				case 0:
+//					break;
 				case 1:
 					player.buyFromBanker(card, banker);
 					break;
@@ -63,9 +63,38 @@ public class BoardLogic {
 			}
 		}	
 	}
-	private static void auction(PropertyCards card, Player player, Player[] Player) {
-		
-		
+	private static void auction(PropertyCards card, Player player, Player[] Player) throws IOException {
+		System.out.println("The bidding for " + card.getName() + " will start at $1");
+		int minimumBid = 0;
+		for(int i=0;i<Player.length;i++) {
+			Player[i].setBidding(true);
+		}
+		while(true) {
+			int amountOfBidders = 0;
+			for(int i=0;i<Player.length;i++) {
+				if(Player[i].getStillBidding() == true) {	
+					//System.out.println(Player[i].getName() + " would you like to bid");
+					boolean choice = ConsoleUI.promptForBool(Player[i].getName() + " would you like to bid on " + card.getName(), "yes", "no");
+					if(choice) {
+						System.out.println("How much would you like to bid?");
+//						System.out.println("The minimun bid is " + minimumBid);
+						minimumBid = ConsoleUI.promptForInt("The minimun bid is " + (minimumBid + 1), minimumBid, Player[i].getMoney());
+						amountOfBidders++;
+					} else {
+						Player[i].setBidding(false);
+					}
+				}
+			}
+			if(amountOfBidders == 1) {
+				break;
+			}
+		}
+		for(int i=0;i<Player.length;i++) {
+			if(Player[i].getStillBidding() == true) {
+				System.out.println(Player[i].getName() + " you have bought " + card.getName() + " for " + minimumBid);
+				Player[i].addMoney(-1 * minimumBid);
+			}
+		}
 	}
 	public static void Luxury_Tax(Player player) {
 		player.addMoney(-75);	

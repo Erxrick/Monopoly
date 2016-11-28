@@ -13,8 +13,15 @@ public class Player {
 	private int playerPosition;
 	private int turnsInJail;
 	private int turnOrderRoll;
+	private boolean stillBidding;
 	private ArrayList<PropertyCards> property; //taking from the arraylist from the bank
 	
+	public void setBidding(boolean bid){
+		this.stillBidding = bid;
+	}
+	public boolean getStillBidding() {
+		return stillBidding;
+	}
 	public void setTurnOrderRoll(int num) {
 		this.turnOrderRoll = num;
 	}
