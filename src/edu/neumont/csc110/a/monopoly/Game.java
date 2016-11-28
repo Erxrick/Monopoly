@@ -9,7 +9,7 @@ import java.util.Random;
 import edu.neumont.csc110.a.utilities.ConsoleUI;
 
 public class Game {
-	static Player[] player = new Player[8];
+	static Player[] player;
 	CommunityChanceText decks = new CommunityChanceText();
 	BoardTiles allTheProperty = new BoardTiles();
 	static Banker banker = new Banker();
@@ -53,7 +53,7 @@ public class Game {
 	}
 	
 	private Player[] setPlayerOrder(Player[] Player, int person) throws IOException {
-		Player[] playerOrder = new Player[8];
+		Player[] playerOrder = new Player[person];
 		Integer[] playerOrderRolls = new Integer[person];
 		for(int i=0;i<person;i++) {
 			System.out.println(Player[i].getName() + " roll to determine turn order.");
@@ -72,6 +72,8 @@ public class Game {
 			for(int j=0;j<person;j++) {
 				if(playerOrderRolls[i] == Player[j].getTurnOrderRoll()) {
 					temper = j;
+					Player[j].setTurnOrderRoll(-100);
+					break;
 				}
 			}
 			Player player = Player[temper];
@@ -378,6 +380,7 @@ public class Game {
 
 	private static int pick_players() throws IOException {
 		int person = ConsoleUI.promptForInt("How many players are playing?", 2, 8);
+		player = new Player[person];
 		ArrayList<String> pieces = new ArrayList<String>(
 				Arrays.asList("Thimble", "Wheel Barrel", "Shoe", "Dog", "Car", "Iron", "Hat", "Battleship"));
 
