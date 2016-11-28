@@ -60,8 +60,12 @@ public class BoardLogic {
 //				case 0:
 //					break;
 				case 1:
-					player.buyFromBanker(card, banker);
-					break;
+					if(player.getMoney()>card.getPropertyRentWhenLandedOn()) {
+						player.buyFromBanker(card, banker);
+						break;
+					} else {
+						System.out.println("You cannot afford " + card.getName());
+					}
 				case 2:
 					auction(card, player, Player);
 					break;
@@ -74,9 +78,16 @@ public class BoardLogic {
 		for(int i=0;i<Player.length;i++) {
 			Player[i].setBidding(true);
 		}
-		while(true) {
+		boolean loop = true;
+		while(loop) {
 			int amountOfBidders = 0;
 			for(int i=0;i<Player.length;i++) {
+				if(amountOfBidders == 1) {
+					if(Player[i].getStillBidding() == true) {
+						player.addPropertyToCollection(card);
+						loop = false;
+					}
+				}
 				if(Player[i].getStillBidding() == true && Player[i].getMoney() > minimumBid) {	
 					//System.out.println(Player[i].getName() + " would you like to bid");
 					boolean choice = ConsoleUI.promptForBool(Player[i].getName() + " would you like to bid on " + card.getName() + "?", "yes", "no");
@@ -93,7 +104,7 @@ public class BoardLogic {
 				}
 			}
 			if(amountOfBidders == 1) {
-				break;
+				loop = false;
 			}
 		}
 		for(int i=0;i<Player.length;i++) {

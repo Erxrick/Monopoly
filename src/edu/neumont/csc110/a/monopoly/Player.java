@@ -104,6 +104,10 @@ public class Player {
 		this.addMoney(-1*card.getPrice());
 		bank.removeCard(card);
 	}
+	public void addPropertyToCollection(PropertyCards card) {
+		this.property.add(card);
+		card.setBought(true);
+	}
 	
 	public boolean isPlayerInJail() {
 		return isPlayerInJail;

@@ -181,7 +181,9 @@ public class Game {
 		boolean endTurn = false;
 		do {
 			int otherSelection = -1;
-			
+			if(player.getMoney()<0) {
+				System.out.println("You can't end your turn with less than $0 or you will be removed from the game \n and all your property will be given to the \n player that you owe money to.");
+			}
 			
 			String[] turnOptions4 = { "End Turn", "Trade", "Buy or Sell houses", "View your properties",
 					"Go Bankrupt" };
@@ -232,8 +234,29 @@ public class Game {
 			}
 		} while (endTurn == false);
 		if(player.getMoney() < 0) {
-			removeThisPlayerToBank(player);
+			PropertyCards card = allTheProperty.PropCards[player.getPlayerPosition()];
+			for(int i=0;i<person;i++) {
+				if(playerarray[i].ownProperty(card)){
+					for(int j=0;j<player.lengthOfProperties();j++) {
+							playerarray[i].addPropertyToCollection(card);
+					}
+				}
+			}
+			removeThisPlayer(player);
 		}
+	}
+	private void removeThisPlayer(Player player) {
+		ArrayList<Player> newSetOfPlayers = new ArrayList<Player>();
+		for(int i=0;i<playerarray.length;i++) {
+			if(player != playerarray[i]) {
+				newSetOfPlayers.add(playerarray[i]);
+			}
+		}
+		Player[] newPlayerArray = new Player[playerarray.length-1];
+		newSetOfPlayers.toArray(newPlayerArray);
+		playerarray = new Player[newPlayerArray.length];
+		playerarray = newPlayerArray;
+		
 	}
 	private void removeThisPlayerToBank(Player player) {
 		player.giveAllPropertyToBanker(banker);
@@ -251,15 +274,6 @@ public class Game {
 	}
  	private boolean win() {
 		//rework this
-		int counter = 0;
-		for (int i = 0; i < playerarray.length; i++) {
-			if (playerarray[i].getMoney() < 0 && playerarray[i].allMortgaged() == true) {
-				counter++;
-			}
-		}
-		if (counter == (playerarray.length - 1)) {
-			return true;
-		}
 		if(playerarray.length == 1) {
 			return true;
 		}
