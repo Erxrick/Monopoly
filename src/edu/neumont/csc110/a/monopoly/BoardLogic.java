@@ -123,8 +123,25 @@ public class BoardLogic {
 	
 	public static void fullSet(Player player, BoardTiles allTheProperty){
 		if(player.ownProperty(allTheProperty.Mediterranean_Avenue) && player.ownProperty(allTheProperty.Baltic_Avenue)){
-			
+			allTheProperty.Mediterranean_Avenue.setFullSet(true);
+			allTheProperty.Baltic_Avenue.setFullSet(true);
 		}
+		if(player.ownProperty(allTheProperty.Connecticut_Avenue) && player.ownProperty(allTheProperty.Oriental_Avenue) && player.ownProperty(allTheProperty.Vermont_Avenue)){
+			allTheProperty.Connecticut_Avenue.setFullSet(true);
+			allTheProperty.Oriental_Avenue.setFullSet(true);
+			allTheProperty.Vermont_Avenue.setFullSet(true);
+		}
+		if(player.ownProperty(allTheProperty.StCharles_Place) && player.ownProperty(allTheProperty.States_Avenue) && player.ownProperty(allTheProperty.Virginia_Avenue)){
+			allTheProperty.StCharles_Place.setFullSet(true);
+			allTheProperty.States_Avenue.setFullSet(true);
+			allTheProperty.Virginia_Avenue.setFullSet(true);
+		}
+		if(player.ownProperty(allTheProperty.StJames_Place) && player.ownProperty(allTheProperty.Tennessee_Avenue) && player.ownProperty(allTheProperty.New_York_Avenue)){
+			allTheProperty.StJames_Place.setFullSet(true);
+			allTheProperty.Tennessee_Avenue.setFullSet(true);
+			allTheProperty.New_York_Avenue.setFullSet(true);
+		}
+		
 	}
 	
 	
