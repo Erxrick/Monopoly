@@ -9,7 +9,7 @@ import java.util.Random;
 import edu.neumont.csc110.a.utilities.ConsoleUI;
 
 public class Game {
-	static Player[] player;
+	static Player[] playerarray;
 	CommunityChanceText decks = new CommunityChanceText();
 	BoardTiles allTheProperty = new BoardTiles();
 	static Banker banker = new Banker();
@@ -17,32 +17,31 @@ public class Game {
 	public void run() throws IOException {
 		int person = pick_players();
 		intitializeTheGame();
-		player = setPlayerOrder(player, person);
+		playerarray = setPlayerOrder(person);
 		boolean anyoneWin = false;
 		for (int j = 0; j < person; j++) {
-			player[j].addPlayerPosition(0);
-			Board.setMainBoard(player, person);
+			playerarray[j].addPlayerPosition(0);
+			Board.setMainBoard(playerarray, playerarray.length);
 		}
 		// Board.printMainBoard();
-		while (!anyoneWin) {
-			for (int i = 0; i < person; i++) {
-				if (player[i].isPlayerInJail() == true) {
+		while (anyoneWin == false) {
+			for (int i = 0; i < playerarray.length; i++) {
+				if (playerarray[i].isPlayerInJail() == true) {
 					Board.printMainBoard();
-					playerInJailTurn(player[i], player, person);
+					playerInJailTurn(playerarray[i], playerarray.length);
 				} else {
 					Board.printMainBoard();
-					turn(player[i], player, person);
+					turn(playerarray[i], playerarray.length);
 				}
-				if (win(player, person)) break;
+				anyoneWin = win();
+				//if (win()) break;
 			}
 		}
-		for (int i = 0; i < person; i++) {
-			if (player[i].getMoney() > 0) {
-				System.out.println(player[i].getName() + " wins!");
+		for (int i = 0; i < playerarray.length; i++) {
+			if (playerarray[i].getMoney() > 0) {
+				System.out.println(playerarray[i].getName() + " wins!");
 			}
 		}
-		
-		// System.out.println("You rolled a " + roll());
 	}
 
 	private void intitializeTheGame() throws IOException {
@@ -52,17 +51,17 @@ public class Game {
 
 	}
 	
-	private Player[] setPlayerOrder(Player[] Player, int person) throws IOException {
+	private Player[] setPlayerOrder(int person) throws IOException {
 		Player[] playerOrder = new Player[person];
 		Integer[] playerOrderRolls = new Integer[person];
 		for(int i=0;i<person;i++) {
-			System.out.println(Player[i].getName() + " roll to determine turn order.");
+			System.out.println(playerarray[i].getName() + " roll to determine turn order.");
 			ConsoleUI.promptForInput("", true);
-			Player[i].setTurnOrderRoll(sum(roll()));
-			System.out.println(Player[i].getName() + " rolled: " + Player[i].getTurnOrderRoll());
+			playerarray[i].setTurnOrderRoll(sum(roll()));
+			System.out.println(playerarray[i].getName() + " rolled: " + playerarray[i].getTurnOrderRoll());
 		}
 		for(int i=0;i<person;i++) {
-			playerOrderRolls[i] = Player[i].getTurnOrderRoll();
+			playerOrderRolls[i] = playerarray[i].getTurnOrderRoll();
 		}
 		Arrays.sort(playerOrderRolls, Collections.reverseOrder());
 		//Arrays.sort(playerOrderRolls);
@@ -70,27 +69,26 @@ public class Game {
 		for(int i=0;i<person;i++) {
 			int temper = 0;
 			for(int j=0;j<person;j++) {
-				if(playerOrderRolls[i] == Player[j].getTurnOrderRoll()) {
+				if(playerOrderRolls[i] == playerarray[j].getTurnOrderRoll()) {
 					temper = j;
-					Player[j].setTurnOrderRoll(-100);
+					playerarray[j].setTurnOrderRoll(-100);
 					break;
 				}
 			}
-			Player player = Player[temper];
-			//System.arraycopy(Player, temper, playerOrder, i, 1);
+			Player player = playerarray[temper];
 			playerOrder[i] = player;
 		}
 		
 		return playerOrder;
 	}
 		
-	private void turn(Player player, Player[] Player, int person) throws IOException {
+	private void turn(Player player, int person) throws IOException {
 		int[] diceRoll = new int[2];
 		int sumOfDiceRoll = 0;
 		int timesRolled = 0;
 
 		do {
-			printPlayerMoney(Player, player, person);
+			printPlayerMoney(playerarray, player, person);
 			System.out.println(player.getName() + " would you like to:");
 			String[] turnOptions = { "Roll the die", "Trade", "Buy or Sell houses", "View your properties", "Debug" };
 			int userSelection = ConsoleUI.promptForMenuSelection(turnOptions, false);
@@ -102,16 +100,16 @@ public class Game {
 				timesRolled++;
 				player.addPlayerPosition(sumOfDiceRoll);
 				sumOfDiceRoll = 0;
-				Board.setMainBoard(Player, person);
+				Board.setMainBoard(playerarray, person);
 				Board.printMainBoard();
-				printPlayerMoney(Player, player, person);
+				printPlayerMoney(playerarray, player, person);
 				System.out.println(player.getName() + ", you rolled: ");
 				for (int i = 0; i < 2; i++) {
 					System.out.print(diceRoll[i] + " ");
 				}
 				System.out.println();
 				PropertyCards card = allTheProperty.PropCards[player.getPlayerPosition()];
-				BoardLogic.mainBoardLogic(player, Player, card, decks, person, banker);
+				BoardLogic.mainBoardLogic(player, playerarray, card, decks, person, banker);
 				// System.out.println("You rolled a " + roll());
 				if (timesRolled == 3 && diceRoll[0] == diceRoll[1]) {
 					player.setPlayerInJail(true);
@@ -121,7 +119,7 @@ public class Game {
 				break;
 			case 2:
 				trading();
-				printPlayerMoney(Player, player, person);
+				printPlayerMoney(playerarray, player, person);
 				break;
 			case 3:
 				int otherUserSelection = -1;
@@ -133,11 +131,11 @@ public class Game {
 						break;
 					case 1:
 						buy_Houses();
-						printPlayerMoney(Player, player, person);
+						printPlayerMoney(playerarray, player, person);
 						break;
 					case 2:
 						sell_Houses();
-						printPlayerMoney(Player, player, person);
+						printPlayerMoney(playerarray, player, person);
 						break;
 					}
 
@@ -162,7 +160,7 @@ public class Game {
 					player.setPlayerPosition(
 							ConsoleUI.promptForInt("What number tile would you like to move to?", 0, 39));
 					PropertyCards debugcard = allTheProperty.PropCards[player.getPlayerPosition()];
-					BoardLogic.mainBoardLogic(player, Player, debugcard, decks, person, banker);
+					BoardLogic.mainBoardLogic(player, playerarray, debugcard, decks, person, banker);
 					break;
 				case 2:
 					player.addMoney(ConsoleUI.promptForInt("How much money would you like to add?", -20000, 20000));
@@ -172,22 +170,25 @@ public class Game {
 		} while ((diceRoll[0] == diceRoll[1]) && player.isPlayerInJail() == false);
 
 		Board.printMainBoard();
-		secondHalfOfTheTurn(player, Player, person);
+		secondHalfOfTheTurn(player, person);
 		// prompt for roll, trade, buy house, sell house, done
 		// move player
 		// option to buy or if bought have to pay rent
 		// trade buy house sell house end turn
 	}
 
-	private void secondHalfOfTheTurn(Player player, Player[] Player, int person) throws IOException {
+	private void secondHalfOfTheTurn(Player player, int person) throws IOException {
 		boolean endTurn = false;
 		do {
 			int otherSelection = -1;
+			
+			
 			String[] turnOptions4 = { "End Turn", "Trade", "Buy or Sell houses", "View your properties",
 					"Go Bankrupt" };
-			printPlayerMoney(Player, player, person);
+			printPlayerMoney(playerarray, player, person);
 			System.out.println(player.getName() + " would you like to:");
 			otherSelection = ConsoleUI.promptForMenuSelection(turnOptions4, false);
+			
 			switch (otherSelection) {
 			case 1:
 				endTurn = true;
@@ -205,11 +206,11 @@ public class Game {
 						break;
 					case 1:
 						buy_Houses();
-						printPlayerMoney(Player, player, person);
+						printPlayerMoney(playerarray, player, person);
 						break;
 					case 2:
 						sell_Houses();
-						printPlayerMoney(Player, player, person);
+						printPlayerMoney(playerarray, player, person);
 						break;
 					}
 				} while (otherUserSelection != 0);
@@ -225,34 +226,54 @@ public class Game {
 				}
 				break;
 			case 5:
-				System.out.println("Not implemented yet");
+				removeThisPlayer(player);
 				endTurn = true;
 				break;
 			}
 		} while (endTurn == false);
+		if(player.getMoney() < 0) {
+			removeThisPlayer(player);
+		}
 	}
-	
-	private boolean win(Player[] player, int person) {
+	private void removeThisPlayer(Player player) {
+		player.giveAllPropertyToBanker(banker);
+		ArrayList<Player> newSetOfPlayers = new ArrayList<Player>();
+		for(int i=0;i<playerarray.length;i++) {
+			if(player != playerarray[i]) {
+				newSetOfPlayers.add(playerarray[i]);
+			}
+		}
+		Player[] newPlayerArray = new Player[playerarray.length-1];
+		newSetOfPlayers.toArray(newPlayerArray);
+		playerarray = new Player[newPlayerArray.length];
+		playerarray = newPlayerArray;
+		
+	}
+ 	private boolean win() {
+		//rework this
 		int counter = 0;
-		for (int i = 0; i < person; i++) {
-			if (player[i].getMoney() < 0 && player[i].allMortgaged() == true) {
+		for (int i = 0; i < playerarray.length; i++) {
+			if (playerarray[i].getMoney() < 0 && playerarray[i].allMortgaged() == true) {
 				counter++;
 			}
 		}
-		if (counter == (person - 1)) {
+		if (counter == (playerarray.length - 1)) {
+			return true;
+		}
+		if(playerarray.length == 1) {
 			return true;
 		}
 		return false;
 	}
 
-	private void playerInJailTurn(Player player, Player[] Player, int person) throws IOException {
+	private void playerInJailTurn(Player player, int person) throws IOException {
 		String[] optionsWCard = {"Pay $50 before rolling", "Roll for doubles", "Use get out of Jail card"}; 
 		String[] options = {"Pay $50 before rolling", "Roll for doubles"}; 
 		int userSelection = 0;
 		if(player.getTurnsInJail() >= 3) {
 			System.out.println("You pay $50 to get out of jail.");
 			player.addMoney(-50);
-			turn(player, Player, person);
+			turn(player, person);
 		} else {
 			if(player.getGetOutOfJailCard() == 0) {
 				userSelection = ConsoleUI.promptForMenuSelection(options, false);
@@ -263,7 +284,7 @@ public class Game {
 				case 1:
 					player.addMoney(-50);
 					player.setPlayerInJail(false);
-					turn(player, Player, person);
+					turn(player, person);
 					break;
 				case 2:
 					int[] jailRoll = roll();
@@ -271,22 +292,22 @@ public class Game {
 					if(jailRoll[0] == jailRoll[1]) {
 						System.out.println("You have escaped jail.");
 						player.addPlayerPosition(jailRoll[0] + jailRoll[1]);
-						Board.setMainBoard(Player, person);
+						Board.setMainBoard(playerarray, person);
 						Board.printMainBoard();
-						printPlayerMoney(Player, player, person);
+						printPlayerMoney(playerarray, player, person);
 						System.out.println();
 						PropertyCards card = allTheProperty.PropCards[player.getPlayerPosition()];
-						BoardLogic.mainBoardLogic(player, Player, card, decks, person, banker);
-						secondHalfOfTheTurn(player, Player, person);
+						BoardLogic.mainBoardLogic(player, playerarray, card, decks, person, banker);
+						secondHalfOfTheTurn(player, person);
 					} else if(jailRoll[0] != jailRoll[1]) {
-						secondHalfOfTheTurn(player, Player, person);
+						secondHalfOfTheTurn(player, person);
 						player.addTurnsInJail(1);
 					}
 					break;
 				case 3:
 					System.out.println("You use your Get Out of Jail Free card.");
 					player.setGetOutOfJailCard(-1);
-					turn(player, Player, person);
+					turn(player, person);
 					break;
 			}
 		}
@@ -298,8 +319,8 @@ public class Game {
 
 	private void printPlayerMoney(Player[] Player, Player player, int person) {
 		System.out.println("Player's Money:");
-		for (int z = 0; z < person; z++) {
-			System.out.println(Player[z].getName() + ": $" + Player[z].getMoney());
+		for (int z = 0; z < playerarray.length; z++) {
+			System.out.println(playerarray[z].getName() + ": $" + playerarray[z].getMoney());
 		}
 	}
 
@@ -380,21 +401,21 @@ public class Game {
 
 	private static int pick_players() throws IOException {
 		int person = ConsoleUI.promptForInt("How many players are playing?", 2, 8);
-		player = new Player[person];
+		playerarray = new Player[person];
 		ArrayList<String> pieces = new ArrayList<String>(
 				Arrays.asList("Thimble", "Wheel Barrel", "Shoe", "Dog", "Car", "Iron", "Hat", "Battleship"));
 
 		for (int i = 0; i < person; i++) {
-			player[i] = new Player();
+			playerarray[i] = new Player();
 		}
 
 		for (int i = 0; i < person; i++) {
-			player[i].setName(ConsoleUI.promptForInput("What is player " + (i + 1) + "'s name?", false));
-			System.out.println("Player " + player[i].getName() + ", what is the piece you wish to be?");
+			playerarray[i].setName(ConsoleUI.promptForInput("What is player " + (i + 1) + "'s name?", false));
+			System.out.println("Player " + playerarray[i].getName() + ", what is the piece you wish to be?");
 			int choose = (ConsoleUI.promptForMenuSelectionWithArrayList(pieces, false) - 1);
-			player[i].setPiece(pieces.get(choose));
-			System.out.println(player[i].getName() + " has chosen the " + player[i].getPiece() + ".");
-			player[i].setStartingMoney();
+			playerarray[i].setPiece(pieces.get(choose));
+			System.out.println(playerarray[i].getName() + " has chosen the " + playerarray[i].getPiece() + ".");
+			playerarray[i].setStartingMoney();
 			pieces.remove(choose);
 		}
 		return person;

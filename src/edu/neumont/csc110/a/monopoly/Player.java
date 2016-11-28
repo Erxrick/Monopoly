@@ -16,6 +16,13 @@ public class Player {
 	private boolean stillBidding;
 	private ArrayList<PropertyCards> property; //taking from the arraylist from the bank
 	
+	
+	public void giveAllPropertyToBanker(Banker banker) {
+		for(int i=0;i<property.size();i++){
+			this.property.get(i).setBought(false);
+			banker.addCard(this.property.get(i));
+		}
+	}
 	public void setBidding(boolean bid){
 		this.stillBidding = bid;
 	}

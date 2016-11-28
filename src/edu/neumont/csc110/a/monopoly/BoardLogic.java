@@ -18,7 +18,7 @@ public class BoardLogic {
 			System.out.println("You at free parking.");
 		} else if(player.getPlayerPosition() == 4) {
 			System.out.println("Pay Income Tax");
-			String[] choice = {"[1] Pay 200$", "[2] Pay 10%"};
+			String[] choice = {"Pay $200", "Pay 10%"};
 			int userSelection = ConsoleUI.promptForMenuSelection(choice, false);
 			if(userSelection == 1){
 				player.addMoney(-200);
@@ -64,7 +64,7 @@ public class BoardLogic {
 		}	
 	}
 	private static void auction(PropertyCards card, Player player, Player[] Player) throws IOException {
-		System.out.println("The bidding for " + card.getName() + " will start at $1");
+		System.out.println("The bidding for " + card.getName() + " will start at $1.");
 		int minimumBid = 0;
 		for(int i=0;i<Player.length;i++) {
 			Player[i].setBidding(true);
@@ -72,9 +72,9 @@ public class BoardLogic {
 		while(true) {
 			int amountOfBidders = 0;
 			for(int i=0;i<Player.length;i++) {
-				if(Player[i].getStillBidding() == true) {	
+				if(Player[i].getStillBidding() == true && Player[i].getMoney() > minimumBid) {	
 					//System.out.println(Player[i].getName() + " would you like to bid");
-					boolean choice = ConsoleUI.promptForBool(Player[i].getName() + " would you like to bid on " + card.getName(), "yes", "no");
+					boolean choice = ConsoleUI.promptForBool(Player[i].getName() + " would you like to bid on " + card.getName() + "?", "yes", "no");
 					if(choice) {
 						System.out.println("How much would you like to bid?");
 //						System.out.println("The minimun bid is " + minimumBid);
@@ -83,6 +83,8 @@ public class BoardLogic {
 					} else {
 						Player[i].setBidding(false);
 					}
+				} else {
+					Player[i].setBidding(false);
 				}
 			}
 			if(amountOfBidders == 1) {
@@ -91,7 +93,7 @@ public class BoardLogic {
 		}
 		for(int i=0;i<Player.length;i++) {
 			if(Player[i].getStillBidding() == true) {
-				System.out.println(Player[i].getName() + " you have bought " + card.getName() + " for " + minimumBid);
+				System.out.println(Player[i].getName() + " you have bought " + card.getName() + " for $" + minimumBid);
 				Player[i].addMoney(-1 * minimumBid);
 			}
 		}
