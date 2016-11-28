@@ -17,6 +17,7 @@ public class PropertyCards {
 	private int mortgage;
 	private int unmortgage;
 	private int railRoadNum;
+	private boolean tradeable;
 	private boolean ismortgaged;
 	private boolean isBought;
 	private boolean fullSet;
@@ -165,6 +166,12 @@ public class PropertyCards {
 	}
 	public void setRailRoadNum(int railRoadNum) {
 		this.railRoadNum = railRoadNum;
+	}
+	public boolean isTradeable() {
+		return tradeable;
+	}
+	public void setTradeable(boolean tradeable) {
+		this.tradeable = tradeable;
 	}
 	
 
