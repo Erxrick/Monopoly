@@ -7,7 +7,6 @@ public class PropertyCards {
 	private PropertyType color;
 	private int price;
 	private int house;
-	private boolean isBought;
 	private int rent;
 	private int rentH1;
 	private int rentH2;
@@ -17,7 +16,10 @@ public class PropertyCards {
 	private int houseCost;
 	private int mortgage;
 	private int unmortgage;
+	private int railRoadNum;
 	private boolean ismortgaged;
+	private boolean isBought;
+	private boolean fullSet;
 	private char[][] ascii;
 	
 	public void setcardAscii(char[][] Ascii) {
@@ -148,6 +150,18 @@ public class PropertyCards {
 		}
 		
 		return propRent;
+	}
+	public boolean isFullSet() {
+		return fullSet;
+	}
+	public void setFullSet(boolean fullSet) {
+		this.fullSet = fullSet;
+	}
+	public int getRailRoadNum() {
+		return railRoadNum;
+	}
+	public void setRailRoadNum(int railRoadNum) {
+		this.railRoadNum = railRoadNum;
 	}
 	
 
