@@ -309,7 +309,7 @@ public class Game {
 			System.out.println("You pay $50 to get out of jail.");
 			player.addMoney(-50);
 			player.setPlayerInJail(false);
-			player.setTurnsInJail(-3);
+			player.setTurnsInJail(0);
 			turn(player, person);
 		} else {
 			if(player.getGetOutOfJailCard() == 0) {
@@ -321,6 +321,7 @@ public class Game {
 				case 1:
 					player.addMoney(-50);
 					player.setPlayerInJail(false);
+					player.setTurnsInJail(0);
 					turn(player, person);
 					break;
 				case 2:
@@ -336,6 +337,7 @@ public class Game {
 						System.out.println();
 						PropertyCards card = allTheProperty.PropCards[player.getPlayerPosition()];
 						BoardLogic.mainBoardLogic(player, playerarray, card, decks, person, banker, allTheProperty, sum(jailRoll));
+						player.setTurnsInJail(0);
 						secondHalfOfTheTurn(player, person);
 					} else if(jailRoll[0] != jailRoll[1]) {
 						secondHalfOfTheTurn(player, person);
@@ -345,7 +347,8 @@ public class Game {
 				case 3:
 					System.out.println("You use your Get Out of Jail Free card.");
 					player.setPlayerInJail(false);
-					player.setGetOutOfJailCard(-1);
+					player.setGetOutOfJailCards(-1);
+					player.setTurnsInJail(0);
 					turn(player, person);
 					break;
 			}
@@ -468,8 +471,9 @@ public class Game {
 					playerarray[playerNum].addMoney(amountMoneyTraded);
 				} else if (tradeSelectionGive == 1) {
 					if (player.getGetOutOfJailCard() > 0) {
-						player.setGetOutOfJailCard(-1);
-						playerarray[playerNum].setGetOutOfJailCard(1);
+
+						player.setGetOutOfJailCards(-1);
+						playerarray[playerNum].setGetOutOfJailCards(1);
 
 					} else {
 						invalidTrade = true;
@@ -485,8 +489,9 @@ public class Game {
 					playerarray[playerNum].addMoney(-amountMoneyTraded);
 				} else if (tradeSelectionGive == 1 && invalidTrade != true) {
 					if (playerarray[playerNum].getGetOutOfJailCard() > 0) {
-						playerarray[playerNum].setGetOutOfJailCard(-1);
-						player.setGetOutOfJailCard(1);
+
+						playerarray[playerNum].setGetOutOfJailCards(-1);
+						player.setGetOutOfJailCards(1);
 					} else {
 						invalidTrade = true;
 						System.out.println("Sorry you can't have negative jail cards!");
