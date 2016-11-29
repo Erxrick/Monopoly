@@ -122,7 +122,7 @@ public class Game {
 				break;
 			case 2:
 
-				trading(player, playerarray, person);
+				trading(player, person);
 
 				printPlayerMoney(playerarray, player, person);
 				break;
@@ -205,7 +205,7 @@ public class Game {
 				break;
 			case 2:
 
-				trading(player, playerarray, person);
+				trading(player, person);
 				break;
 			case 3:
 				int otherUserSelection = -1;
