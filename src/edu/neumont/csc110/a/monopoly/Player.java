@@ -17,6 +17,15 @@ public class Player {
 	private ArrayList<PropertyCards> property; //taking from the arraylist from the bank
 	
 	
+	
+	public boolean getAbleToDoHouseStuff() {
+		for(int i=0;i<this.property.size();i++) {
+			if(this.property.get(i).isFullSet()) {
+				return true;
+			}
+		}
+		return false;
+	}
 	public void giveAllPropertyToBanker(Banker banker) {
 		for(int i=0;i<property.size();i++){
 			this.property.get(i).setBought(false);

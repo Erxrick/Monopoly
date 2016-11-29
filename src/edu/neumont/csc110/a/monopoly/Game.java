@@ -130,11 +130,11 @@ public class Game {
 					case 0:
 						break;
 					case 1:
-						buy_Houses();
+						buy_Houses(player);
 						printPlayerMoney(playerarray, player, person);
 						break;
 					case 2:
-						sell_Houses();
+						sell_Houses(player);
 						printPlayerMoney(playerarray, player, person);
 						break;
 					}
@@ -207,11 +207,11 @@ public class Game {
 					case 0:
 						break;
 					case 1:
-						buy_Houses();
+						buy_Houses(player);
 						printPlayerMoney(playerarray, player, person);
 						break;
 					case 2:
-						sell_Houses();
+						sell_Houses(player);
 						printPlayerMoney(playerarray, player, person);
 						break;
 					}
@@ -356,33 +356,37 @@ public class Game {
 		ConsoleUI.promptForInput("What are you getting?", false);
 	}
 
-	private void sell_Houses() throws IOException {
-		System.out.println("Not fully implemented yet");
-		int sell = ConsoleUI.promptForInt("How many houses do you wish to sell?", 1, 5);
-		switch (sell) {
-		case 1:
-			// player[i].addMoney(half the cost of one house);
-			// player[i].addHouseTotal(-1);
-			break;
-		case 2:
-			// player[i].addMoney(half the cost of two houses);
-			// player[i].addHouseTotal(-2);
-			break;
-		case 3:
-			// player[i].addMoney(half the cost of three houses);
-			// player[i].addHouseTotal(-3);
-			break;
-		case 4:
-			// player[i].addMoney(half the cost of four houses);
-			// player[i].addHouseTotal(-4);
-			break;
-		case 5:
-			// player[i].addMoney(-cost of four houses and hotel);
-			break;
+	private void sell_Houses(Player player) throws IOException {
+		BoardLogic.fullSet(player, allTheProperty);
+		if(player.getAbleToDoHouseStuff()) {
+			System.out.println("Not fully implemented yet");
+			int sell = ConsoleUI.promptForInt("How many houses do you wish to sell?", 1, 5);
+			switch (sell) {
+			case 1:
+				// player[i].addMoney(half the cost of one house);
+				// player[i].addHouseTotal(-1);
+				break;
+			case 2:
+				// player[i].addMoney(half the cost of two houses);
+				// player[i].addHouseTotal(-2);
+				break;
+			case 3:
+				// player[i].addMoney(half the cost of three houses);
+				// player[i].addHouseTotal(-3);
+				break;
+			case 4:
+				// player[i].addMoney(half the cost of four houses);
+				// player[i].addHouseTotal(-4);
+				break;
+			case 5:
+				// player[i].addMoney(-cost of four houses and hotel);
+				break;
+			}
 		}
 	}
 
-	private static void buy_Houses() throws IOException {
+	private void buy_Houses(Player player) throws IOException {
+		BoardLogic.fullSet(player, allTheProperty);
 		System.out.println("Not implemented yet");
 		// when the property is chosen, can add house to property, for money, if
 		// you have all corresponding colors.
