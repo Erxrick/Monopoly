@@ -412,19 +412,25 @@ public class Game {
 		}
     private void mortgage(Player player) throws IOException{
     	ArrayList<Integer> temp = new ArrayList<Integer>();
+    	boolean canMortgage = false;
     	for(int i=0; i<player.getProperty().size(); i++){
 			if (player.getProperty().get(i).isIsmortgaged() == false){
 			temp.add(i);
+			canMortgage = true;
 			}
 		}
-		for(int i=0; i<temp.size();i++) {
-			System.out.println(i + ": " + player.getProperty().get(temp.get(i)).getName());
+    	if(canMortgage = true) {
+			for(int i=0; i<temp.size();i++) {
+				System.out.println(i + ": " + player.getProperty().get(temp.get(i)).getName());
+			}
+			int userSelection = ConsoleUI.promptForInt("Select a property to mortgage" , 0, temp.size());
+			int pay2mortgage = player.getProperty().get(temp.get(userSelection)).getMortgage();
+			player.getProperty().get(temp.get(userSelection)).setIsmortgaged(true);
+			player.addMoney(pay2mortgage);
+		} else {
+			System.out.println("Sorry, you have nothing to trade.");
 		}
-		int userSelection = ConsoleUI.promptForInt("Select a property to mortgage" , 0, temp.size());
-		int pay2mortgage = player.getProperty().get(temp.get(userSelection)).getMortgage();
-		player.getProperty().get(temp.get(userSelection)).setIsmortgaged(true);
-		player.addMoney(pay2mortgage);
-	}
+    }
     
     	//}
 //		// if players money is in the negatives.
