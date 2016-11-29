@@ -1,5 +1,6 @@
 package edu.neumont.csc110.a.monopoly;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -54,7 +55,7 @@ public class CommunityChanceText {
 	}
 	
 
-	public void communityChestText(Player player, Player[] otherPlayers, int person){
+	public void communityChestText(Player player, Player[] otherPlayers, int person, Banker banker, BoardTiles allTheProperty){
 		while(true) {
 			int comNum = communityChest.get(cardnum1);
 			cardnum1++;
@@ -170,7 +171,7 @@ public class CommunityChanceText {
 		
 	}
 		// if Statement Incrementing chaNum after printing text
-	public void chanceText(Player player, Player[] otherPlayers, int person){
+	public void chanceText(Player player, Player[] otherPlayers, int person, Banker banker, BoardTiles allTheProperty) throws IOException{
 		while(true) {
 			int chaNum = chance.get(cardnum2);
 			cardnum2++;
@@ -194,8 +195,10 @@ public class CommunityChanceText {
 				System.out.println("Advance token to nearest Utility. If unowned, you may buy it from the Bank. If owned, throw dice and pay owner a total ten times the amount thrown.");
 				if(player.getPlayerPosition() > 12 && player.getPlayerPosition() < 28) {
 					player.setPlayerPosition(28);
-				} else if(player.getPlayerPosition() < 12 && player.getPlayerPosition() > 28) {
+					BoardLogic.purchaseOrRent(allTheProperty.Water_Works, player, otherPlayers, otherPlayers.length, banker, allTheProperty, 0);
+				} else if(player.getPlayerPosition() < 12 && player.getPlayerPosition() > 12) {
 					player.setPlayerPosition(12);
+					BoardLogic.purchaseOrRent(allTheProperty.Water_Works, player, otherPlayers, otherPlayers.length, banker, allTheProperty, 0);
 				}
 				break;
 			}
@@ -203,12 +206,16 @@ public class CommunityChanceText {
 				System.out.println("Advance token to the nearest Railroad and pay owner twice the rental to which he/she {he} is otherwise entitled. If Railroad is unowned, you may buy it from the Bank.");
 				if(player.getPlayerPosition() < 5 && player.getPlayerPosition() > 35) {
 					player.setPlayerPosition(5);
+					BoardLogic.purchaseOrRent(allTheProperty.Reading_Railroad, player, otherPlayers, otherPlayers.length, banker, allTheProperty, 0);
 				} else if(player.getPlayerPosition() > 5 && player.getPlayerPosition() < 15) {
 					player.setPlayerPosition(15);
+					BoardLogic.purchaseOrRent(allTheProperty.Pennsylvania_Railroad, player, otherPlayers, otherPlayers.length, banker, allTheProperty, 0);
 				} else if(player.getPlayerPosition() > 15 && player.getPlayerPosition() < 25) {
 					player.setPlayerPosition(25);
+					BoardLogic.purchaseOrRent(allTheProperty.BO_Railroad, player, otherPlayers, otherPlayers.length, banker, allTheProperty, 0);
 				} else if(player.getPlayerPosition() > 25 && player.getPlayerPosition() < 35) {
 					player.setPlayerPosition(35);
+					BoardLogic.purchaseOrRent(allTheProperty.Short_Line, player, otherPlayers, otherPlayers.length, banker, allTheProperty, 0);
 				}
 				break;
 			}

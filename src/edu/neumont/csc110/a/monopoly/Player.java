@@ -13,10 +13,41 @@ public class Player {
 	private int playerPosition;
 	private int turnsInJail;
 	private int turnOrderRoll;
+	private int numberOfRailRoads;
 	private boolean stillBidding;
 	private ArrayList<PropertyCards> property; //taking from the arraylist from the bank
 	
-	
+	public int getNumberOfRailRoads() {
+		return this.numberOfRailRoads;
+	}
+	public void setNumberOfRailRoads(BoardTiles allTheProperty) {
+		int counter = 0;
+		if(this.property.contains(allTheProperty.BO_Railroad)) {
+			counter++;
+		} 
+		if(this.property.contains(allTheProperty.Reading_Railroad)) {
+			counter++;
+		}
+		if(this.property.contains(allTheProperty.Pennsylvania_Railroad)) {
+			counter++;
+		}
+		if(this.property.contains(allTheProperty.Short_Line)) {
+			counter++;
+		}
+		
+		
+		if(counter == 1) {
+			this.numberOfRailRoads = 1;
+		} else if(counter == 2) {
+			this.numberOfRailRoads = 2;
+		} else if(counter == 3) {
+			this.numberOfRailRoads = 3;
+		} else if(counter == 4) {
+			this.numberOfRailRoads = 4;
+		} else {
+			this.numberOfRailRoads = 0;
+		}
+	}
 	
 	public boolean getAbleToDoHouseStuff() {
 		for(int i=0;i<this.property.size();i++) {

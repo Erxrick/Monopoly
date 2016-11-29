@@ -155,6 +155,28 @@ public class PropertyCards {
 		
 		return propRent;
 	}
+	public int getRentRailRoad(int z) {
+		int propRent = 0;
+		if(this.ismortgaged == true) {
+			return 0;
+		}
+		switch(z) {
+		case 1:
+			propRent = this.rentH1;
+			break;
+		case 2: 
+			propRent = this.rentH2;
+			break;
+		case 3:
+			propRent = this.rentH3;
+			break;
+		case 4:
+			propRent = this.rentH4;
+			break;
+		}
+		
+		return propRent;
+	}
 	public boolean isFullSet() {
 		return fullSet;
 	}

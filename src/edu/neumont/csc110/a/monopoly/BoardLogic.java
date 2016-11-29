@@ -1,6 +1,8 @@
 package edu.neumont.csc110.a.monopoly;
 
 import java.io.IOException;
+import java.util.Random;
+
 import edu.neumont.csc110.a.utilities.ConsoleUI;
 
 public class BoardLogic {
@@ -8,10 +10,10 @@ public class BoardLogic {
 	public static void mainBoardLogic(Player player, Player[] Player, PropertyCards card, CommunityChanceText decks, int person, Banker banker, BoardTiles allTheProperty, int sumOfDiceRoll) throws IOException{
 		if(player.getPlayerPosition() == 7 || player.getPlayerPosition() == 22 || player.getPlayerPosition() == 36) {
 			//chance tiles
-			decks.chanceText(player, Player, person);
+			decks.chanceText(player, Player, person, banker, allTheProperty);
 		} else if(player.getPlayerPosition() == 2 || player.getPlayerPosition() == 17 || player.getPlayerPosition() == 33){
 			//community tiles
-			decks.communityChestText(player, Player, person);
+			decks.communityChestText(player, Player, person, banker, allTheProperty);
 		} else if(player.getPlayerPosition() == 4) {
 			System.out.println("Pay Income Tax");
 			String[] choice = {"Pay $200", "Pay 10%"};
@@ -37,18 +39,47 @@ public class BoardLogic {
 			purchaseOrRent(card, player, Player, person, banker, allTheProperty, sumOfDiceRoll);
 		}
 	}
-	private static void purchaseOrRent(PropertyCards card, Player player, Player[] Player, int person, Banker banker, BoardTiles allTheProperty, int sumOfDiceRoll) throws IOException {
+	public static void purchaseOrRent(PropertyCards card, Player player, Player[] Player, int person, Banker banker, BoardTiles allTheProperty, int sumOfDiceRoll) throws IOException {
 		fullSet(player, allTheProperty);
 		if(card.isBought() == true) {
 			if(player.getPlayerPosition() == 12 || player.getPlayerPosition() == 28) {
-				for(int i=0;i<Player.length;i++) {
-					if(Player[i].ownProperty(allTheProperty.Water_Works) && Player[i].ownProperty(allTheProperty.Electric_Company)) {
-						System.out.println(player.getName() + " you have to pay $" + (sumOfDiceRoll * 10) + " to " + Player[i].getName());
-					} else {
-						System.out.println(player.getName() + " you have to pay $" + (sumOfDiceRoll * 4) + " to " + Player[i].getName());
+				if(sumOfDiceRoll == 0) {
+					int num = sum(roll());
+					System.out.println("You rolled " + num + ".");
+					for(int i=0;i<Player.length;i++) {
+						if((player.getPlayerPosition() == 12 && Player[i].ownProperty(allTheProperty.Water_Works)) || (player.getPlayerPosition() == 28 &&Player[i].ownProperty(allTheProperty.Water_Works))) {
+							System.out.println(player.getName() + " you have to pay $" + (num * 10) + " to " + Player[i].getName());
+							player.addMoney(-10 * num);
+						}
+					}
+				} else {
+					for(int i=0;i<Player.length;i++) {
+						if(Player[i].ownProperty(allTheProperty.Water_Works) && Player[i].ownProperty(allTheProperty.Electric_Company)) {
+							System.out.println(player.getName() + " you have to pay $" + (sumOfDiceRoll * 10) + " to " + Player[i].getName());
+							player.addMoney(-10 * sumOfDiceRoll);
+						} else {
+							System.out.println(player.getName() + " you have to pay $" + (sumOfDiceRoll * 4) + " to " + Player[i].getName());
+							player.addMoney(-4 * sumOfDiceRoll);
+						}
 					}
 				}
-			} else {
+			} else if(player.getPlayerPosition() == 5 || player.getPlayerPosition() == 15 || player.getPlayerPosition() == 25 || player.getPlayerPosition() == 35) {
+				if(sumOfDiceRoll == 0) {
+					for(int i=0;i<Player.length;i++) {
+							if((player.getPlayerPosition() == 5 && Player[i].ownProperty(allTheProperty.Reading_Railroad)) || (player.getPlayerPosition() == 15 && Player[i].ownProperty(allTheProperty.Pennsylvania_Railroad)) || (player.getPlayerPosition() == 25 && Player[i].ownProperty(allTheProperty.BO_Railroad)) || (player.getPlayerPosition() == 35 && Player[i].ownProperty(allTheProperty.Short_Line))) {
+								System.out.println(player.getName() + " you have to pay $" + (allTheProperty.Reading_Railroad.getRentRailRoad(player.getNumberOfRailRoads()) * 2) + " to " + Player[i].getName());
+								player.addMoney(-2 * allTheProperty.Reading_Railroad.getRentRailRoad(player.getNumberOfRailRoads()));
+							}
+					}
+				} else {
+					for(int i=0;i<Player.length;i++) {
+						if((player.getPlayerPosition() == 5 && Player[i].ownProperty(allTheProperty.Reading_Railroad)) || (player.getPlayerPosition() == 15 && Player[i].ownProperty(allTheProperty.Pennsylvania_Railroad)) || (player.getPlayerPosition() == 25 && Player[i].ownProperty(allTheProperty.BO_Railroad)) || (player.getPlayerPosition() == 35 && Player[i].ownProperty(allTheProperty.Short_Line))) {
+							System.out.println(player.getName() + " you have to pay $" + (allTheProperty.Reading_Railroad.getRentRailRoad(player.getNumberOfRailRoads())) + " to " + Player[i].getName());
+							player.addMoney(allTheProperty.Reading_Railroad.getRentRailRoad(player.getNumberOfRailRoads()));
+						}
+					}
+				}
+			}else {
 				for(int i=0;i<person;i++) {
 					if(Player[i].ownProperty(card)){
 						if(player.getMoney() > card.getPropertyRentWhenLandedOn()) {
@@ -238,6 +269,28 @@ public class BoardLogic {
 	public static void Go() {
 		
 		
+	}
+	public static int[] roll() {
+		Random rando = new Random();
+		final int times = 2;
+		int[] rolls = new int[times];
+
+		for (int i = 0; i < times; i++) {
+			rolls[i] = rando.nextInt(6) + 1;
+			// System.out.print(rolls[i] + " ");
+		}
+		// System.out.println();
+		return rolls;
+	}
+
+
+	public static int sum(int[] array) {
+		int sum = 0;
+
+		for (int i = 0; i < array.length; i++) {
+			sum = sum + array[i];
+		}
+		return sum;
 	}
 }
 
