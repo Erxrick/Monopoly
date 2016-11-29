@@ -339,6 +339,7 @@ public class Game {
 					break;
 				case 3:
 					System.out.println("You use your Get Out of Jail Free card.");
+					
 					player.setGetOutOfJailCard(-1);
 					turn(player, person);
 					break;

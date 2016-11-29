@@ -59,6 +59,15 @@ public class CommunityChanceText {
 		while(true) {
 			int comNum = communityChest.get(cardnum1);
 			cardnum1++;
+//			int temp = 0;
+//			for(int i=0;i<otherPlayers.length;i++) {
+//				if(otherPlayers[i].getGetOutOfJailCard() > 0) {
+//					temp++;
+//				}
+//			}
+//			if(temp == 0) {
+//				jailCard1 = true;
+//			}
 			if(comNum == 0 && jailCard1 == true){
 				System.out.println("Get Out of Jail Free");
 				player.setGetOutOfJailCard(1);
