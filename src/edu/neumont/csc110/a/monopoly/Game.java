@@ -408,6 +408,7 @@ public class Game {
 			}
 			int userSelection = ConsoleUI.promptForInt("Select a property to unmortgage" , 0, temp.size());
 			int pay2Unmortgage = player.getProperty().get(temp.get(userSelection)).getUnMortgage();
+			player.getProperty().get(temp.get(userSelection)).setIsmortgaged(false);
 			player.addMoney(-pay2Unmortgage);
 		}
     private void mortgage(Player player) throws IOException{
