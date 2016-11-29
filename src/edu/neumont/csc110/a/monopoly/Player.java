@@ -18,6 +18,10 @@ public class Player {
 	
 	
 	
+	public ArrayList<PropertyCards> returnPropertyCardArrayList(){
+		return this.property;
+	}
+	
 	public boolean getAbleToDoHouseStuff() {
 		for(int i=0;i<this.property.size();i++) {
 			if(this.property.get(i).isFullSet()) {
