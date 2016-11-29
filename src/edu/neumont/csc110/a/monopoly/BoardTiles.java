@@ -626,13 +626,6 @@ public class BoardTiles {
 		Electric_Company.setName("Electric Company");
 		Electric_Company.setColor(PropertyType.utility);
 		Electric_Company.setPrice(150);
-		//if(electriccompany && WaterWorks are in the player array){
-		//Electric_Company.setRent(DiceRoll * 10);
-		//}
-		//else{
-		//Electric_Company.setRent(DiceRoll * 4)
-		//}
-		
 		Electric_Company.setMortgage(75);
 		Electric_Company.setUnMortgage(83);
 		Electric_Company.setIsmortgaged(false);
@@ -645,12 +638,6 @@ public class BoardTiles {
 		Water_Works.setName("Water Works");
 		Water_Works.setColor(PropertyType.utility);
 		Water_Works.setPrice(150);
-		//if(electriccompany && WaterWorks are in the player array){
-				//Water_Works.setRent(DiceRoll * 10);
-				//}
-				//else{
-				//Water_Works.setRent(DiceRoll * 4)
-				//}
 		Water_Works.setMortgage(75);
 		Water_Works.setUnMortgage(83);
 		Water_Works.setIsmortgaged(false);

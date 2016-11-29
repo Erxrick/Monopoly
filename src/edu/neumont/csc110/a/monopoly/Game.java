@@ -358,12 +358,14 @@ public class Game {
 	}
 
 
-//	private static void mortgage() {
-//		System.out.println("Not implemented yet");
+    private static void mortgage() {
 //		// when all houses have been sold, you can mortgage property for money
+    	//if ()
+    		
+    	//}
 //		// if players money is in the negatives.
 //		// when mortgaged, you cannot get money from players that land on it.
-//	}
+	}
 
 
 	private static void trading(Player player, int person) throws IOException {
@@ -471,34 +473,20 @@ public class Game {
 
 	private void sell_Houses(Player player) throws IOException {
 		BoardLogic.fullSet(player, allTheProperty);
-		ArrayList<PropertyCards> playerProperty = player.returnPropertyCardArrayList();
-		//ArrayList<PropertyCards> 
+		
+		ArrayList<Integer> temp = new ArrayList<Integer>();
 		if(player.getAbleToDoHouseStuff()) {
-			for(int i=0; i<playerProperty.size(); i++){
-				
+			for(int i=0; i<player.getProperty().size(); i++){
+				if (player.getProperty().get(i).getHouse() > 0){
+				temp.add(i);
+				}
 			}
-		}
-			int sell = ConsoleUI.promptForInt("How many houses do you wish to sell?", 1, 5);
-			switch (sell) {
-			case 1:
-				
-				// player[i].addHouseTotal(-1);
-				break;
-			case 2:
-				// player[i].addMoney(half the cost of two houses);
-				// player[i].addHouseTotal(-2);
-				break;
-			case 3:
-				// player[i].addMoney(half the cost of three houses);
-				// player[i].addHouseTotal(-3);
-				break;
-			case 4:
-				// player[i].addMoney(half the cost of four houses);
-				// player[i].addHouseTotal(-4);
-				break;
-			case 5:
-				// player[i].addMoney(-cost of four houses and hotel);
-				break;
+			for(int i=0; i<temp.size();i++) {
+				System.out.println(i + ": " + player.getProperty().get(temp.get(i)).getName());
+			}
+			int userSelection = ConsoleUI.promptForInt("Select a property to subtract a house from" , 0, temp.size());
+			player.getProperty().get(temp.get(userSelection)).addHouse(-1);
+			player.addMoney((int)(player.getProperty().get(temp.get(userSelection)).getHouseCost() * .5));
 			}
 		}
 	
@@ -506,34 +494,27 @@ public class Game {
 
 	private void buy_Houses(Player player) throws IOException {
 		BoardLogic.fullSet(player, allTheProperty);
-		System.out.println("Not implemented yet");
-		// when the property is chosen, can add house to property, for money, if
-		// you have all corresponding colors.
-		int house = ConsoleUI.promptForInt("How many houses do you wish to buy?", 1, 5);
-
-		switch (house) {
-		case 1:
-			//player[i].addMoney(-cost of one house);
-			// player[i].addHouseTotal(1);
-			break;
-		case 2:
-			// player[i].addMoney(-cost of two houses);
-			// player[i].addHouseTotal(2);
-			break;
-		case 3:
-			// player[i].addMoney(-cost of three houses);
-			// player[i].addHouseTotal(3);
-			break;
-		case 4:
-			// player[i].addMoney(-cost of four houses);
-			// player[i].addHouseTotal(4);
-			break;
-		case 5:
-			// player[i].addMoney(-cost of four houses and hotel);
-			break;
+		
+		ArrayList<Integer> temp = new ArrayList<Integer>();
+		if(player.getAbleToDoHouseStuff()) {
+			for(int i=0; i<player.getProperty().size(); i++){
+				if (player.getProperty().get(i).isFullSet() == true && player.getProperty().get(i).getHouse() < 6){
+				temp.add(i);
+				}
+			}
+			for(int i=0; i<temp.size();i++) {
+				System.out.println(i + ": " + player.getProperty().get(temp.get(i)).getName());
+			}
+			int userSelection = ConsoleUI.promptForInt("Select a property to add a house to" , 0, temp.size());
+			player.getProperty().get(temp.get(userSelection)).addHouse(1);
+			player.addMoney(-(player.getProperty().get(temp.get(userSelection)).getHouseCost()));
+			}
 		}
-	}
+	
+	
 
+		
+	
 	private static int pick_players() throws IOException {
 		int person = ConsoleUI.promptForInt("How many players are playing?", 2, 8);
 		playerarray = new Player[person];

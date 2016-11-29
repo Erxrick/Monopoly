@@ -67,6 +67,9 @@ public class PropertyCards {
 	public void setHouse(int house) {
 		this.house = house;
 	}
+	public void addHouse(int house){
+		this.house += house;
+	}
 	public int getRent() {
 		return rent;
 	}
