@@ -85,15 +85,10 @@ public class BoardLogic {
 			Player[i].setBidding(true);
 		}
 		boolean loop = true;
+		boolean buyer = false;
 		while(loop) {
 			int amountOfBidders = 0;
 			for(int i=0;i<Player.length;i++) {
-				if(amountOfBidders == 1) {
-					if(Player[i].getStillBidding() == true) {
-						player.addPropertyToCollection(card);
-						loop = false;
-					}
-				}
 				if(Player[i].getStillBidding() == true && Player[i].getMoney() > minimumBid) {	
 					//System.out.println(Player[i].getName() + " would you like to bid");
 					boolean choice = ConsoleUI.promptForBool(Player[i].getName() + " would you like to bid on " + card.getName() + "?", "yes", "no");
@@ -111,19 +106,25 @@ public class BoardLogic {
 			}
 			if(amountOfBidders == 1) {
 				loop = false;
+				buyer = true;
+			} else if(amountOfBidders == 0) {
+				System.out.println("No one won the auction.");
+				loop = false;
 			}
 		}
-		for(int i=0;i<Player.length;i++) {
-			if(Player[i].getStillBidding() == true) {
-				System.out.println(Player[i].getName() + " you have bought " + card.getName() + " for $" + minimumBid);
-				Player[i].addMoney(-1 * minimumBid);
+		if(buyer = true) {
+			for(int i=0;i<Player.length;i++) {
+				if(Player[i].getStillBidding() == true) {
+					System.out.println(Player[i].getName() + " you have bought " + card.getName() + " for $" + minimumBid);
+					Player[i].addMoney(-1 * minimumBid);
+					Player[i].addPropertyToCollection(card);
+				}
 			}
 		}
 	}
 	public static void Luxury_Tax(Player player) {
 		player.addMoney(-75);	
 	}
-	
 	
 	
 	public static void fullSet(Player player, BoardTiles allTheProperty){
