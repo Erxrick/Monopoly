@@ -194,7 +194,7 @@ public class Game {
 				System.out.println("You can't end your turn with less than $0 or you will be removed from the game \n and all your property will be given to the \n player that you owe money to.");
 			}
 			
-			String[] turnOptions4 = { "End Turn", "Trade", "Buy or Sell houses", "View your properties",
+			String[] turnOptions4 = { "End Turn", "Trade", "Property Management", "View your properties",
 					"Go Bankrupt" };
 
 			printPlayerMoney(playerarray, player, person);
@@ -210,7 +210,7 @@ public class Game {
 				break;
 			case 3:
 				int otherUserSelection = -1;
-				String[] otherOptions = { "Buy Houses", "Sell Houses" };
+				String[] otherOptions = { "Buy Houses", "Sell Houses", "Mortgage" };
 				do {
 					otherUserSelection = ConsoleUI.promptForMenuSelection(otherOptions, true);
 					switch (otherUserSelection) {
@@ -226,6 +226,8 @@ public class Game {
 						sell_Houses(player);
 						printPlayerMoney(playerarray, player, person);
 						break;
+					case 3:
+						
 					}
 				} while (otherUserSelection != 0);
 				break;

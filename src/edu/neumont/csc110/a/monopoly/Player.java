@@ -14,9 +14,20 @@ public class Player {
 	private int turnsInJail;
 	private int turnOrderRoll;
 	private int numberOfRailRoads;
+//	private boolean anyMortgage;
 	private boolean stillBidding;
 	private ArrayList<PropertyCards> property; //taking from the arraylist from the bank
 	
+	
+	
+	public boolean anythingMortgaged() {
+		for(int i=0;i<property.size();i++) {
+			if(property.get(i).isIsmortgaged() == true) {
+				return true;
+			}
+		}
+		return false;
+	}
 	public int getNumberOfRailRoads() {
 		return this.numberOfRailRoads;
 	}
