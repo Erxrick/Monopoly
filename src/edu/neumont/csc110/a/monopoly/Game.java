@@ -471,12 +471,17 @@ public class Game {
 
 	private void sell_Houses(Player player) throws IOException {
 		BoardLogic.fullSet(player, allTheProperty);
+		ArrayList<PropertyCards> playerProperty = player.returnPropertyCardArrayList();
+		//ArrayList<PropertyCards> 
 		if(player.getAbleToDoHouseStuff()) {
-			System.out.println("Not fully implemented yet");
+			for(int i=0; i<playerProperty.size(); i++){
+				
+			}
+		}
 			int sell = ConsoleUI.promptForInt("How many houses do you wish to sell?", 1, 5);
 			switch (sell) {
 			case 1:
-				// player[i].addMoney(half the cost of one house);
+				
 				// player[i].addHouseTotal(-1);
 				break;
 			case 2:
@@ -496,7 +501,7 @@ public class Game {
 				break;
 			}
 		}
-	}
+	
 
 
 	private void buy_Houses(Player player) throws IOException {
@@ -508,7 +513,7 @@ public class Game {
 
 		switch (house) {
 		case 1:
-			// player[i].addMoney(-cost of one house);
+			//player[i].addMoney(-cost of one house);
 			// player[i].addHouseTotal(1);
 			break;
 		case 2:
@@ -527,8 +532,6 @@ public class Game {
 			// player[i].addMoney(-cost of four houses and hotel);
 			break;
 		}
-
-		// after four houses have been built, remove the houses and put hotel.
 	}
 
 	private static int pick_players() throws IOException {
