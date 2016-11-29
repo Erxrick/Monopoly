@@ -307,6 +307,7 @@ public class Game {
 			System.out.println("You pay $50 to get out of jail.");
 			player.addMoney(-50);
 			player.setPlayerInJail(false);
+			player.setTurnsInJail(-3);
 			turn(player, person);
 		} else {
 			if(player.getGetOutOfJailCard() == 0) {
