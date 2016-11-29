@@ -452,11 +452,11 @@ public class Game {
 			int tradeSelectionGet = ConsoleUI.promptForInt("What are you getting?", 0,
 					tradingPlayerProperty.size() + 2);
 			int amountMoneyTraded = 0;
-			if (tradeSelectionGive == 0) {
-				amountMoneyTraded = ConsoleUI.promptForInt("How much are you giving?", 1, player.getMoney());
+			if (tradeSelectionGive == 0 && player.getMoney() > 0) {
+				amountMoneyTraded = ConsoleUI.promptForInt("How much are you giving to the player?", 1, player.getMoney());
 			}
-			if (tradeSelectionGet == 0) {
-				amountMoneyTraded = ConsoleUI.promptForInt("How much are you getting?", 1, player.getMoney());
+			if (tradeSelectionGet == 0 && playerarray[playerNum].getMoney() > 0) {
+				amountMoneyTraded = ConsoleUI.promptForInt("How much are you getting from the player?", 1, player.getMoney());
 			}
 			String prompt = "Player " + playerarray[playerNum].getName()
 					+ ", are you certain you agree to this trade? (Yes/No)";
