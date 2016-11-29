@@ -358,14 +358,41 @@ public class Game {
 	}
 
 
-    private static void mortgage() {
+    private void unmortgage(Player player) throws IOException {
 //		// when all houses have been sold, you can mortgage property for money
     	//if ()
-    		
+    	ArrayList<Integer> temp = new ArrayList<Integer>();
+			for(int i=0; i<player.getProperty().size(); i++){
+				if (player.getProperty().get(i).isIsmortgaged() == true){
+				temp.add(i);
+				}
+			}
+			for(int i=0; i<temp.size();i++) {
+				System.out.println(i + ": " + player.getProperty().get(temp.get(i)).getName());
+			}
+			int userSelection = ConsoleUI.promptForInt("Select a property to unmortgage" , 0, temp.size());
+			int pay2Unmortgage = player.getProperty().get(temp.get(userSelection)).getUnMortgage();
+			player.addMoney(-pay2Unmortgage);
+		}
+    private void mortgage(Player player) throws IOException{
+    	ArrayList<Integer> temp = new ArrayList<Integer>();
+    	for(int i=0; i<player.getProperty().size(); i++){
+			if (player.getProperty().get(i).isIsmortgaged() == false){
+			temp.add(i);
+			}
+		}
+		for(int i=0; i<temp.size();i++) {
+			System.out.println(i + ": " + player.getProperty().get(temp.get(i)).getName());
+		}
+		int userSelection = ConsoleUI.promptForInt("Select a property to mortgage" , 0, temp.size());
+		int pay2mortgage = player.getProperty().get(temp.get(userSelection)).getMortgage();
+		player.addMoney(pay2mortgage);
+	}
+    
     	//}
 //		// if players money is in the negatives.
 //		// when mortgaged, you cannot get money from players that land on it.
-	}
+	
 
 
 	private static void trading(Player player, int person) throws IOException {
@@ -475,7 +502,7 @@ public class Game {
 		BoardLogic.fullSet(player, allTheProperty);
 		
 		ArrayList<Integer> temp = new ArrayList<Integer>();
-		if(player.getAbleToDoHouseStuff()) {
+		if(player.getAbleToDoHouseStuff() == true) {
 			for(int i=0; i<player.getProperty().size(); i++){
 				if (player.getProperty().get(i).getHouse() > 0){
 				temp.add(i);
@@ -496,7 +523,7 @@ public class Game {
 		BoardLogic.fullSet(player, allTheProperty);
 		
 		ArrayList<Integer> temp = new ArrayList<Integer>();
-		if(player.getAbleToDoHouseStuff()) {
+		if(player.getAbleToDoHouseStuff() == true) {
 			for(int i=0; i<player.getProperty().size(); i++){
 				if (player.getProperty().get(i).isFullSet() == true && player.getProperty().get(i).getHouse() < 6){
 				temp.add(i);
