@@ -100,7 +100,7 @@ public class Game {
 				sumOfDiceRoll = sum(diceRoll);
 				timesRolled++;
 				player.addPlayerPosition(sumOfDiceRoll);
-				sumOfDiceRoll = 0;
+				//sumOfDiceRoll = 0;
 				Board.setMainBoard(playerarray, person);
 				Board.printMainBoard();
 				printPlayerMoney(playerarray, player, person);
@@ -111,7 +111,8 @@ public class Game {
 				System.out.println();
 				PropertyCards card = allTheProperty.PropCards[player.getPlayerPosition()];
 
-				BoardLogic.mainBoardLogic(player, playerarray, card, decks, person, banker, allTheProperty);
+				BoardLogic.mainBoardLogic(player, playerarray, card, decks, person, banker, allTheProperty, sumOfDiceRoll);
+				sumOfDiceRoll = 0;
 				// System.out.println("You rolled a " + roll());
 
 				if (timesRolled == 3 && diceRoll[0] == diceRoll[1]) {
@@ -168,7 +169,7 @@ public class Game {
 							ConsoleUI.promptForInt("What number tile would you like to move to?", 0, 39));
 					PropertyCards debugcard = allTheProperty.PropCards[player.getPlayerPosition()];
 
-					BoardLogic.mainBoardLogic(player, playerarray, debugcard, decks, person, banker, allTheProperty);
+					BoardLogic.mainBoardLogic(player, playerarray, debugcard, decks, person, banker, allTheProperty, 0);
 					break;
 				case 2:
 					player.addMoney(ConsoleUI.promptForInt("How much money would you like to add?", -20000, 20000));
@@ -329,7 +330,7 @@ public class Game {
 						printPlayerMoney(playerarray, player, person);
 						System.out.println();
 						PropertyCards card = allTheProperty.PropCards[player.getPlayerPosition()];
-						BoardLogic.mainBoardLogic(player, playerarray, card, decks, person, banker, allTheProperty);
+						BoardLogic.mainBoardLogic(player, playerarray, card, decks, person, banker, allTheProperty, sum(jailRoll));
 						secondHalfOfTheTurn(player, person);
 					} else if(jailRoll[0] != jailRoll[1]) {
 						secondHalfOfTheTurn(player, person);

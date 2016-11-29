@@ -5,7 +5,7 @@ import edu.neumont.csc110.a.utilities.ConsoleUI;
 
 public class BoardLogic {
 		
-	public static void mainBoardLogic(Player player, Player[] Player, PropertyCards card, CommunityChanceText decks, int person, Banker banker, BoardTiles allTheProperty) throws IOException{
+	public static void mainBoardLogic(Player player, Player[] Player, PropertyCards card, CommunityChanceText decks, int person, Banker banker, BoardTiles allTheProperty, int sumOfDiceRoll) throws IOException{
 		if(player.getPlayerPosition() == 7 || player.getPlayerPosition() == 22 || player.getPlayerPosition() == 36) {
 			//chance tiles
 			decks.chanceText(player, Player, person);
@@ -34,27 +34,37 @@ public class BoardLogic {
 			System.out.println("Pay Luxury Tax of $75.");
 			player.addMoney(-75);
 		} else {
-			purchaseOrRent(card, player, Player, person, banker, allTheProperty);
+			purchaseOrRent(card, player, Player, person, banker, allTheProperty, sumOfDiceRoll);
 		}
 	}
-	private static void purchaseOrRent(PropertyCards card, Player player, Player[] Player, int person, Banker banker, BoardTiles allTheProperty) throws IOException {
+	private static void purchaseOrRent(PropertyCards card, Player player, Player[] Player, int person, Banker banker, BoardTiles allTheProperty, int sumOfDiceRoll) throws IOException {
 		fullSet(player, allTheProperty);
 		if(card.isBought() == true) {
-			for(int i=0;i<person;i++) {
-				if(Player[i].ownProperty(card)){
-					if(player.getMoney() > card.getPropertyRentWhenLandedOn()) {
-						if(card.isFullSet() && card.getHouse() == 0) {
-							System.out.println("You pay $" + (card.getPropertyRentWhenLandedOn() * 2) + " to " + Player[i].getName());
-						} else {
-							System.out.println("You pay $" + card.getPropertyRentWhenLandedOn() + " to " + Player[i].getName());
-						}
-						Player[i].addMoney(card.getPropertyRentWhenLandedOn());
+			if(player.getPlayerPosition() == 12 || player.getPlayerPosition() == 28) {
+				for(int i=0;i<Player.length;i++) {
+					if(Player[i].ownProperty(allTheProperty.Water_Works) && Player[i].ownProperty(allTheProperty.Electric_Company)) {
+						System.out.println(player.getName() + " you have to pay $" + (sumOfDiceRoll * 10) + " to " + Player[i].getName());
 					} else {
-						//add removing the player's property when they cant mortgage anymore
+						System.out.println(player.getName() + " you have to pay $" + (sumOfDiceRoll * 4) + " to " + Player[i].getName());
 					}
 				}
+			} else {
+				for(int i=0;i<person;i++) {
+					if(Player[i].ownProperty(card)){
+						if(player.getMoney() > card.getPropertyRentWhenLandedOn()) {
+							if(card.isFullSet() && card.getHouse() == 0) {
+								System.out.println("You pay $" + (card.getPropertyRentWhenLandedOn() * 2) + " to " + Player[i].getName());
+							} else {
+								System.out.println("You pay $" + card.getPropertyRentWhenLandedOn() + " to " + Player[i].getName());
+							}
+							Player[i].addMoney(card.getPropertyRentWhenLandedOn());
+						} else {
+							//add removing the player's property when they cant mortgage anymore
+						}
+					}
+				}
+				player.addMoney(card.getPropertyRentWhenLandedOn() * -1);
 			}
-			player.addMoney(card.getPropertyRentWhenLandedOn() * -1);
 		} else {
 			//this is where its bought
 			card.printCardAscii();
