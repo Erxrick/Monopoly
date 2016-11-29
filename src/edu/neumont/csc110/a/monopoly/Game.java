@@ -306,6 +306,8 @@ public class Game {
 		if(player.getTurnsInJail() >= 3) {
 			System.out.println("You pay $50 to get out of jail.");
 			player.addMoney(-50);
+			player.setPlayerInJail(false);
+			player.setTurnsInJail(-3);
 			turn(player, person);
 		} else {
 			if(player.getGetOutOfJailCard() == 0) {
@@ -324,6 +326,7 @@ public class Game {
 					System.out.println("You rolled: " + jailRoll[0] + " " + jailRoll[1]);
 					if(jailRoll[0] == jailRoll[1]) {
 						System.out.println("You have escaped jail.");
+						player.setPlayerInJail(false);
 						player.addPlayerPosition(jailRoll[0] + jailRoll[1]);
 						Board.setMainBoard(playerarray, person);
 						Board.printMainBoard();
@@ -339,7 +342,7 @@ public class Game {
 					break;
 				case 3:
 					System.out.println("You use your Get Out of Jail Free card.");
-					
+					player.setPlayerInJail(false);
 					player.setGetOutOfJailCard(-1);
 					turn(player, person);
 					break;

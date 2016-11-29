@@ -204,6 +204,9 @@ public class Player {
 	public int getTurnsInJail() {
 		return turnsInJail;
 	}
+	public void setTurnsInJail(int counter) {
+		this.turnsInJail = counter;
+	}
 	public void addTurnsInJail(int counter) {
 		this.turnsInJail += counter;
 	}
