@@ -40,4 +40,7 @@ public class Banker {
 		int index = this.property.indexOf(card);
 		this.property.remove(index);
 	}
+	public void addCard(PropertyCards card) {
+		this.property.add(card);
+	}
 }

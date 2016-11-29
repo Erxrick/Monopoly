@@ -7,7 +7,6 @@ public class PropertyCards {
 	private PropertyType color;
 	private int price;
 	private int house;
-	private boolean isBought;
 	private int rent;
 	private int rentH1;
 	private int rentH2;
@@ -17,7 +16,11 @@ public class PropertyCards {
 	private int houseCost;
 	private int mortgage;
 	private int unmortgage;
+	private int railRoadNum;
+	private boolean tradeable;
 	private boolean ismortgaged;
+	private boolean isBought;
+	private boolean fullSet;
 	private char[][] ascii;
 	
 	public void setcardAscii(char[][] Ascii) {
@@ -126,6 +129,9 @@ public class PropertyCards {
 	}
 	public int getPropertyRentWhenLandedOn() {
 		int propRent = 0;
+		if(this.ismortgaged == true) {
+			return 0;
+		}
 		switch(this.house) {
 		case 0:
 			propRent = this.rent;
@@ -148,6 +154,24 @@ public class PropertyCards {
 		}
 		
 		return propRent;
+	}
+	public boolean isFullSet() {
+		return fullSet;
+	}
+	public void setFullSet(boolean fullSet) {
+		this.fullSet = fullSet;
+	}
+	public int getRailRoadNum() {
+		return railRoadNum;
+	}
+	public void setRailRoadNum(int railRoadNum) {
+		this.railRoadNum = railRoadNum;
+	}
+	public boolean isTradeable() {
+		return tradeable;
+	}
+	public void setTradeable(boolean tradeable) {
+		this.tradeable = tradeable;
 	}
 	
 
