@@ -188,7 +188,7 @@ public class Player {
 		return getOutOfJailCard;
 	}
 
-	public void setGetOutOfJailCard(int getOutOfJailCard) {
+	public void setGetOutOfJailCards(int getOutOfJailCard) {
 		this.getOutOfJailCard += getOutOfJailCard;
 	}
 

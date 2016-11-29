@@ -347,7 +347,7 @@ public class Game {
 				case 3:
 					System.out.println("You use your Get Out of Jail Free card.");
 					player.setPlayerInJail(false);
-					player.setGetOutOfJailCard(-1);
+					player.setGetOutOfJailCards(-1);
 					player.setTurnsInJail(0);
 					turn(player, person);
 					break;
@@ -471,8 +471,9 @@ public class Game {
 					playerarray[playerNum].addMoney(amountMoneyTraded);
 				} else if (tradeSelectionGive == 1) {
 					if (player.getGetOutOfJailCard() > 0) {
-						player.setGetOutOfJailCard(-1);
-						playerarray[playerNum].setGetOutOfJailCard(1);
+
+						player.setGetOutOfJailCards(-1);
+						playerarray[playerNum].setGetOutOfJailCards(1);
 
 					} else {
 						invalidTrade = true;
@@ -488,8 +489,9 @@ public class Game {
 					playerarray[playerNum].addMoney(-amountMoneyTraded);
 				} else if (tradeSelectionGive == 1 && invalidTrade != true) {
 					if (playerarray[playerNum].getGetOutOfJailCard() > 0) {
-						playerarray[playerNum].setGetOutOfJailCard(-1);
-						player.setGetOutOfJailCard(1);
+
+						playerarray[playerNum].setGetOutOfJailCards(-1);
+						player.setGetOutOfJailCards(1);
 					} else {
 						invalidTrade = true;
 						System.out.println("Sorry you can't have negative jail cards!");
