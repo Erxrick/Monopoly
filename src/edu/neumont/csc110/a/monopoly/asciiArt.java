@@ -722,7 +722,7 @@ public class asciiArt {
 				("@            '+ | +'            @").toCharArray(),	
 				("@        .-   '+=+'   -.        @").toCharArray(),	
 				("@        	    '+=+'             @").toCharArray(),	
-				("@              '='              @").toCharArray(),		
+				("@              -=-              @").toCharArray(),		
 				("@  __________________________   @").toCharArray(),	
 				("@       Electric  Company       @").toCharArray(),		
 				("@                               @").toCharArray(),	

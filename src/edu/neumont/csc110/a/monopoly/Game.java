@@ -31,7 +31,8 @@ public class Game {
 					Board.printMainBoard();
 					turn(player[i], player, person);
 				}
-				if (win(player, person)) break;
+				if (win(player, person))
+					break;
 			}
 		}
 		for (int i = 0; i < person; i++) {
@@ -86,7 +87,7 @@ public class Game {
 				}
 				break;
 			case 2:
-				trading();
+				trading(player, Player, person);
 				printPlayerMoney(Player, player, person);
 				break;
 			case 3:
@@ -151,7 +152,7 @@ public class Game {
 				endTurn = true;
 				break;
 			case 2:
-				trading();
+				trading(player, Player, person);
 				break;
 			case 3:
 				int otherUserSelection = -1;
@@ -208,25 +209,25 @@ public class Game {
 	}
 
 	private void playerInJailTurn(Player player, Player[] Player, int person) throws IOException {
-		String[] optionsWCard = {"Pay $50 before rolling", "Roll for doubles", "Use get out of Jail card"}; 
-		String[] options = {"Pay $50 before rolling", "Roll for doubles"}; 
+		String[] optionsWCard = { "Pay $50 before rolling", "Roll for doubles", "Use get out of Jail card" };
+		String[] options = { "Pay $50 before rolling", "Roll for doubles" };
 		int userSelection = 0;
-		if(player.getGetOutOfJailCard() == 0) {
+		if (player.getGetOutOfJailCard() == 0) {
 			userSelection = ConsoleUI.promptForMenuSelection(options, false);
-		} else if(player.getGetOutOfJailCard() > 0) {
+		} else if (player.getGetOutOfJailCard() > 0) {
 			userSelection = ConsoleUI.promptForMenuSelection(optionsWCard, false);
 		}
 		switch (userSelection) {
-			case 1:
-				player.addMoney(-50);
-				turn(player, Player, person);
-				break;
-			case 2:
-				System.out.println("Work in progress");
-				break;
-			case 3:
-				System.out.println("Work in progress");
-				break;
+		case 1:
+			player.addMoney(-50);
+			turn(player, Player, person);
+			break;
+		case 2:
+			System.out.println("Work in progress");
+			break;
+		case 3:
+			System.out.println("Work in progress");
+			break;
 		}
 		// you must either roll doubles to set jail = false,
 		// use "get out of jail free" card,
@@ -248,15 +249,105 @@ public class Game {
 		// when mortgaged, you cannot get money from players that land on it.
 	}
 
-	private static void trading() throws IOException {
-		System.out.println("Not fully implemented yet");
+	private static void trading(Player player, Player[] Player, int person) throws IOException {
 		// can trade with a player for property, with property, money, or get
 		// out of jail free cards.
-		String[] players = {};
-		System.out.println("Which player are you trading with?");
-		ConsoleUI.promptForMenuSelection(players, false);
-		ConsoleUI.promptForInput("What are you giving?", false);
-		ConsoleUI.promptForInput("What are you getting?", false);
+		ArrayList<String> playerList = new ArrayList<String>();
+		for (int i = 0; i < person; i++) {
+			playerList.add(Player[i].getName());
+		}
+		System.out.println("Who are you trading with?");
+		boolean cont = false;
+		int playerNum = -1;
+		do {
+			playerNum = ConsoleUI.promptForMenuSelectionWithArrayList(playerList, false) - 1;
+			if (Player[playerNum].getName().equals(player.getName())) {
+				System.out.println("Sorry you can't trade with yourself!");
+				cont = true;
+			} else {
+				cont = false;
+			}
+		} while (cont == true);
+		if (playerNum < 8 && playerNum >= 0) {
+			ArrayList<PropertyCards> currentPlayerProperty = player.getProperty();
+			ArrayList<PropertyCards> tradingPlayerProperty = Player[playerNum].getProperty();
+			System.out.println("YOUR ITEMS");
+			System.out.println();
+			System.out.println("[0]Money: " + player.getMoney());
+			System.out.println("[1]Get out of Jail free cards: " + player.getGetOutOfJailCard());
+			int playerLength = currentPlayerProperty.size();
+			if (playerLength != 0) {
+				for (int i = 2; i < playerLength + 2; i++) {
+					System.out.print("[" + i + "]" + currentPlayerProperty.get(i - 2).getName() + " - ");
+				}
+			}
+			System.out.println();
+			System.out.println();
+			System.out.println("THEIR ITEMS");
+			System.out.println();
+			System.out.println("[0]Money: " + Player[playerNum].getMoney());
+			System.out.println("[1]Get out of Jail free cards: " + Player[playerNum].getGetOutOfJailCard());
+			int player2Length = tradingPlayerProperty.size();
+			if (player2Length != 0) {
+				for (int i = 2; i < player2Length + 2; i++) {
+					System.out.print("[" + i + "]" + tradingPlayerProperty.get(i - 2).getName() + " - ");
+				}
+			}
+			System.out.println();
+			int tradeSelectionGive = ConsoleUI.promptForInt("What are you giving?", 0,
+					currentPlayerProperty.size() + 2);
+			int tradeSelectionGet = ConsoleUI.promptForInt("What are you getting?", 0,
+					tradingPlayerProperty.size() + 2);
+			int amountMoneyTraded = 0;
+			if (tradeSelectionGive == 0) {
+				amountMoneyTraded = ConsoleUI.promptForInt("How much are you giving?", 1, player.getMoney());
+			}
+			if (tradeSelectionGet == 0) {
+				amountMoneyTraded = ConsoleUI.promptForInt("How much are you getting?", 1, player.getMoney());
+			}
+			String prompt = "Player " + Player[playerNum].getName()
+					+ ", are you certain you agree to this trade? (Yes/No)";
+			boolean confirmation = ConsoleUI.promptForBool(prompt, "Yes", "No");
+			if (confirmation) {
+				boolean invalidTrade = false;
+				if (tradeSelectionGive == 0) {
+					player.addMoney(-amountMoneyTraded);
+					Player[playerNum].addMoney(amountMoneyTraded);
+				} else if (tradeSelectionGive == 1) {
+					if (player.getGetOutOfJailCard() > 0) {
+						player.setGetOutOfJailCard(-1);
+						Player[playerNum].setGetOutOfJailCard(1);
+
+					} else {
+						invalidTrade = true;
+						System.out.println("Sorry you can't have negative jail cards!");
+					}
+
+				} else {
+					PropertyCards card = player.removeProperty(tradeSelectionGive);
+					Player[playerNum].addProperty(card);
+				}
+				if (tradeSelectionGet == 0 && invalidTrade != true) {
+					player.addMoney(amountMoneyTraded);
+					Player[playerNum].addMoney(-amountMoneyTraded);
+				} else if (tradeSelectionGive == 1 && invalidTrade != true) {
+					if (Player[playerNum].getGetOutOfJailCard() > 0) {
+						Player[playerNum].setGetOutOfJailCard(-1);
+						player.setGetOutOfJailCard(1);
+					} else {
+						invalidTrade = true;
+						System.out.println("Sorry you can't have negative jail cards!");
+					}
+
+				} else {
+					PropertyCards card2 = Player[playerNum].removeProperty(tradeSelectionGet);
+					// tradingPlayerProperty[tradeSelectionGet];
+					player.addProperty(card2);
+				}
+			} else {
+				System.out.println("Invalid Input.");
+			}
+		}
 	}
 
 	private void sell_Houses() throws IOException {

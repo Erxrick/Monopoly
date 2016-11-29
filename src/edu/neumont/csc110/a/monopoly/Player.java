@@ -29,6 +29,14 @@ public class Player {
 		return maybe;
 		}
 	}
+	public PropertyCards removeProperty(int num) {
+		PropertyCards card = property.get(num-2);
+		property.remove(num - 2);
+		return card;
+	}
+	public void addProperty(PropertyCards card) {
+		property.add(card);
+	}
 	public void printAsciiOwned(int i) {
 		//use in for loop only
 		PropertyCards card = this.property.get(i);
@@ -41,6 +49,9 @@ public class Player {
 	}
 	public boolean ownProperty(PropertyCards card) {
 		return property.contains(card);
+	}
+	public ArrayList<PropertyCards> getProperty() {
+		return property;
 	}
 	public int getPlayerPosition() {
 		return playerPosition;
