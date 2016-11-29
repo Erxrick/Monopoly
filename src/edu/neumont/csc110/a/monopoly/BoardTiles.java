@@ -574,7 +574,10 @@ public class BoardTiles {
 		Reading_Railroad.setName("Reading Railroad");
 		Reading_Railroad.setColor(PropertyType.railroad);
 		Reading_Railroad.setPrice(200);
-		Reading_Railroad.setRent(25);
+		Reading_Railroad.setRentH1(25);
+		Reading_Railroad.setRentH2(50);
+		Reading_Railroad.setRentH3(100);
+		Reading_Railroad.setRentH4(200);
 		Reading_Railroad.setMortgage(100);
 		Reading_Railroad.setUnMortgage(110);
 		Reading_Railroad.setRailRoadNum(1);
@@ -587,7 +590,10 @@ public class BoardTiles {
 		Pennsylvania_Railroad.setName("Pennsylvania Railroad");
 		Pennsylvania_Railroad.setColor(PropertyType.railroad);
 		Pennsylvania_Railroad.setPrice(200);
-		Pennsylvania_Railroad.setRent(25);
+		Pennsylvania_Railroad.setRentH1(25);
+		Pennsylvania_Railroad.setRentH2(50);
+		Pennsylvania_Railroad.setRentH3(100);
+		Pennsylvania_Railroad.setRentH4(200);
 		Pennsylvania_Railroad.setMortgage(100);		
 		Pennsylvania_Railroad.setUnMortgage(110);
 		Pennsylvania_Railroad.setRailRoadNum(1);
@@ -600,7 +606,10 @@ public class BoardTiles {
 		BO_Railroad.setName("B & O Railroad");
 		BO_Railroad.setColor(PropertyType.railroad);
 		BO_Railroad.setPrice(200);
-		BO_Railroad.setRent(25);
+		BO_Railroad.setRentH1(25);
+		BO_Railroad.setRentH2(50);
+		BO_Railroad.setRentH3(100);
+		BO_Railroad.setRentH4(200);
 		BO_Railroad.setMortgage(100);
 		BO_Railroad.setUnMortgage(110);
 		BO_Railroad.setRailRoadNum(1);
@@ -613,7 +622,10 @@ public class BoardTiles {
 		Short_Line.setName("Short Line Railroad");
 		Short_Line.setColor(PropertyType.railroad);
 		Short_Line.setPrice(200);
-		Short_Line.setRent(25);
+		Short_Line.setRentH1(25);
+		Short_Line.setRentH2(50);
+		Short_Line.setRentH3(100);
+		Short_Line.setRentH4(200);
 		Short_Line.setMortgage(100);
 		Short_Line.setUnMortgage(110);
 		Short_Line.setRailRoadNum(1);
