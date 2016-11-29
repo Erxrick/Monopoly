@@ -422,6 +422,7 @@ public class Game {
 		}
 		int userSelection = ConsoleUI.promptForInt("Select a property to mortgage" , 0, temp.size());
 		int pay2mortgage = player.getProperty().get(temp.get(userSelection)).getMortgage();
+		player.getProperty().get(temp.get(userSelection)).setIsmortgaged(true);
 		player.addMoney(pay2mortgage);
 	}
     
