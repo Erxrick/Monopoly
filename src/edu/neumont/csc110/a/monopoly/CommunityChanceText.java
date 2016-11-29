@@ -70,7 +70,7 @@ public class CommunityChanceText {
 //			}
 			if(comNum == 0 && jailCard1 == true){
 				System.out.println("Get Out of Jail Free");
-				player.setGetOutOfJailCard(1);
+				player.setGetOutOfJailCards(1);
 				jailCard1 = false;
 				break;
 			
@@ -186,7 +186,7 @@ public class CommunityChanceText {
 			cardnum2++;
 			if(chaNum == 0 && jailCard2 == true){
 				System.out.println("Get Out of Jail Free");
-				player.setGetOutOfJailCard(1);
+				player.setGetOutOfJailCards(1);
 				jailCard2 = false;
 				break;
 			}
