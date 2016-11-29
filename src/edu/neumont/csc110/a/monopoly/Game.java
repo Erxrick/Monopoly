@@ -129,7 +129,7 @@ public class Game {
 				break;
 			case 3:
 				int otherUserSelection = -1;
-				String[] otherOptions = { "Buy Houses", "Sell Houses" };
+				String[] otherOptions = { "Buy Houses", "Sell Houses", "Manage Property" };
 				do {
 					otherUserSelection = ConsoleUI.promptForMenuSelection(otherOptions, true);
 					switch (otherUserSelection) {
@@ -145,6 +145,9 @@ public class Game {
 						sell_Houses(player);
 						printPlayerMoney(playerarray, player, person);
 						break;
+					case 3:
+						mortgageChoice(player);
+						printPlayerMoney(playerarray, player, person);
 					}
 
 				} while (otherUserSelection != 0);
@@ -227,7 +230,8 @@ public class Game {
 						printPlayerMoney(playerarray, player, person);
 						break;
 					case 3:
-						
+						mortgageChoice(player);
+						printPlayerMoney(playerarray, player, person);
 					}
 				} while (otherUserSelection != 0);
 				break;
@@ -261,7 +265,30 @@ public class Game {
 			removeThisPlayer(player);
 		}
 	}
-
+	
+	private void mortgageChoice(Player player) throws IOException {
+		int temp = 1;
+		if(player.anythingMortgaged() == true) {
+			temp = 2;
+		}
+		String[] options = new String[temp];
+		if(player.anythingMortgaged() == true) {
+			options[0] = "Mortgage";
+			options[1] = "Unmortgage";
+		} else {
+			options[0] = "Mortgage";
+		}
+		switch (ConsoleUI.promptForMenuSelection(options, true)) {
+		case 0:
+			break;
+		case 1:
+			mortgage(player);
+			break;
+		case 2:
+			unmortgage(player);
+			break;
+		}
+	}
 	private void removeThisPlayer(Player player) {
 		ArrayList<Player> newSetOfPlayers = new ArrayList<Player>();
 		for(int i=0;i<playerarray.length;i++) {
