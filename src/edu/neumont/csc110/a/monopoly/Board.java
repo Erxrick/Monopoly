@@ -1792,7 +1792,7 @@ public class Board {
 	}
 
 	public static void position38(Player player) {
-		BoardLogic.Luxury_Tax(player);
+	//	BoardLogic.Luxury_Tax(player);
 		if (player.getPiece().equals("Thimble")) {
 			asciiArt.asciiBoard[39][123] = '(';
 			asciiArt.asciiBoard[39][124] = 'T';
