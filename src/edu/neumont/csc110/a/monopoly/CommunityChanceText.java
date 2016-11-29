@@ -59,18 +59,18 @@ public class CommunityChanceText {
 		while(true) {
 			int comNum = communityChest.get(cardnum1);
 			cardnum1++;
-//			int temp = 0;
-//			for(int i=0;i<otherPlayers.length;i++) {
-//				if(otherPlayers[i].getGetOutOfJailCard() > 0) {
-//					temp++;
-//				}
-//			}
-//			if(temp == 0) {
-//				jailCard1 = true;
-//			}
+			int temp = 0;
+			for(int i=0;i<otherPlayers.length;i++) {
+				if(otherPlayers[i].getGetOutOfJailCard1() > 0) {
+					temp++;
+				}
+			}
+			if(temp == 0) {
+				jailCard1 = true;
+			}
 			if(comNum == 0 && jailCard1 == true){
 				System.out.println("Get Out of Jail Free");
-				player.setGetOutOfJailCards(1);
+				player.setGetOutOfJailCards1(1);
 				jailCard1 = false;
 				break;
 			
@@ -184,9 +184,18 @@ public class CommunityChanceText {
 		while(true) {
 			int chaNum = chance.get(cardnum2);
 			cardnum2++;
+			int temp = 0;
+			for(int i=0;i<otherPlayers.length;i++) {
+				if(otherPlayers[i].getGetOutOfJailCard2() > 0) {
+					temp++;
+				}
+			}
+			if(temp == 0) {
+				jailCard2 = true;
+			}
 			if(chaNum == 0 && jailCard2 == true){
 				System.out.println("Get Out of Jail Free");
-				player.setGetOutOfJailCards(1);
+				player.setGetOutOfJailCards2(1);
 				jailCard2 = false;
 				break;
 			}

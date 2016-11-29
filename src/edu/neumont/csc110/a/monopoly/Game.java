@@ -91,7 +91,7 @@ public class Game {
 		do {
 			printPlayerMoney(playerarray, player, person);
 			System.out.println(player.getName() + " would you like to:");
-			String[] turnOptions = { "Roll the die", "Trade", "Buy or Sell houses", "View your properties", "Debug" };
+			String[] turnOptions = { "Roll the die", "Trade", "Property Management", "View your properties", "Debug" };
 			int userSelection = ConsoleUI.promptForMenuSelection(turnOptions, false);
 
 			switch (userSelection) {
@@ -129,7 +129,7 @@ public class Game {
 				break;
 			case 3:
 				int otherUserSelection = -1;
-				String[] otherOptions = { "Buy Houses", "Sell Houses", "Manage Property" };
+				String[] otherOptions = { "Buy Houses", "Sell Houses", "Mortgage" };
 				do {
 					otherUserSelection = ConsoleUI.promptForMenuSelection(otherOptions, true);
 					switch (otherUserSelection) {
@@ -374,7 +374,11 @@ public class Game {
 				case 3:
 					System.out.println("You use your Get Out of Jail Free card.");
 					player.setPlayerInJail(false);
-					player.setGetOutOfJailCards(-1);
+					if(player.getGetOutOfJailCard1() > 0) {
+						player.setGetOutOfJailCards1(-1);
+					} else {
+						player.setGetOutOfJailCards2(-1);
+					}					
 					player.setTurnsInJail(0);
 					turn(player, person);
 					break;
@@ -506,9 +510,16 @@ public class Game {
 					playerarray[playerNum].addMoney(amountMoneyTraded);
 				} else if (tradeSelectionGive == 1) {
 					if (player.getGetOutOfJailCard() > 0) {
-
-						player.setGetOutOfJailCards(-1);
-						playerarray[playerNum].setGetOutOfJailCards(1);
+						if(player.getGetOutOfJailCard1() > 0) {
+							player.setGetOutOfJailCards1(-1);
+							playerarray[playerNum].setGetOutOfJailCards1(1);
+						} else {
+							player.setGetOutOfJailCards2(-1);
+							playerarray[playerNum].setGetOutOfJailCards2(1);
+						}
+						//player.setGetOutOfJailCards(-1);
+						//this is the old one beefore shufflng
+						//playerarray[playerNum].setGetOutOfJailCards(1);
 
 					} else {
 						invalidTrade = true;
@@ -524,9 +535,16 @@ public class Game {
 					playerarray[playerNum].addMoney(-amountMoneyTraded);
 				} else if (tradeSelectionGive == 1 && invalidTrade != true) {
 					if (playerarray[playerNum].getGetOutOfJailCard() > 0) {
-
-						playerarray[playerNum].setGetOutOfJailCards(-1);
-						player.setGetOutOfJailCards(1);
+						if(playerarray[playerNum].getGetOutOfJailCard1() > 0) {
+							player.setGetOutOfJailCards1(1);
+							playerarray[playerNum].setGetOutOfJailCards1(-1);
+						} else {
+							player.setGetOutOfJailCards2(1);
+							playerarray[playerNum].setGetOutOfJailCards2(-1);
+						}
+						//playerarray[playerNum].setGetOutOfJailCards(-1);
+						//player.setGetOutOfJailCards(1);
+						//old stuff before shuffling
 					} else {
 						invalidTrade = true;
 						System.out.println("Sorry you can't have negative jail cards!");

@@ -7,6 +7,8 @@ public class Player {
 	private String piece;
 	private int money;
 	private int getOutOfJailCard;
+	private int getOutOfJailCard1;
+	private int getOutOfJailCard2;
 	private boolean isPlayerInJail;
 	private int houseTotal;
 	private int hotelTotal;
@@ -185,11 +187,20 @@ public class Player {
 	}
 
 	public int getGetOutOfJailCard() {
-		return getOutOfJailCard;
+		return getOutOfJailCard1 + getOutOfJailCard2;
+	}
+	public int getGetOutOfJailCard1() {
+		return getOutOfJailCard1;
+	}
+	public int getGetOutOfJailCard2() {
+		return getOutOfJailCard2;
 	}
 
-	public void setGetOutOfJailCards(int getOutOfJailCard) {
-		this.getOutOfJailCard += getOutOfJailCard;
+	public void setGetOutOfJailCards1(int JailCard1) {
+		this.getOutOfJailCard1 += JailCard1;
+	}
+	public void setGetOutOfJailCards2(int JailCard2) {
+		this.getOutOfJailCard2 += JailCard2;
 	}
 
 	public void setStartingMoney() {
