@@ -593,7 +593,7 @@ public class Game {
 					}
 
 				} else {
-					PropertyCards card = player.removeProperty(tradeSelectionGive-1);
+					PropertyCards card = player.removeProperty(tradeSelectionGive-2);
 					playerarray[playerNum].addProperty(card);
 				}
 				if (tradeSelectionGet == 1 && invalidTrade != true) {
@@ -617,7 +617,7 @@ public class Game {
 					}
 
 				} else {
-					PropertyCards card2 = playerarray[playerNum].removeProperty(tradeSelectionGet-1);
+					PropertyCards card2 = playerarray[playerNum].removeProperty(tradeSelectionGet-2);
 					// tradingPlayerProperty[tradeSelectionGet];
 					player.addProperty(card2);
 				}
