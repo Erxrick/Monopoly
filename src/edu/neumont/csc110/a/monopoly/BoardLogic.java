@@ -54,10 +54,10 @@ public class BoardLogic {
 					}
 				} else {
 					for(int i=0;i<Player.length;i++) {
-						if(Player[i].ownProperty(allTheProperty.Water_Works) && Player[i].ownProperty(allTheProperty.Electric_Company)) {
+						if((player.ownProperty(allTheProperty.Water_Works) == false) && (player.ownProperty(allTheProperty.Electric_Company) == false) && Player[i].ownProperty(allTheProperty.Water_Works) && Player[i].ownProperty(allTheProperty.Electric_Company)) {
 							System.out.println(player.getName() + " you have to pay $" + (sumOfDiceRoll * 10) + " to " + Player[i].getName());
 							player.addMoney(-10 * sumOfDiceRoll);
-						} else {
+						} else if(((player.ownProperty(allTheProperty.Water_Works) == false) && Player[i].ownProperty(allTheProperty.Water_Works)) || ((player.ownProperty(allTheProperty.Electric_Company) == false) && Player[i].ownProperty(allTheProperty.Electric_Company))) {
 							System.out.println(player.getName() + " you have to pay $" + (sumOfDiceRoll * 4) + " to " + Player[i].getName());
 							player.addMoney(-4 * sumOfDiceRoll);
 						}
@@ -66,14 +66,14 @@ public class BoardLogic {
 			} else if(player.getPlayerPosition() == 5 || player.getPlayerPosition() == 15 || player.getPlayerPosition() == 25 || player.getPlayerPosition() == 35) {
 				if(sumOfDiceRoll == 0) {
 					for(int i=0;i<Player.length;i++) {
-							if((player.getPlayerPosition() == 5 && Player[i].ownProperty(allTheProperty.Reading_Railroad)) || (player.getPlayerPosition() == 15 && Player[i].ownProperty(allTheProperty.Pennsylvania_Railroad)) || (player.getPlayerPosition() == 25 && Player[i].ownProperty(allTheProperty.BO_Railroad)) || (player.getPlayerPosition() == 35 && Player[i].ownProperty(allTheProperty.Short_Line))) {
+							if((player.getPlayerPosition() == 5 && Player[i].ownProperty(allTheProperty.Reading_Railroad) && player.ownProperty(allTheProperty.Reading_Railroad) == false) || (player.getPlayerPosition() == 15 && Player[i].ownProperty(allTheProperty.Pennsylvania_Railroad) && player.ownProperty(allTheProperty.Pennsylvania_Railroad) == false) || (player.getPlayerPosition() == 25 && Player[i].ownProperty(allTheProperty.BO_Railroad) && player.ownProperty(allTheProperty.BO_Railroad) == false) || (player.getPlayerPosition() == 35 && Player[i].ownProperty(allTheProperty.Short_Line) && player.ownProperty(allTheProperty.Short_Line) == false)) {
 								System.out.println(player.getName() + " you have to pay $" + (allTheProperty.Reading_Railroad.getRentRailRoad(player.getNumberOfRailRoads(allTheProperty)) * 2) + " to " + Player[i].getName());
 								player.addMoney(-2 * allTheProperty.Reading_Railroad.getRentRailRoad(player.getNumberOfRailRoads(allTheProperty)));
 							}
 					}
 				} else {
 					for(int i=0;i<Player.length;i++) {
-						if((player.getPlayerPosition() == 5 && Player[i].ownProperty(allTheProperty.Reading_Railroad)) || (player.getPlayerPosition() == 15 && Player[i].ownProperty(allTheProperty.Pennsylvania_Railroad)) || (player.getPlayerPosition() == 25 && Player[i].ownProperty(allTheProperty.BO_Railroad)) || (player.getPlayerPosition() == 35 && Player[i].ownProperty(allTheProperty.Short_Line))) {
+						if((player.getPlayerPosition() == 5 && Player[i].ownProperty(allTheProperty.Reading_Railroad) && player.ownProperty(allTheProperty.Reading_Railroad) == false) || (player.getPlayerPosition() == 15 && Player[i].ownProperty(allTheProperty.Pennsylvania_Railroad) && player.ownProperty(allTheProperty.Pennsylvania_Railroad) == false) || (player.getPlayerPosition() == 25 && Player[i].ownProperty(allTheProperty.BO_Railroad) && player.ownProperty(allTheProperty.BO_Railroad) == false) || (player.getPlayerPosition() == 35 && Player[i].ownProperty(allTheProperty.Short_Line) && player.ownProperty(allTheProperty.Short_Line) == false)) {
 							System.out.println(player.getName() + " you have to pay $" + (allTheProperty.Reading_Railroad.getRentRailRoad(player.getNumberOfRailRoads(allTheProperty))) + " to " + Player[i].getName());
 							player.addMoney(allTheProperty.Reading_Railroad.getRentRailRoad(player.getNumberOfRailRoads(allTheProperty)));
 						}
