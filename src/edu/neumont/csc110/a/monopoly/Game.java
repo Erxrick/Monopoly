@@ -497,24 +497,24 @@ public class Game {
 			ArrayList<PropertyCards> tradingPlayerProperty = playerarray[playerNum].getProperty();
 			System.out.println("YOUR ITEMS");
 			System.out.println();
-			System.out.println("[0]Money: " + player.getMoney());
-			System.out.println("[1]Get out of Jail free cards: " + player.getGetOutOfJailCard());
+			System.out.println("[1]Money: " + player.getMoney());
+			System.out.println("[2]Get out of Jail free cards: " + player.getGetOutOfJailCard());
 			int playerLength = currentPlayerProperty.size();
 			if (playerLength != 0) {
-				for (int i = 2; i < playerLength + 2; i++) {
-					System.out.print("[" + i + "]" + currentPlayerProperty.get(i - 2).getName() + " - ");
+				for (int i = 3; i < playerLength + 3; i++) {
+					System.out.print("[" + i + "]" + currentPlayerProperty.get(i - 3).getName() + " - ");
 				}
 			}
 			System.out.println();
 			System.out.println();
 			System.out.println("THEIR ITEMS");
 			System.out.println();
-			System.out.println("[0]Money: " + playerarray[playerNum].getMoney());
-			System.out.println("[1]Get out of Jail free cards: " + playerarray[playerNum].getGetOutOfJailCard());
+			System.out.println("[1]Money: " + playerarray[playerNum].getMoney());
+			System.out.println("[2]Get out of Jail free cards: " + playerarray[playerNum].getGetOutOfJailCard());
 			int player2Length = tradingPlayerProperty.size();
 			if (player2Length != 0) {
-				for (int i = 2; i < player2Length + 2; i++) {
-					System.out.print("[" + i + "]" + tradingPlayerProperty.get(i - 2).getName() + " - ");
+				for (int i = 3; i < player2Length + 3; i++) {
+					System.out.print("[" + i + "]" + tradingPlayerProperty.get(i - 3).getName() + " - ");
 				}
 			}
 			System.out.println();
@@ -523,7 +523,7 @@ public class Game {
 			boolean cont2 = true;
 			do {
 				tradeSelectionGive = ConsoleUI.promptForInt("What are you giving?", 0,
-						currentPlayerProperty.size() + 2);
+						currentPlayerProperty.size() + 3);
 				if (tradeSelectionGet == 1 && playerarray[playerNum].getGetOutOfJailCard() == 0) {
 					System.out.println("Sorry they don't have any GOOJF cards!");
 					cont2 = true;

@@ -59,6 +59,9 @@ public class CommunityChanceText {
 
 	public void communityChestText(Player player, Player[] otherPlayers, int person, Banker banker, BoardTiles allTheProperty){
 		while(true) {
+			if(cardnum1 == 17) {
+				resetCommunityDeck();
+			}
 			int comNum = communityChest.get(cardnum1);
 			cardnum1++;
 			int temp = 0;
@@ -176,15 +179,15 @@ public class CommunityChanceText {
 				player.setPlayerPosition(0);
 				break;
 			} 
-			if(cardnum1 == 17) {
-				resetCommunityDeck();
-			}
 		}
 		
 	}
 		// if Statement Incrementing chaNum after printing text
 	public void chanceText(Player player, Player[] otherPlayers, int person, Banker banker, BoardTiles allTheProperty) throws IOException{
 		while(true) {
+			if(cardnum2 == 16) {
+				resetCommunityDeck();
+			}
 			int chaNum = chance.get(cardnum2);
 			cardnum2++;
 			int temp = 0;
@@ -325,9 +328,6 @@ public class CommunityChanceText {
 				System.out.println("Advance to Go (Collect $200)");
 				player.setPlayerPosition(0);
 				break;
-			}
-			if(cardnum2 == 16) {
-				resetCommunityDeck();
 			}
 		}
 	}
