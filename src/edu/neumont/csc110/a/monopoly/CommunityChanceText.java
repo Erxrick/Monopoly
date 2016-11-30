@@ -224,7 +224,7 @@ public class CommunityChanceText {
 					BoardLogic.purchaseOrRent(allTheProperty.Water_Works, player, otherPlayers, otherPlayers.length, banker, allTheProperty, 0);
 				} else if(player.getPlayerPosition() < 12 && player.getPlayerPosition() > 12) {
 					player.setPlayerPosition(12);
-					BoardLogic.purchaseOrRent(allTheProperty.Water_Works, player, otherPlayers, otherPlayers.length, banker, allTheProperty, 0);
+					BoardLogic.purchaseOrRent(allTheProperty.Electric_Company, player, otherPlayers, otherPlayers.length, banker, allTheProperty, 0);
 				}
 				break;
 			}
