@@ -3,12 +3,6 @@ package edu.neumont.csc110.a.monopoly;
 import java.io.IOException;
 
 public class Board {
-	public static void moveFromDice(int diceRoll, Player player, BoardTiles allTheProperty) {
-		/*
-		 * removeOldPosition(currentPlayersPosition); currentPlayersPosition +=
-		 * diceRoll; newPlayerPosition(currentPLayerPosition);
-		 */
-	}
 
 	public static void setMainBoard(Player[] Player, int person) throws IOException {
 		reinitializeBoard();

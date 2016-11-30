@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
+import edu.neumont.csc110.a.utilities.ConsoleUI;
+
 public class CommunityChanceText {
 	private int cardnum1;
 	private boolean jailCard1;
@@ -104,6 +106,8 @@ public class CommunityChanceText {
 			else if(comNum == 4){
 				System.out.println("Go to Jail–Go directly to jail–Do not pass Go–Do not collect $200");
 				player.setPlayerInJail(true);
+				player.setPlayerPosition(10);
+				player.addMoney(-200);
 				break;
 			
 			}
@@ -170,7 +174,6 @@ public class CommunityChanceText {
 			else if(comNum == 16){
 				System.out.println("Advance to Go (Collect $200)");
 				player.setPlayerPosition(0);
-				comNum++;
 				break;
 			} 
 			if(cardnum1 == 17) {
@@ -202,11 +205,13 @@ public class CommunityChanceText {
 			else if(chaNum == 1){
 				System.out.println("Advance to Illinois Ave—If you pass Go, collect $200");
 				player.setPlayerPosition(24);
+				BoardLogic.purchaseOrRent(allTheProperty.PropCards[player.getPlayerPosition()], player, otherPlayers, otherPlayers.length, banker, allTheProperty, 0);
 				break;
 			}
 			else if(chaNum == 2){
 				System.out.println("Advance to St. Charles Place – If you pass Go, collect $200");
 				player.setPlayerPosition(11);
+				BoardLogic.purchaseOrRent(allTheProperty.PropCards[player.getPlayerPosition()], player, otherPlayers, otherPlayers.length, banker, allTheProperty, 0);
 				break;
 			}
 			else if(chaNum == 3){
@@ -250,7 +255,22 @@ public class CommunityChanceText {
 			}
 			else if(chaNum == 7){
 				System.out.println("Go Back 3 Spaces");
-				
+				player.addPlayerPosition(-3);
+				if(player.getPlayerPosition() == 4) {
+					System.out.println("Pay Income Tax");
+					String[] choice = {"Pay $200", "Pay 10%"};
+					int userSelection = ConsoleUI.promptForMenuSelection(choice, false);
+					if(userSelection == 1){
+						player.addMoney(-200);
+					}
+					if(userSelection == 2){
+						player.addMoney((int)-(player.getMoney() * .1));
+					}
+				} else if(player.getPlayerPosition() == 33) {
+					communityChestText(player, otherPlayers, person, banker, allTheProperty);
+				} else {
+					BoardLogic.purchaseOrRent(allTheProperty.PropCards[player.getPlayerPosition()], player, otherPlayers, otherPlayers.length, banker, allTheProperty, 0);
+				}
 				break;
 			}
 			else if(chaNum == 8){
@@ -269,11 +289,13 @@ public class CommunityChanceText {
 			else if(chaNum == 10){
 				System.out.println("Take a trip to Reading Railroad–If you pass Go, collect $200");				
 				player.setPlayerPosition(5);
+				BoardLogic.purchaseOrRent(allTheProperty.PropCards[player.getPlayerPosition()], player, otherPlayers, otherPlayers.length, banker, allTheProperty, 0);
 				break;
 			}
 			else if(chaNum == 11){
 				System.out.println("Take a walk on the Boardwalk");
 				player.setPlayerPosition(39);
+				BoardLogic.purchaseOrRent(allTheProperty.PropCards[player.getPlayerPosition()], player, otherPlayers, otherPlayers.length, banker, allTheProperty, 0);
 				break;
 			}
 			else if(chaNum == 12){
@@ -302,7 +324,6 @@ public class CommunityChanceText {
 			else if(chaNum == 15){
 				System.out.println("Advance to Go (Collect $200)");
 				player.setPlayerPosition(0);
-				chaNum++;
 				break;
 			}
 			if(cardnum2 == 16) {

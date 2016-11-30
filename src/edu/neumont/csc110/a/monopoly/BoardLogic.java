@@ -67,15 +67,15 @@ public class BoardLogic {
 				if(sumOfDiceRoll == 0) {
 					for(int i=0;i<Player.length;i++) {
 							if((player.getPlayerPosition() == 5 && Player[i].ownProperty(allTheProperty.Reading_Railroad)) || (player.getPlayerPosition() == 15 && Player[i].ownProperty(allTheProperty.Pennsylvania_Railroad)) || (player.getPlayerPosition() == 25 && Player[i].ownProperty(allTheProperty.BO_Railroad)) || (player.getPlayerPosition() == 35 && Player[i].ownProperty(allTheProperty.Short_Line))) {
-								System.out.println(player.getName() + " you have to pay $" + (allTheProperty.Reading_Railroad.getRentRailRoad(player.getNumberOfRailRoads()) * 2) + " to " + Player[i].getName());
-								player.addMoney(-2 * allTheProperty.Reading_Railroad.getRentRailRoad(player.getNumberOfRailRoads()));
+								System.out.println(player.getName() + " you have to pay $" + (allTheProperty.Reading_Railroad.getRentRailRoad(player.getNumberOfRailRoads(allTheProperty)) * 2) + " to " + Player[i].getName());
+								player.addMoney(-2 * allTheProperty.Reading_Railroad.getRentRailRoad(player.getNumberOfRailRoads(allTheProperty)));
 							}
 					}
 				} else {
 					for(int i=0;i<Player.length;i++) {
 						if((player.getPlayerPosition() == 5 && Player[i].ownProperty(allTheProperty.Reading_Railroad)) || (player.getPlayerPosition() == 15 && Player[i].ownProperty(allTheProperty.Pennsylvania_Railroad)) || (player.getPlayerPosition() == 25 && Player[i].ownProperty(allTheProperty.BO_Railroad)) || (player.getPlayerPosition() == 35 && Player[i].ownProperty(allTheProperty.Short_Line))) {
-							System.out.println(player.getName() + " you have to pay $" + (allTheProperty.Reading_Railroad.getRentRailRoad(player.getNumberOfRailRoads())) + " to " + Player[i].getName());
-							player.addMoney(allTheProperty.Reading_Railroad.getRentRailRoad(player.getNumberOfRailRoads()));
+							System.out.println(player.getName() + " you have to pay $" + (allTheProperty.Reading_Railroad.getRentRailRoad(player.getNumberOfRailRoads(allTheProperty))) + " to " + Player[i].getName());
+							player.addMoney(allTheProperty.Reading_Railroad.getRentRailRoad(player.getNumberOfRailRoads(allTheProperty)));
 						}
 					}
 				}
@@ -100,7 +100,7 @@ public class BoardLogic {
 			//this is where its bought
 			card.printCardAscii();
 			System.out.println("This card costs: " + card.getPrice());
-			System.out.println("Would you like to:");
+			System.out.println(player.getName() + " would you like to:");
 			String[] buyOptions = {"Buy this property", "Auction this Property"};
 			int buy = ConsoleUI.promptForMenuSelection(buyOptions, false);
 			switch(buy) {
@@ -130,20 +130,20 @@ public class BoardLogic {
 		while(loop) {
 			int amountOfBidders = 0;
 			for(int i=0;i<Player.length;i++) {
-				if(Player[i].getStillBidding() == true && Player[i].getMoney() > minimumBid) {	
-					//System.out.println(Player[i].getName() + " would you like to bid");
-					boolean choice = ConsoleUI.promptForBool(Player[i].getName() + " would you like to bid on " + card.getName() + "?", "yes", "no");
-					if(choice) {
-						System.out.println("How much would you like to bid?");
-//						System.out.println("The minimun bid is " + minimumBid);
-						minimumBid = ConsoleUI.promptForInt("The minimun bid is " + (minimumBid + 1), minimumBid, Player[i].getMoney());
-						amountOfBidders++;
+			//	if(buyer = false) {
+					if(Player[i].getStillBidding() == true && Player[i].getMoney() > minimumBid) {	
+						boolean choice = ConsoleUI.promptForBool(Player[i].getName() + " would you like to bid on " + card.getName() + "? (yes/no)", "yes", "no");
+						if(choice) {
+							System.out.println("How much would you like to bid?");
+							minimumBid = ConsoleUI.promptForInt("The minimun bid is " + (minimumBid + 1), minimumBid, Player[i].getMoney());
+							amountOfBidders++;
+						} else {
+							Player[i].setBidding(false);
+						}
 					} else {
 						Player[i].setBidding(false);
 					}
-				} else {
-					Player[i].setBidding(false);
-				}
+			//	}
 			}
 			if(amountOfBidders == 1) {
 				loop = false;

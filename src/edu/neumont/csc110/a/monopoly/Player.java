@@ -16,7 +16,6 @@ public class Player {
 	private int turnsInJail;
 	private int turnOrderRoll;
 	private int numberOfRailRoads;
-//	private boolean anyMortgage;
 	private boolean stillBidding;
 	private ArrayList<PropertyCards> property; //taking from the arraylist from the bank
 	
@@ -30,7 +29,8 @@ public class Player {
 		}
 		return false;
 	}
-	public int getNumberOfRailRoads() {
+	public int getNumberOfRailRoads(BoardTiles allTheProperty) {
+		setNumberOfRailRoads(allTheProperty);
 		return this.numberOfRailRoads;
 	}
 	public void setNumberOfRailRoads(BoardTiles allTheProperty) {
