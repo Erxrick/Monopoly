@@ -455,11 +455,15 @@ public class Game {
 				canMortgage = true;
 			}
 		}
+		System.out.println("0: Quit");
 		if (canMortgage = true) {
 			for (int i = 0; i < temp.size(); i++) {
-				System.out.println(i + ": " + player.getProperty().get(temp.get(i)).getName());
+				System.out.println((i + 1) + ": " + player.getProperty().get(temp.get(i)).getName());
 			}
-			int userSelection = ConsoleUI.promptForInt("Select a property to mortgage", 0, temp.size());
+			int userSelection = (ConsoleUI.promptForInt("Select a property to mortgage", 0, (temp.size() + 1)) - 1);
+			if(userSelection == -1) {
+				return;
+			}
 			int pay2mortgage = player.getProperty().get(temp.get(userSelection)).getMortgage();
 			player.getProperty().get(temp.get(userSelection)).setIsmortgaged(true);
 			player.addMoney(pay2mortgage);
