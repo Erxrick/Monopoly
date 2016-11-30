@@ -183,10 +183,6 @@ public class Game {
 		System.out.println();
 		// Board.printMainBoard();
 		secondHalfOfTheTurn(player, person);
-		// prompt for roll, trade, buy house, sell house, done
-		// move player
-		// option to buy or if bought have to pay rent
-		// trade buy house sell house end turn
 	}
 
 	private void secondHalfOfTheTurn(Player player, int person) throws IOException {
