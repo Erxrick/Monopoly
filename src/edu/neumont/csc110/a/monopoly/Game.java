@@ -90,7 +90,7 @@ public class Game {
 		do {
 			printPlayerMoney(playerarray, player, person);
 			System.out.println(player.getName() + " would you like to:");
-			String[] turnOptions = { "Roll the die", "Trade", "Property Management", "View your properties", "Debug" };
+			String[] turnOptions = { "Roll the die", "Trade", "Property Management", "View your properties" };
 			int userSelection = ConsoleUI.promptForMenuSelection(turnOptions, false);
 
 			switch (userSelection) {
@@ -162,21 +162,6 @@ public class Game {
 					System.out.println("You currently don't own any properties");
 				}
 				break;
-			case 5:
-				System.out.println("You have entered debug mode.");
-				String[] debugoptions = { "Move Player Postion", "Add Money" };
-				int debugselection = ConsoleUI.promptForMenuSelection(debugoptions, false);
-				switch (debugselection) {
-				case 1:
-					player.setPlayerPosition(
-							ConsoleUI.promptForInt("What number tile would you like to move to?", 0, 39));
-					PropertyCards debugcard = allTheProperty.PropCards[player.getPlayerPosition()];
-
-					BoardLogic.mainBoardLogic(player, playerarray, debugcard, decks, person, banker, allTheProperty, 0);
-					break;
-				case 2:
-					player.addMoney(ConsoleUI.promptForInt("How much money would you like to add?", -20000, 20000));
-				}
 			}
 			// Board.printMainBoard();
 		} while ((diceRoll[0] == diceRoll[1]) && player.isPlayerInJail() == false);
