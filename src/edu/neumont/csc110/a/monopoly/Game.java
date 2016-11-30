@@ -349,7 +349,7 @@ public class Game {
 		int userSelection = 0;
 
 		if (player.getTurnsInJail() >= 3) {
-			if(player.getMoney() > 49) {
+			if (player.getMoney() > 49) {
 				System.out.println("You pay $50 to get out of jail.");
 				player.addMoney(-50);
 				player.setPlayerInJail(false);
@@ -368,7 +368,7 @@ public class Game {
 				}
 				switch (userSelection) {
 				case 1:
-					if(player.getMoney() > 49) {
+					if (player.getMoney() > 49) {
 						player.addMoney(-50);
 						player.setPlayerInJail(false);
 						player.setTurnsInJail(0);
@@ -522,16 +522,41 @@ public class Game {
 				}
 			}
 			System.out.println();
-			int tradeSelectionGive = ConsoleUI.promptForInt("What are you giving?", 0,
-					currentPlayerProperty.size() + 2);
-
-			int tradeSelectionGet = -1;
+			int tradeSelectionGive = 0;
+			int tradeSelectionGet = 0;
+			boolean cont2 = true;
+			do {
+				tradeSelectionGive = ConsoleUI.promptForInt("What are you giving?", 0,
+						currentPlayerProperty.size() + 2);
+				if (tradeSelectionGet == 1 && playerarray[playerNum].getGetOutOfJailCard() == 0) {
+					System.out.println("Sorry they don't have any GOOJF cards!");
+					cont2 = true;
+				} else {
+					cont2 = false;
+				}
+			} while (cont2);
 			if (tradeSelectionGive == 0) {
-				tradeSelectionGet = ConsoleUI.promptForInt("What are you getting?", 1,
-						tradingPlayerProperty.size() + 2);
+				do {
+					tradeSelectionGet = ConsoleUI.promptForInt("What are you getting?", 1,
+							tradingPlayerProperty.size() + 2);
+					if (tradeSelectionGet == 1 && playerarray[playerNum].getGetOutOfJailCard() == 0) {
+						System.out.println("Sorry they don't have any GOOJF cards!");
+						cont2 = true;
+					} else {
+						cont2 = false;
+					}
+				} while (cont2);
 			} else {
-				tradeSelectionGet = ConsoleUI.promptForInt("What are you getting?", 0,
-						tradingPlayerProperty.size() + 2);
+				do {
+					tradeSelectionGet = ConsoleUI.promptForInt("What are you getting?", 0,
+							tradingPlayerProperty.size() + 2);
+					if (tradeSelectionGet == 1 && playerarray[playerNum].getGetOutOfJailCard() == 0) {
+						System.out.println("Sorry they don't have any GOOJF cards!");
+						cont2 = true;
+					} else {
+						cont2 = false;
+					}
+				} while (cont2);
 			}
 
 			int amountMoneyTraded = 0;
