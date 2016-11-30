@@ -368,6 +368,7 @@ public class Game {
 					player.setPlayerInJail(false);
 					player.setTurnsInJail(0);
 					turn(player, person);
+					loopBreaker = true;
 					break;
 				case 2:
 					int[] jailRoll = roll();
@@ -389,6 +390,7 @@ public class Game {
 						secondHalfOfTheTurn(player, person);
 						player.addTurnsInJail(1);
 					}
+					loopBreaker = true;
 					break;
 				case 3:
 					trading(player, playerarray.length);
@@ -406,6 +408,7 @@ public class Game {
 					}
 					player.setTurnsInJail(0);
 					turn(player, person);
+					loopBreaker = true;
 					break;
 				}
 			}
