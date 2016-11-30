@@ -549,7 +549,7 @@ public class Game {
 				if (tradeSelectionGet == 2 && playerarray[playerNum].getGetOutOfJailCard() == 0) {
 					System.out.println("Sorry they don't have any GOOJF cards!");
 					cont3 = true;
-				} else if(tradeSelectionGive == 1){
+				} else if(tradeSelectionGive == 1 && tradeSelectionGet == 1){
 					System.out.println("You can't trade money for money!");
 					cont3 = true;
 				} else {
@@ -593,7 +593,7 @@ public class Game {
 					}
 
 				} else {
-					PropertyCards card = player.removeProperty(tradeSelectionGive);
+					PropertyCards card = player.removeProperty(tradeSelectionGive-1);
 					playerarray[playerNum].addProperty(card);
 				}
 				if (tradeSelectionGet == 1 && invalidTrade != true) {
@@ -617,7 +617,7 @@ public class Game {
 					}
 
 				} else {
-					PropertyCards card2 = playerarray[playerNum].removeProperty(tradeSelectionGet);
+					PropertyCards card2 = playerarray[playerNum].removeProperty(tradeSelectionGet-1);
 					// tradingPlayerProperty[tradeSelectionGet];
 					player.addProperty(card2);
 				}
