@@ -349,11 +349,15 @@ public class Game {
 		int userSelection = 0;
 
 		if (player.getTurnsInJail() >= 3) {
-			System.out.println("You pay $50 to get out of jail.");
-			player.addMoney(-50);
-			player.setPlayerInJail(false);
-			player.setTurnsInJail(0);
-			turn(player, person);
+			if(player.getMoney() > 49) {
+				System.out.println("You pay $50 to get out of jail.");
+				player.addMoney(-50);
+				player.setPlayerInJail(false);
+				player.setTurnsInJail(0);
+				turn(player, person);
+			} else {
+				removeThisPlayerToBank(player);
+			}
 		} else {
 			boolean loopBreaker = false;
 			while (loopBreaker == false) {
@@ -364,11 +368,15 @@ public class Game {
 				}
 				switch (userSelection) {
 				case 1:
-					player.addMoney(-50);
-					player.setPlayerInJail(false);
-					player.setTurnsInJail(0);
-					turn(player, person);
-					loopBreaker = true;
+					if(player.getMoney() > 49) {
+						player.addMoney(-50);
+						player.setPlayerInJail(false);
+						player.setTurnsInJail(0);
+						turn(player, person);
+						loopBreaker = true;
+					} else {
+						System.out.println(player.getName() + " you do not have enough money.");
+					}
 					break;
 				case 2:
 					int[] jailRoll = roll();
